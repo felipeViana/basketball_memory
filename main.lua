@@ -1,16 +1,12 @@
-local CARD_WIDTH = 124
-local CARD_HEIGHT = 178
-
 local card = require 'card'
+local assets = require 'assets'
+local initial_loads = require 'initial_loads'
 
 function love.load()
+  initial_loads.load_imgs()
+
+  math.randomseed(os.time())
   love.window.setMode(1280, 720, {fullscreen = false})
-
-  image1 = love.graphics.newImage("1-1.png")
-  image2 = love.graphics.newImage("1-2.png")
-  image3 = love.graphics.newImage("1-3.png")
-
-  imageCardBack = love.graphics.newImage("card-back.png")
 
   -- love.graphics.setNewFont(12)
   -- love.graphics.setColor(255,255,255)
