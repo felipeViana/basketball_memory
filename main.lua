@@ -1,6 +1,6 @@
-local card = require 'card'
-local assets = require 'assets'
-local initial_loads = require 'initial_loads'
+local card = require 'src/card'
+local assets = require 'src/assets'
+local initial_loads = require 'src/initial_loads'
 
 function love.load()
   initial_loads.load_imgs()

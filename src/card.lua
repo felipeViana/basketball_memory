@@ -1,5 +1,5 @@
-local utils = require 'utils'
-local assets = require 'assets'
+local utils = require 'src/utils'
+local assets = require 'src/assets'
 
 local CARD_WIDTH = 124
 local CARD_HEIGHT = 178
