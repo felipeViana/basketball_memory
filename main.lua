@@ -1,42 +1,56 @@
-local card = require 'src/card'
-local assets = require 'src/assets'
 local initial_loads = require 'src/initial_loads'
+local sceneManager = require 'src/sceneManager'
+local o_ten_one = require 'libs/splashes/o-ten-one'
+
+local DEBUG = true
+
+local inSplash = true
+
+if DEBUG then
+  inSplash = false
+  sceneManager.changeScene(require 'src/gameTitle')
+end
 
 function love.load()
   initial_loads.load_imgs()
-
-  math.randomseed(os.time())
-  love.window.setMode(1280, 720, {fullscreen = false})
-
-  -- love.graphics.setNewFont(12)
-  -- love.graphics.setColor(255,255,255)
-  love.graphics.setBackgroundColor(223/255, 255/255, 249/255)
-
+  splash = o_ten_one({background={0, 0, 0}})
+  function splash.onDone()
+    print "Done"
+    inSplash = false
+    sceneManager.changeScene(require 'src/card')
+  end
   gameIsPaused = false
-
-  card.createCards()
 end
 
 function love.update(dt)
-  if gameIsPaused then
-    return
-  end
+  if inSplash then
+    splash:update(dt)
+  else
+    if gameIsPaused then
+      return
+    end
 
-  card.updateCards(mouseX, mouseY, mouseReleased)
+    sceneManager.currentScene.update(dt)
+  end
 end
 
 function love.draw()
-  card.drawCards()
-
+  if inSplash then
+    splash:draw()
+  else
+    sceneManager.currentScene.draw()
+  end
 end
 
 function love.mousereleased(x, y, button, istouch)
-  if button == 1 then
-    mouseX = x
-    mouseY = y
-    mouseReleased = true
+  sceneManager.currentScene.mousereleased(x, y, button, istouch)
+end
+
+function love.keypressed( ... )
+  if inSplash then
+    splash:skip()
   else
-    mouseReleased = false
+    sceneManager.currentScene.keypressed()
   end
 end
 

@@ -11,6 +11,10 @@ local card = {
 
 local cards = {};
 
+local mouseX;
+local mouseY;
+local mouseReleased;
+
 function card.createCards( ... )
   local cardImages = {
     assets.image1,
@@ -58,7 +62,7 @@ function card.drawCards( ... )
   end
 end
 
-function card.updateCards(mouseX, mouseY, mouseReleased)
+function card.updateCards()
   -- check newly revelead card
   if mouseReleased then
     for i, card in ipairs(cards) do
@@ -106,5 +110,30 @@ function card.updateCards(mouseX, mouseY, mouseReleased)
 
   -- check for matches
 end
+
+function card.load()
+  love.graphics.setColor(255,255,255)
+  love.graphics.setBackgroundColor(223/255, 255/255, 249/255)
+  card.createCards()
+end
+
+function card.update(dt)
+  card.updateCards()
+end
+
+function card.draw()
+  card.drawCards()
+end
+
+function card.mousereleased(x, y, button, istouch)
+  if button == 1 then
+    mouseX = x
+    mouseY = y
+    mouseReleased = true
+  else
+    mouseReleased = false
+  end
+end
+
 
 return card
