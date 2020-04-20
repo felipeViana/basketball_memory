@@ -7,4 +7,6 @@ function love.conf(t)
   t.console = true
 
   math.randomseed(os.time())
+
+  t.window.fullscreen = false
 end

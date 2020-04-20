@@ -2,7 +2,7 @@ local initial_loads = require 'src/initial_loads'
 local sceneManager = require 'src/sceneManager'
 local o_ten_one = require 'libs/splashes/o-ten-one'
 
-local DEBUG = true
+local DEBUG = false
 local inSplash = true
 playerName = 'Felipe'
 
@@ -10,7 +10,7 @@ function love.load()
   initial_loads.load_imgs()
   if DEBUG then
     inSplash = false
-    sceneManager.changeScene(require 'src/intro')
+    sceneManager.changeScene(require 'src/cutScene2')
   end
 
   splash = o_ten_one({background={0, 0, 0}})

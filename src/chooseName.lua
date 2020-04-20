@@ -4,6 +4,8 @@ local scene={};
 local utf8 = require('utf8')
 
 local name = ''
+local flashing = false
+local loopCounter = 0
 
 function scene.load()
   love.graphics.setColor(255, 255, 255)
@@ -16,10 +18,17 @@ end
 
 function scene.unload()
   name = ''
+  flashing = false
+  loopCounter = 0
 end
 
 function scene.update(dt)
+  if loopCounter == 14 then
+    flashing = not flashing
+    loopCounter = 0
+  end
 
+  loopCounter = loopCounter + 1
 end
 
 function scene.draw()
@@ -27,6 +36,10 @@ function scene.draw()
   love.graphics.print('press enter to continue', 100, 150)
 
   love.graphics.print('choose your name:', 100, 400)
+
+  if string.len(name) == 0 and flashing then
+    love.graphics.print('|', 400, 400)
+  end
 
   love.graphics.printf(name, 400, 400, love.graphics.getWidth())
 end
@@ -46,7 +59,7 @@ function scene.keypressed(key)
 
   if key == 'return' and string.len(name) > 0 then
     playerName = name
-    sceneManager.changeScene(require 'src/intro')
+    sceneManager.changeScene(require 'src/cutScene1')
   end
 end
 

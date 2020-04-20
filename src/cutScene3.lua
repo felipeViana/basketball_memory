@@ -8,9 +8,9 @@ function scene.load()
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  avatar = love.graphics.newImage("libs/talkies/example/assets/Obey_Me.png")
-  Talkies.font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
+  bgImage = love.graphics.newImage("assets/bg_game.jpeg")
 
+  Talkies.font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
   Talkies.talkSound = love.audio.newSource("libs/talkies/example/assets/sfx/typeSound.wav", "static")
   Talkies.optionOnSelectSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSelect.wav", "static")
   Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
@@ -24,17 +24,16 @@ function scene.load()
     'Memória!--É o que podemos deixar de melhor ou pior quando partimos. Podemos ser inspiração ou frustração, podemos ser heróis ou vilões, podemos ser várias coisas, pois tudo é história.',
     {
       oncomplete = goToNextScreen,
-      textSpeed = "slow",
-      image=avatar
     }
   )
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene1')
+  sceneManager.changeScene(require 'src/cutScene2')
 end
 
 function scene.unload()
+  Talkies.clearMessages()
 end
 
 function scene.update(dt)
@@ -42,12 +41,16 @@ function scene.update(dt)
 end
 
 function scene.draw()
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
+
   Talkies.draw()
 
   local windowWidth = love.graphics.getWidth()
   local windowHeight = love.graphics.getHeight()
   love.graphics.setColor(0, 0, 0)
   love.graphics.print("press space to continue", windowWidth/4, windowHeight/4)
+
 end
 
 function scene.keypressed(key)
