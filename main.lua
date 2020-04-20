@@ -8,7 +8,7 @@ local inSplash = true
 
 if DEBUG then
   inSplash = false
-  sceneManager.changeScene(require 'src/gameTitle')
+  sceneManager.changeScene(require 'src/menu')
 end
 
 function love.load()
@@ -17,7 +17,7 @@ function love.load()
   function splash.onDone()
     print "Done"
     inSplash = false
-    sceneManager.changeScene(require 'src/card')
+    sceneManager.changeScene(require 'src/gameTitle')
   end
   gameIsPaused = false
 end

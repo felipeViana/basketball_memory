@@ -1,10 +1,9 @@
 local menu = {};
 
 function menu.load()
-  love.graphics.setColor(0, 0, 0)
-  font = love.graphics.newFont(14)
+  love.graphics.setColor(255, 255, 255)
+  font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
   love.graphics.setFont(font)
-  love.graphics.setBackgroundColor(223/255, 255/255, 249/255)
 end
 
 function menu.update()
