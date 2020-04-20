@@ -120,7 +120,7 @@ end
 function card.update(dt)
   card.updateCards()
 
-  mouseReleased = false
+  -- mouseReleased = false
 end
 
 function card.draw()

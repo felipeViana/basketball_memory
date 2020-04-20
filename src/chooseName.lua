@@ -23,9 +23,12 @@ function scene.update(dt)
 end
 
 function scene.draw()
-  love.graphics.print('choose your name:', 100, 300)
+  love.graphics.print('type your name', 100, 100)
+  love.graphics.print('press enter to continue', 100, 150)
 
-  love.graphics.printf(name, 400, 300, love.graphics.getWidth())
+  love.graphics.print('choose your name:', 100, 400)
+
+  love.graphics.printf(name, 400, 400, love.graphics.getWidth())
 end
 
 function scene.textinput(t)

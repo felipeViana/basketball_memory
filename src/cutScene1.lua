@@ -14,10 +14,9 @@ function scene.load()
   Talkies.optionOnSelectSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSelect.wav", "static")
   Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
 
-  Talkies.say('Narrador', 'Olá ' .. playerName)
   Talkies.say(
     'Narrador',
-    'Memória! É o que podemos deixar de melhor ou pior quando partimos. Podemos ser inspiração ou frustração, podemos ser heróis ou vilões, podemos ser várias coisas, pois tudo é história.',
+    '(Começa o jogo com o criador explicando para a cidade como será o campeonato. Ele comentará que esse jogo vai homenagear alguém, mas não dirá quem é e então falará dos prêmios que serão. camisa, bolas, medalhas, troféus, dinheiro e uma carta especial. Tudo será dito por eles apenas superficialmente.)',
     {
       oncomplete = goToNextScreen
     }
@@ -25,7 +24,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene1')
+  sceneManager.changeScene(require 'src/card')
 end
 
 function scene.unload()
@@ -37,10 +36,6 @@ end
 
 function scene.draw()
   Talkies.draw()
-
-  local windowWidth = love.graphics.getWidth()
-  local windowHeight = love.graphics.getHeight()
-  love.graphics.print("press space to continue", windowWidth/4, windowHeight/4)
 end
 
 function scene.keypressed(key)

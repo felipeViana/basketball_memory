@@ -15,7 +15,7 @@ function gameTitle.draw()
   local windowWidth = love.graphics.getWidth()
   local windowHeight = love.graphics.getHeight()
 
-  love.graphics.print("Basketball memory game", windowWidth/2 - 200, windowHeight/2 - 100)
+  love.graphics.print("Basketball memory legends", windowWidth/2 - 200, windowHeight/2 - 100)
   love.graphics.print("press any key to continue", windowWidth/2, windowHeight/2+200)
 end
 

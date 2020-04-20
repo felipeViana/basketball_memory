@@ -1,5 +1,5 @@
 function love.conf(t)
-  t.title = "Basketball memory game"
+  t.title = "Basketball memory legends"
   t.window.width = 1280
   t.window.height = 720
   t.version = "11.3"
