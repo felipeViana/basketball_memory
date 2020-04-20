@@ -8,7 +8,7 @@ local inSplash = true
 
 if DEBUG then
   inSplash = false
-  sceneManager.changeScene(require 'src/menu')
+  sceneManager.changeScene(require 'src/intro')
 end
 
 function love.load()
@@ -46,12 +46,16 @@ function love.mousereleased(x, y, button, istouch)
   sceneManager.currentScene.mousereleased(x, y, button, istouch)
 end
 
-function love.keypressed( ... )
+function love.keypressed(key)
   if inSplash then
     splash:skip()
   else
-    sceneManager.currentScene.keypressed()
+    sceneManager.currentScene.keypressed(key)
   end
+end
+
+function love.textinput(t)
+  sceneManager.currentScene.textinput(t)
 end
 
 function love.focus(f)

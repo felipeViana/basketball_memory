@@ -1,4 +1,4 @@
-sceneManager = {};
+local sceneManager = {};
 
 local emptyFunc = function() end
 

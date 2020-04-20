@@ -1,3 +1,4 @@
+local sceneManager = require 'src/sceneManager'
 local gameTitle = {};
 
 function gameTitle.load()
@@ -15,11 +16,7 @@ function gameTitle.draw()
   local windowHeight = love.graphics.getHeight()
 
   love.graphics.print("Basketball memory game", windowWidth/2 - 200, windowHeight/2 - 100)
-
   love.graphics.print("press any key to continue", windowWidth/2, windowHeight/2+200)
-end
-
-function gameTitle.mousereleased(x, y, button, istouch)
 end
 
 function gameTitle.keypressed( ... )

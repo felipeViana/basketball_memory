@@ -1,5 +1,5 @@
 local sceneManager = require 'src/sceneManager'
-local menu = {};
+local settings = {};
 
 local BUTTON_HEIGHT = 64
 
@@ -19,48 +19,44 @@ function newButton(text, fn)
   }
 end
 
-function goToSettings( ... )
-  print("going into settings")
-  sceneManager.changeScene(require 'src/settings')
+function goBack( ... )
+  print("going back")
+  sceneManager.changeScene(require 'src/menu')
 end
 
-function menu.unload( ... )
+function toggleFullScreen( ... )
+  print("changing fullscreen")
+
+  local fullScreen = love.window.getFullscreen()
+  if fullScreen then
+    love.window.setFullscreen(false)
+  else
+    love.window.setFullscreen(true)
+  end
+end
+
+function settings.unload( ... )
   buttons = {}
 end
 
-function startGame()
-  print("starting game")
-  sceneManager.changeScene(require 'src/chooseName')
-end
-
-function quitGame( ... )
-  print("quitting")
-  love.event.quit(0)
-end
-
-function menu.load()
+function settings.load()
   mouseReleased = false
   love.graphics.setColor(255, 255, 255)
   font = love.graphics.newFont('assets/Square.ttf', 28)
   love.graphics.setFont(font)
 
   table.insert(buttons, newButton(
-    "Start Game",
-    startGame
+    "Fullscreen ?",
+    toggleFullScreen
   ))
 
   table.insert(buttons, newButton(
-    "Settings",
-    goToSettings
-  ))
-
-  table.insert(buttons, newButton(
-    "Exit",
-    quitGame
+    "Go back",
+    goBack
   ))
 end
 
-function menu.update(dt)
+function settings.update()
   for i, button in ipairs(buttons) do
     if mouseReleased and button.hot then
       button.fn()
@@ -68,10 +64,9 @@ function menu.update(dt)
   end
 end
 
-function menu.draw()
+function settings.draw()
   local windowWidth = love.graphics.getWidth()
   local windowHeight = love.graphics.getHeight()
-  local mouseX, mouseY = love.mouse.getPosition()
 
   local buttonWidth = windowWidth / 3
   local margin = 16
@@ -83,6 +78,8 @@ function menu.draw()
     local buttonY = windowHeight/2 - totalHeight/2 + cursor_y
 
     local buttonColor = {0.4, 0.4, 0.5}
+
+    local mouseX, mouseY = love.mouse.getPosition()
 
     button.hot = mouseX > buttonX and mouseX < buttonX + buttonWidth and
                 mouseY > buttonY and mouseY < buttonY + BUTTON_HEIGHT
@@ -104,7 +101,6 @@ function menu.draw()
     love.graphics.setColor(0, 0, 0)
     local textWidth = font:getWidth(button.text)
     local textHeight = font:getHeight(button.text)
-
     love.graphics.print(
       button.text,
       font,
@@ -116,7 +112,7 @@ function menu.draw()
   end
 end
 
-function menu.mousereleased(x, y, button, istouch)
+function settings.mousereleased(x, y, button, istouch)
   if button == 1 then
     mouseX = x
     mouseY = y
@@ -126,4 +122,4 @@ function menu.mousereleased(x, y, button, istouch)
   end
 end
 
-return menu;
+return settings;
