@@ -114,6 +114,7 @@ end
 function card.load()
   love.graphics.setColor(255,255,255)
   love.graphics.setBackgroundColor(223/255, 255/255, 249/255)
+  -- love.graphics.setBackgroundColor(1, 1, 1)
   card.createCards()
 end
 
