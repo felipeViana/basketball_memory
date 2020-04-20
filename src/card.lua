@@ -119,6 +119,8 @@ end
 
 function card.update(dt)
   card.updateCards()
+
+  mouseReleased = false
 end
 
 function card.draw()

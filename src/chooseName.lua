@@ -4,7 +4,6 @@ local scene={};
 local utf8 = require('utf8')
 
 local name = ''
-local shouldGoToNextScreen = false
 
 function scene.load()
   love.graphics.setColor(255, 255, 255)
@@ -17,13 +16,10 @@ end
 
 function scene.unload()
   name = ''
-  shouldGoToNextScreen = false
 end
 
 function scene.update(dt)
-  if shouldGoToNextScreen then
-    sceneManager.changeScene(require 'src/intro')
-  end
+
 end
 
 function scene.draw()
@@ -45,8 +41,9 @@ function scene.keypressed(key)
     end
   end
 
-  if key == 'return' then
-    shouldGoToNextScreen = true
+  if key == 'return' and string.len(name) > 0 then
+    playerName = name
+    sceneManager.changeScene(require 'src/intro')
   end
 end
 

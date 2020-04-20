@@ -6,6 +6,8 @@ local DEBUG = true
 
 local inSplash = true
 
+playerName = 'Felipe'
+
 if DEBUG then
   inSplash = false
   sceneManager.changeScene(require 'src/intro')

@@ -14,7 +14,14 @@ function scene.update(dt)
 end
 
 function scene.draw()
-  love.graphics.print('olá jogador', 100, 300)
+  love.graphics.print('olá', 100, 300)
+  love.graphics.printf(playerName, 170, 300, love.graphics.getWidth())
+end
+
+function scene.keypressed(key)
+  -- if key == 'return' then
+  --   sceneManager.changeScene(require 'src/intro')
+  -- end
 end
 
 return scene;

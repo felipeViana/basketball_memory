@@ -66,6 +66,8 @@ function menu.update(dt)
       button.fn()
     end
   end
+
+  mouseReleased = false
 end
 
 function menu.draw()

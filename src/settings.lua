@@ -62,6 +62,8 @@ function settings.update()
       button.fn()
     end
   end
+
+  mouseReleased = false
 end
 
 function settings.draw()
