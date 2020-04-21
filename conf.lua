@@ -9,4 +9,6 @@ function love.conf(t)
   math.randomseed(os.time())
 
   t.window.fullscreen = false
+
+  t.window.icon = "assets/logo.png"
 end

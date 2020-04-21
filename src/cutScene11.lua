@@ -16,18 +16,16 @@ function scene.load()
   Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
 
   Talkies.say(
-    'Narrador',
-    playerName .. ' então vai até sua casa e quando ele pega o dinheiro, ele para e senta no sofá de sua casa e pensa se devia fazer isso ou não. ' ..
-    'Ele então muito pensativo recebe a visita de seu melhor amigo (Bob) que o viu chegando às pressas em sua casa. ' ..
-    'Eles conversam rapidamente e Bob diz pra ele:'
+    'Criador',
+    'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
+    'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
+    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!'
   )
   Talkies.say(
-    'Bob',
-    'Vamos, é preciso se atrever para ser grande.'
-  )
-  Talkies.say(
-    playerName,
-    'De onde ele tirou isso?',
+    'Criador',
+    'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
+    'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
+    'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
     {
       oncomplete = goToNextScreen,
     }
@@ -35,7 +33,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene4')
+  sceneManager.changeScene(require 'src/cutScene11-2')
 end
 
 function scene.unload()

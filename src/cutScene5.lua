@@ -17,17 +17,21 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    playerName .. ' então vai até sua casa e quando ele pega o dinheiro, ele para e senta no sofá de sua casa e pensa se devia fazer isso ou não. ' ..
-    'Ele então muito pensativo recebe a visita de seu melhor amigo (Bob) que o viu chegando às pressas em sua casa. ' ..
-    'Eles conversam rapidamente e Bob diz pra ele:'
+    'No dia seguinte o jovem garoto acorda e vai até a casa do Bob. ' ..
+    'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
+    'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:'
   )
   Talkies.say(
-    'Bob',
-    'Vamos, é preciso se atrever para ser grande.'
+    'Narrador',
+    'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.'
+  )
+  Talkies.say(
+    'Narrador',
+    playerName .. ' então ele ergue a cabeça e diz para Bob:'
   )
   Talkies.say(
     playerName,
-    'De onde ele tirou isso?',
+    'Vamo vencer esse campeonato meu rival!',
     {
       oncomplete = goToNextScreen,
     }
@@ -35,7 +39,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene4')
+  sceneManager.changeScene(require 'src/cutScene6')
 end
 
 function scene.unload()

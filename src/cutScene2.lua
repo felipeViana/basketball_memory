@@ -60,7 +60,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/stage1-1')
+  sceneManager.changeScene(require 'src/cutScene3')
 end
 
 function scene.unload()

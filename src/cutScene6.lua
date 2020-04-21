@@ -17,17 +17,12 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    playerName .. ' então vai até sua casa e quando ele pega o dinheiro, ele para e senta no sofá de sua casa e pensa se devia fazer isso ou não. ' ..
-    'Ele então muito pensativo recebe a visita de seu melhor amigo (Bob) que o viu chegando às pressas em sua casa. ' ..
-    'Eles conversam rapidamente e Bob diz pra ele:'
+    'Chegando no local do campeonato, um pouco atrasados, eles vêem o Criador prestes a começar o torneio e a plateia já está no local. ' ..
+    'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.'
   )
   Talkies.say(
-    'Bob',
-    'Vamos, é preciso se atrever para ser grande.'
-  )
-  Talkies.say(
-    playerName,
-    'De onde ele tirou isso?',
+    'Criador',
+    'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
     {
       oncomplete = goToNextScreen,
     }
@@ -35,7 +30,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene4')
+  sceneManager.changeScene(require 'src/stage1-1')
 end
 
 function scene.unload()

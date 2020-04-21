@@ -134,8 +134,8 @@ function card.update(dt)
   end
 
   if gameComplete then
-    love.event.quit(0)
-    -- sceneManager.changeScene(require 'src/gameTitle')
+    -- love.event.quit(0)
+    sceneManager.changeScene(require 'src/cutScene11')
   end
 
   card.updateCards()

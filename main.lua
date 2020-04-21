@@ -10,7 +10,7 @@ function love.load()
   initial_loads.load_imgs()
   if DEBUG then
     inSplash = false
-    sceneManager.changeScene(require 'src/cutScene2')
+    sceneManager.changeScene(require 'src/cutScene11')
   end
 
   splash = o_ten_one({background={0, 0, 0}})
