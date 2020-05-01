@@ -17,12 +17,21 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    'Chegando no local do campeonato, um pouco atrasados, eles vêem o Criador prestes a começar o torneio e a plateia já está no local. ' ..
-    'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.'
+    'No dia seguinte o jovem garoto acorda e vai até a casa do Bob. ' ..
+    'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
+    'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:'
   )
   Talkies.say(
-    'Criador',
-    'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
+    'Narrador',
+    'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.'
+  )
+  Talkies.say(
+    'Narrador',
+    playerName .. ' então ele ergue a cabeça e diz para Bob:'
+  )
+  Talkies.say(
+    playerName,
+    'Vamo vencer esse campeonato meu rival!',
     {
       oncomplete = goToNextScreen,
     }
@@ -30,7 +39,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/stage1-1')
+  sceneManager.changeScene(require 'src/scenes/cutScene6')
 end
 
 function scene.unload()
@@ -46,6 +55,11 @@ function scene.draw()
   love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
 
   Talkies.draw()
+
+  local windowWidth = love.graphics.getWidth()
+  local windowHeight = love.graphics.getHeight()
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.print("cena 5", windowWidth/4, windowHeight/4)
 end
 
 function scene.keypressed(key)

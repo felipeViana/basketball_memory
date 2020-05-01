@@ -21,7 +21,7 @@ end
 
 function goToSettings( ... )
   print("going into settings")
-  sceneManager.changeScene(require 'src/settings')
+  sceneManager.changeScene(require 'src/menu/settings')
 end
 
 function menu.unload( ... )
@@ -30,7 +30,7 @@ end
 
 function startGame()
   print("starting game")
-  sceneManager.changeScene(require 'src/chooseName')
+  sceneManager.changeScene(require 'src/scenes/chooseName')
 end
 
 function quitGame( ... )

@@ -60,7 +60,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene3')
+  sceneManager.changeScene(require 'src/scenes/cutScene3')
 end
 
 function scene.unload()
@@ -72,8 +72,15 @@ function scene.update(dt)
 end
 
 function scene.draw()
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
+
   Talkies.draw()
+
+  local windowWidth = love.graphics.getWidth()
+  local windowHeight = love.graphics.getHeight()
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.print("cena 2", windowWidth/4, windowHeight/4)
 end
 
 function scene.keypressed(key)

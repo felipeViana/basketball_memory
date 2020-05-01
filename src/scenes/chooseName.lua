@@ -59,7 +59,7 @@ function scene.keypressed(key)
 
   if key == 'return' and string.len(name) > 0 then
     playerName = name
-    sceneManager.changeScene(require 'src/cutScene1')
+    sceneManager.changeScene(require 'src/scenes/cutScene1')
   end
 end
 

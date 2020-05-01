@@ -16,12 +16,16 @@ function scene.load()
   Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
 
   Talkies.say(
-    'Narrador',
-    'Olá ' .. playerName .. '!'
+    'Criador',
+    'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
+    'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
+    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!'
   )
   Talkies.say(
-    'Narrador',
-    'Memória!--É o que podemos deixar de melhor ou pior quando partimos. Podemos ser inspiração ou frustração, podemos ser heróis ou vilões, podemos ser várias coisas, pois tudo é história.',
+    'Criador',
+    'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
+    'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
+    'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
     {
       oncomplete = goToNextScreen,
     }
@@ -29,7 +33,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene2')
+  sceneManager.changeScene(require 'src/scenes/cutScene11-2')
 end
 
 function scene.unload()
@@ -45,12 +49,6 @@ function scene.draw()
   love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
 
   Talkies.draw()
-
-  local windowWidth = love.graphics.getWidth()
-  local windowHeight = love.graphics.getHeight()
-  love.graphics.setColor(0, 0, 0)
-  love.graphics.print("press space to continue", windowWidth/4, windowHeight/4)
-
 end
 
 function scene.keypressed(key)

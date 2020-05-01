@@ -10,14 +10,14 @@ function love.load()
   initial_loads.load_imgs()
   if DEBUG then
     inSplash = false
-    sceneManager.changeScene(require 'src/cutScene11')
+    sceneManager.changeScene(require 'src/scenes/cutScene6')
   end
 
   splash = o_ten_one({background={0, 0, 0}})
   function splash.onDone()
     print "Done"
     inSplash = false
-    sceneManager.changeScene(require 'src/gameTitle')
+    sceneManager.changeScene(require 'src/scenes/gameTitle')
   end
   gameIsPaused = false
 end

@@ -8,7 +8,7 @@ function scene.load()
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/bg_game.jpeg")
+  bgImage = love.graphics.newImage("assets/kobe.jpeg")
 
   Talkies.font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
   Talkies.talkSound = love.audio.newSource("libs/talkies/example/assets/sfx/typeSound.wav", "static")
@@ -17,15 +17,22 @@ function scene.load()
 
   Talkies.say(
     'Criador',
-    'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
-    'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
-    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!'
+    'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre'
+  )
+  Talkies.say(
+    'Narrador',
+    'Em seguida a platéia vai a loucura, os participantes também e o criador olha para o vencedor e diz:'
   )
   Talkies.say(
     'Criador',
-    'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
-    'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
-    'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
+    'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
+    'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.'
+  )
+  Talkies.say(
+    playerName,
+    'Fico muito feliz por isso e agradeço a você e à todos que me ajudaram aqui e também quero dizer que sou fã ' ..
+    'do Kobe e sua filha e muitas das frases que ele falou durante sua vida me inspiraram a estar aqui hoje. ' ..
+    'Parabéns pelo seu trabalho e mais uma vez obrigado.',
     {
       oncomplete = goToNextScreen,
     }
@@ -33,7 +40,7 @@ function scene.load()
 end
 
 function goToNextScreen()
-  sceneManager.changeScene(require 'src/cutScene11-2')
+  sceneManager.changeScene(require 'src/scenes/credits')
 end
 
 function scene.unload()
@@ -46,7 +53,7 @@ end
 
 function scene.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
+  love.graphics.draw(bgImage, 0, 0, 0, 1.4, 1.4)
 
   Talkies.draw()
 end

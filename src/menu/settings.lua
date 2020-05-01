@@ -21,7 +21,7 @@ end
 
 function goBack( ... )
   print("going back")
-  sceneManager.changeScene(require 'src/menu')
+  sceneManager.changeScene(require 'src/menu/main')
 end
 
 function toggleFullScreen( ... )
