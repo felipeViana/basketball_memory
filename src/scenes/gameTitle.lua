@@ -7,12 +7,12 @@ local titleFont
 
 function gameTitle.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
-  titleFont = love.graphics.newFont('assets/JMH Typewriter.ttf', 36)
+  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
+  titleFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 36)
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(0, 0, 0)
 
-  bgImage = love.graphics.newImage("assets/bg_image.jpeg")
+  bgImage = love.graphics.newImage("assets/images/bg_image.jpeg")
 end
 
 function gameTitle.update()

@@ -41,7 +41,7 @@ end
 function menu.load()
   mouseReleased = false
   love.graphics.setColor(255, 255, 255)
-  font = love.graphics.newFont('assets/Square.ttf', 28)
+  font = love.graphics.newFont('assets/fonts/Square.ttf', 28)
   love.graphics.setFont(font)
 
   table.insert(buttons, newButton(

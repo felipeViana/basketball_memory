@@ -1,19 +1,17 @@
 local sceneManager = require 'src/sceneManager'
-local Talkies = require 'libs/talkies/talkies'
+local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
+  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/kobe.jpeg")
+  bgImage = love.graphics.newImage("assets/images/kobe.jpeg")
 
-  Talkies.font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("libs/talkies/example/assets/sfx/typeSound.wav", "static")
-  Talkies.optionOnSelectSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSelect.wav", "static")
-  Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
+  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
+  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
 
   Talkies.say(
     'Criador',

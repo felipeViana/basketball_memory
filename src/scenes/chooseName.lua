@@ -9,7 +9,7 @@ local loopCounter = 0
 
 function scene.load()
   love.graphics.setColor(255, 255, 255)
-  font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
+  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(0, 0, 0)
 
