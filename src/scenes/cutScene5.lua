@@ -17,7 +17,7 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    'No dia seguinte o jovem garoto acorda e vai até a casa do Bob. ' ..
+    'No dia seguinte ' .. playerName .. ' acorda e vai até a casa do Bob. ' ..
     'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
     'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:'
   )

@@ -27,7 +27,7 @@ function scene.load()
   Talkies.say(
     'Narrador',
     'Ambos ficam com muita raiva e tentam partir para cima, mas duas garotas aparecem e os salvam dos dois babacas que estavam humilhando eles. ' ..
-    'Elas os levam até a casa do jovem garoto e conversam com eles. Uma delas (Melissa) diz:'
+    'Elas os levam até a casa de ' .. playerName .. ' e conversam com eles. Uma delas (Melissa) diz:'
   )
   Talkies.say(
     'Melissa',
