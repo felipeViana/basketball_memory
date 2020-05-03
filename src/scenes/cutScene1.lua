@@ -1,5 +1,5 @@
 local sceneManager = require 'src/sceneManager'
-local Talkies = require 'libs/talkies/talkies'
+local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
@@ -11,9 +11,7 @@ function scene.load()
   bgImage = love.graphics.newImage("assets/bg_game.jpeg")
 
   Talkies.font = love.graphics.newFont('assets/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("libs/talkies/example/assets/sfx/typeSound.wav", "static")
-  Talkies.optionOnSelectSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSelect.wav", "static")
-  Talkies.optionSwitchSound = love.audio.newSource("libs/talkies/example/assets/sfx/optionSwitch.wav", "static")
+  Talkies.talkSound = love.audio.newSource("assets/typeSound.wav", "static")
 
   Talkies.say(
     'Narrador',
