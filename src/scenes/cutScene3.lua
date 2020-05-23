@@ -1,17 +1,15 @@
 local sceneManager = require 'src/sceneManager'
+local assets = require 'src/assets'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/images/bg_game.jpeg")
-
-  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
+  Talkies.font = assets.textFont
+  Talkies.talkSound = assets.typeSound
 
   Talkies.say(
     'Narrador',
@@ -21,13 +19,17 @@ function scene.load()
   )
   Talkies.say(
     'Bob',
-    'Vamos, é preciso se atrever para ser grande.'
+    'Vamos, é preciso se atrever para ser grande.',
+    {
+      image=assets.bob,
+    }
   )
   Talkies.say(
     playerName,
     'De onde ele tirou isso?',
     {
       oncomplete = goToNextScreen,
+      image=assets.protagonist,
     }
   )
 end
@@ -46,7 +48,7 @@ end
 
 function scene.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
+  love.graphics.draw(assets.bgImage, 0, 0, 0, 1, 1)
 
   Talkies.draw()
 
