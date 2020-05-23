@@ -18,12 +18,12 @@ local mouseReleased;
 
 function card.createCards( ... )
   local cardImages = {
-    assets.image1,
-    assets.image2,
-    assets.image3,
-    assets.image4,
-    assets.image5,
-    assets.image6,
+    assets.card1,
+    assets.card2,
+    assets.card3,
+    assets.card4,
+    assets.card5,
+    assets.card6,
   };
 
   local positions = {
@@ -58,7 +58,7 @@ function card.drawCards( ... )
     if card.flipped then
       love.graphics.draw(card.image, card.x, card.y, 0, CARD_DRAW_FACTOR, CARD_DRAW_FACTOR)
     else
-      love.graphics.draw(assets.imageCardBack, card.x, card.y, 0, CARD_DRAW_FACTOR, CARD_DRAW_FACTOR)
+      love.graphics.draw(assets.cardBack, card.x, card.y, 0, CARD_DRAW_FACTOR, CARD_DRAW_FACTOR)
     end
   end
 end

@@ -2,24 +2,31 @@ local assets = require "src/assets"
 
 local load_assets = {};
 
-function load_imgs()
-  -- cards
-  assets.image1 = love.graphics.newImage("assets/images/1-1.png")
-  assets.image2 = love.graphics.newImage("assets/images/1-2.png")
-  assets.image3 = love.graphics.newImage("assets/images/1-3.jpg")
-  assets.image4 = love.graphics.newImage("assets/images/1-4.jpg")
-  assets.image5 = love.graphics.newImage("assets/images/1-5.png")
-  assets.image6 = love.graphics.newImage("assets/images/1-6.png")
-  assets.imageCardBack = love.graphics.newImage("assets/images/card-back.png")
+function load_cards()
+  assets.card1 = love.graphics.newImage("assets/images/1-1.png")
+  assets.card2 = love.graphics.newImage("assets/images/1-2.png")
+  assets.card3 = love.graphics.newImage("assets/images/1-3.jpg")
+  assets.card4 = love.graphics.newImage("assets/images/1-4.jpg")
+  assets.card5 = love.graphics.newImage("assets/images/1-5.png")
+  assets.card6 = love.graphics.newImage("assets/images/1-6.png")
+  assets.cardBack = love.graphics.newImage("assets/images/card-back.png")
+end
 
-  -- faces
+function load_faces()
   assets.bob = love.graphics.newImage("assets/faces/bob.png")
   assets.protagonist = love.graphics.newImage("assets/faces/protagonist.png")
   assets.generic = love.graphics.newImage("assets/faces/generic.png")
+end
 
-  -- backgrounds
+function load_backgrounds()
   assets.bgImage = love.graphics.newImage("assets/images/bg_game.jpeg")
   assets.kobeBackground = love.graphics.newImage("assets/images/kobe.jpeg")
+end
+
+function load_imgs()
+  load_cards()
+  load_faces()
+  load_backgrounds()
 end
 
 function load_fonts()

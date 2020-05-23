@@ -10,7 +10,7 @@ function love.load()
   defaults.load_all()
 
   if DEBUG then
-    sceneManager.changeScene(require 'src/scenes/cutScene6')
+    sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
   end
