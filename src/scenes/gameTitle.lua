@@ -1,3 +1,4 @@
+local assets = require "src/assets"
 local sceneManager = require 'src/sceneManager'
 local gameTitle = {};
 
@@ -12,7 +13,7 @@ function gameTitle.load()
   love.graphics.setFont(font)
   love.graphics.setBackgroundColor(0, 0, 0)
 
-  bgImage = love.graphics.newImage("assets/images/bg_image.jpeg")
+  bgImage = assets.titleBackground
 end
 
 function gameTitle.update()

@@ -8,7 +8,7 @@ function scene.load()
   love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = assets.bgImage
+  bgImage = assets.genericBackground
 
   Talkies.font = assets.textFont
   Talkies.talkSound = assets.typeSound

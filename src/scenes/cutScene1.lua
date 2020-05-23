@@ -41,7 +41,7 @@ end
 
 function scene.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(assets.bgImage, 0, 0, 0, 1, 1)
+  love.graphics.draw(assets.genericBackground, 0, 0, 0, 1, 1)
 
   Talkies.draw()
 

@@ -113,7 +113,7 @@ function card.updateCards()
 end
 
 function card.load()
-  bgImage = love.graphics.newImage("assets/images/bg_card.jpeg")
+  bgImage = assets.stageBackground
 
   love.graphics.setColor(255,255,255)
   love.graphics.setBackgroundColor(223/255, 255/255, 249/255)
