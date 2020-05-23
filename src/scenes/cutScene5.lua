@@ -65,9 +65,7 @@ function scene.draw()
 end
 
 function scene.keypressed(key)
-  if key == 'space' then
-    Talkies.onAction()
-  end
+  Talkies.keypressed(key)
 end
 
 return scene;

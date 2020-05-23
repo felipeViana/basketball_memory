@@ -323,4 +323,10 @@ function Talkies.clearMessages()
   Talkies.dialogs = Fifo.new()
 end
 
+function Talkies.keypressed(key)
+  if key == 'space' or key == 'return' then
+    Talkies.onAction()
+  end
+end
+
 return Talkies
