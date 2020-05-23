@@ -1,5 +1,6 @@
 local sceneManager = require 'src/sceneManager'
 local assets = require 'src/assets'
+local utils = require 'src/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -22,15 +23,20 @@ function scene.load()
     'Vamos, é preciso se atrever para ser grande.',
     {
       image=assets.bob,
+      talkSound=assets.talkSound,
+      typedNotTalked=false,
     }
   )
   Talkies.say(
     playerName,
     'De onde ele tirou isso?',
-    {
-      oncomplete = goToNextScreen,
-      image=assets.protagonist,
-    }
+    utils.tableWithAddedTable(
+      defaultProtagonistTalkingConfig,
+      {
+        oncomplete=goToNextScreen,
+        textSpeed='medium'
+      }
+    )
   )
 end
 
@@ -61,10 +67,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 

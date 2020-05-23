@@ -1,17 +1,18 @@
 local sceneManager = require 'src/sceneManager'
+local assets = require 'src/assets'
+local utils = require 'src/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/images/bg_game.jpeg")
+  bgImage = assets.bgImage
 
-  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
+  Talkies.font = assets.textFont
+  Talkies.talkSound = assets.typeSound
 
   Talkies.say(
     'Narrador',
@@ -21,9 +22,12 @@ function scene.load()
   Talkies.say(
     'Criador',
     'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
-    {
-      oncomplete = goToNextScreen,
-    }
+    utils.tableWithAddedTable(
+      defaultPersonTalkingConfig,
+      {
+        oncomplete = goToNextScreen,
+      }
+    )
   )
 end
 
@@ -54,10 +58,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 

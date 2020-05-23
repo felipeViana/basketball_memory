@@ -5,14 +5,13 @@ local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/images/bg_game.jpeg")
+  bgImage = assets.bgImage
 
-  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
+  Talkies.font = assets.textFont
+  Talkies.talkSound = assets.typeSound
 
   Talkies.say(
     'Narrador',
@@ -21,7 +20,8 @@ function scene.load()
   Talkies.say(
     'Shad e Travis',
     'Vocês não vão vencer, vão ser humilhados, nós vamos acabar com vocês, como é que pode um campeonato ' ..
-    'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha'
+    'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -30,7 +30,8 @@ function scene.load()
   )
   Talkies.say(
     'Melissa',
-    'Tudo de negativo, pressão, desafios, é uma oportunidade para que eu me levante.'
+    'Tudo de negativo, pressão, desafios, é uma oportunidade para que eu me levante.',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -38,24 +39,29 @@ function scene.load()
   )
   Talkies.say(
     playerName .. ' e Bob',
-    'Quem são vocês, como são seus nomes?'
+    'Quem são vocês, como são seus nomes?',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Melissa',
-    'Eu sou Melissa.'
+    'Eu sou Melissa.',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Windy',
-    'Eu sou Windy e vocês?'
+    'Eu sou Windy e vocês?',
+    defaultPersonTalkingConfig
   )
 
   Talkies.say(
     'Bob',
-    'Eu sou Bob'
+    'Eu sou Bob',
+    defaultBobTalkingConfig
   )
   Talkies.say(
     playerName,
-    'Eu sou ' .. playerName
+    'Eu sou ' .. playerName,
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -63,7 +69,8 @@ function scene.load()
   )
   Talkies.say(
     'Melissa e Windy',
-    'Até logo!'
+    'Até logo!',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -101,10 +108,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 

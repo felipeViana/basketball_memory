@@ -20,13 +20,10 @@ function newButton(text, fn)
 end
 
 function goBack( ... )
-  print("going back")
   sceneManager.changeScene(require 'src/menu/main')
 end
 
 function toggleFullScreen( ... )
-  print("changing fullscreen")
-
   local fullScreen = love.window.getFullscreen()
   if fullScreen then
     love.window.setFullscreen(false)

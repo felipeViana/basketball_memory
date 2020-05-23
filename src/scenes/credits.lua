@@ -1,11 +1,11 @@
 local sceneManager = require 'src/sceneManager'
+local assets = require 'src/assets'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(0, 0, 0)
 end
 

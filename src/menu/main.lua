@@ -20,7 +20,6 @@ function newButton(text, fn)
 end
 
 function goToSettings( ... )
-  print("going into settings")
   sceneManager.changeScene(require 'src/menu/settings')
 end
 
@@ -29,12 +28,10 @@ function menu.unload( ... )
 end
 
 function startGame()
-  print("starting game")
   sceneManager.changeScene(require 'src/scenes/chooseName')
 end
 
 function quitGame( ... )
-  print("quitting")
   love.event.quit(0)
 end
 

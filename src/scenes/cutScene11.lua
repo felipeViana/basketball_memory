@@ -1,32 +1,37 @@
 local sceneManager = require 'src/sceneManager'
+local assets = require 'src/assets'
+local utils = require 'src/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/images/bg_game.jpeg")
+  bgImage = assets.bgImage
 
-  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
+  Talkies.font = assets.textFont
+  Talkies.talkSound = assets.talkSound
 
   Talkies.say(
     'Criador',
     'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
     'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
-    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!'
+    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Criador',
     'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
     'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
     'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
-    {
-      oncomplete = goToNextScreen,
-    }
+    utils.tableWithAddedTable(
+      defaultPersonTalkingConfig,
+      {
+        oncomplete = goToNextScreen,
+      }
+    )
   )
 end
 
@@ -52,10 +57,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 

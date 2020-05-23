@@ -9,11 +9,13 @@ local assets = {
   imageCardBack = nil,
 
   -- faces
+  generic,
   bob,
   protagonist,
 
   -- backgrounds
   bgImage,
+  kobeBackground,
 
 
   -- fonts

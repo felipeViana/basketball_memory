@@ -1,21 +1,23 @@
 local sceneManager = require 'src/sceneManager'
+local assets = require 'src/assets'
+local utils = require 'src/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
 function scene.load()
   love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
+  love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
 
-  bgImage = love.graphics.newImage("assets/images/kobe.jpeg")
+  bgImage = assets.kobeBackground
 
-  Talkies.font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  Talkies.talkSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
+  Talkies.font = assets.textFont
+  Talkies.talkSound = assets.typeSound
 
   Talkies.say(
     'Criador',
-    'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre'
+    'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre',
+    defaultPersonTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -24,16 +26,20 @@ function scene.load()
   Talkies.say(
     'Criador',
     'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
-    'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.'
+    'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.',
+      defaultPersonTalkingConfig
   )
   Talkies.say(
     playerName,
     'Fico muito feliz por isso e agradeço a você e à todos que me ajudaram aqui e também quero dizer que sou fã ' ..
     'do Kobe e sua filha e muitas das frases que ele falou durante sua vida me inspiraram a estar aqui hoje. ' ..
     'Parabéns pelo seu trabalho e mais uma vez obrigado.',
-    {
-      oncomplete = goToNextScreen,
-    }
+    utils.tableWithAddedTable(
+      defaultProtagonistTalkingConfig,
+      {
+        oncomplete = goToNextScreen,
+      }
+    )
   )
 end
 
@@ -59,10 +65,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 

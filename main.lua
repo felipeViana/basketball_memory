@@ -1,15 +1,16 @@
 local initial_loads = require 'src/initial_loads'
+local defaults = require 'src/defaults'
 local sceneManager = require 'src/sceneManager'
 
-local DEBUG = true
+local DEBUG = false
 local gameIsPaused = false
-playerName = 'Felipe'
 
 function love.load()
   initial_loads.load_all()
+  defaults.load_all()
 
   if DEBUG then
-    sceneManager.changeScene(require 'src/scenes/cutScene3')
+    sceneManager.changeScene(require 'src/scenes/cutScene6')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
   end

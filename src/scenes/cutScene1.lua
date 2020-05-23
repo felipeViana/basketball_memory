@@ -13,7 +13,10 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    'Olá ' .. playerName .. '!'
+    'Olá ' .. playerName .. '!',
+    {
+      textSpeed='medium',
+    }
   )
   Talkies.say(
     'Narrador',
@@ -52,10 +55,6 @@ end
 function scene.keypressed(key)
   if key == 'space' then
     Talkies.onAction()
-  elseif key == 'up' then
-    Talkies.prevOption()
-  elseif key == 'down' then
-    Talkies.prevOption()
   end
 end
 
