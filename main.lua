@@ -1,4 +1,4 @@
-local initial_loads = require 'src/initial_loads'
+local load_assets = require 'src/load_assets'
 local defaults = require 'src/defaults'
 local sceneManager = require 'src/sceneManager'
 
@@ -6,7 +6,7 @@ local DEBUG = false
 local gameIsPaused = false
 
 function love.load()
-  initial_loads.load_all()
+  load_assets.load_all()
   defaults.load_all()
 
   if DEBUG then

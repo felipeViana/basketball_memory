@@ -1,6 +1,6 @@
 local assets = require "src/assets"
 
-local initial_loads = {};
+local load_assets = {};
 
 function load_imgs()
   -- cards
@@ -31,10 +31,10 @@ function load_sfx()
   assets.talkSound = love.audio.newSource("assets/sfx/talk.wav", "static")
 end
 
-function initial_loads.load_all()
+function load_assets.load_all()
   load_imgs()
   load_fonts()
   load_sfx()
 end
 
-return initial_loads;
+return load_assets;
