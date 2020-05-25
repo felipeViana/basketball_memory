@@ -1,63 +1,38 @@
 local assets = require "src/assets"
 local sceneManager = require 'src/sceneManager'
+local drawUtils = require 'src/drawUtils'
 local gameTitle = {};
 
 local bgImage
-local font
+local smallFont
 local titleFont
 
 function gameTitle.load()
-  love.graphics.setColor(1, 1, 1)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  titleFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 36)
-  love.graphics.setFont(font)
-  love.graphics.setBackgroundColor(0, 0, 0)
-
+  smallFont = assets.textFont
+  titleFont = assets.bigFont
   bgImage = assets.titleBackground
 end
 
-function gameTitle.update()
-end
-
 function gameTitle.draw()
-  local windowWidth = love.graphics.getWidth()
-  local windowHeight = love.graphics.getHeight()
-
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(bgImage, 0, 0, 0, 1.1, 1.1)
 
-  local titleX = windowWidth/2 - 100
-  local titleY = windowHeight/2 - 40
-  local title = 'Basketball memory legends'
+  drawUtils.drawTextRectangle({
+    font=titleFont,
+    posX=540,
+    posY=320,
+    text='Basketball Memory Legends',
+  })
 
-  local buttonX = windowWidth/2-400
-  local buttonY = windowHeight/2+250
-  local buttonText = "press any key to continue"
-
-  love.graphics.setColor(0, 0, 0)
-  love.graphics.rectangle(
-    'fill',
-    titleX,
-    titleY,
-    titleFont:getWidth(title),
-    titleFont:getHeight(title)
-  )
-
-  love.graphics.rectangle(
-    'fill',
-    buttonX,
-    buttonY,
-    font:getWidth(buttonText),
-    font:getHeight(buttonText)
-  )
-
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(titleFont)
-  love.graphics.print(title, titleX, titleY)
-  love.graphics.setFont(font)
-  love.graphics.print(buttonText, buttonX, buttonY)
+  drawUtils.drawTextRectangle({
+    font=smallFont,
+    posX=240,
+    posY=610,
+    text='press any key to continue',
+  })
 end
 
-function gameTitle.keypressed( ... )
+function gameTitle.keypressed()
   sceneManager.changeScene(require 'src/menu/main')
 end
 
