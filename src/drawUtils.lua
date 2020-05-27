@@ -3,7 +3,7 @@ local drawUtils = {};
 local defaultTextBackgroundColor = {0, 0, 0}
 local defaultTextForegroundColor = {1, 1, 1}
 
-function _drawTextRectangle(arg)
+local function _drawTextRectangle(arg)
   love.graphics.setColor(arg.textBackgroundColor)
   love.graphics.rectangle(
     'fill',

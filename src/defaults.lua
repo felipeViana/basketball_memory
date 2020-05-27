@@ -2,7 +2,7 @@ local assets = require "src/assets"
 local utils = require "src/utils"
 local defaults = {};
 
-function defaults.load_all()
+function defaults.loadAll()
   playerName = 'Felipe'
 
   defaultPersonTalkingConfig = {

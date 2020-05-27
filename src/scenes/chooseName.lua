@@ -1,64 +1,46 @@
+local assets = require "src/assets"
 local sceneManager = require 'src/sceneManager'
-local scene={};
+local textInputComponent = require 'src/textInput'
+local scene = {};
 
-local utf8 = require('utf8')
-
-local name = ''
-local flashing = false
-local loopCounter = 0
+local textInput = textInputComponent;
 
 function scene.load()
-  love.graphics.setColor(255, 255, 255)
-  font = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
-  love.graphics.setFont(font)
-  love.graphics.setBackgroundColor(0, 0, 0)
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.setFont(assets.textFont)
+  love.graphics.setBackgroundColor(0.2, 0.2, 0.9)
 
-  love.keyboard.setKeyRepeat(true)
+  textInput.load({
+    posX=400,
+    posY=400,
+  })
 end
 
 function scene.unload()
-  name = ''
-  flashing = false
-  loopCounter = 0
+  textInput.unload()
 end
 
 function scene.update(dt)
-  if loopCounter == 14 then
-    flashing = not flashing
-    loopCounter = 0
-  end
-
-  loopCounter = loopCounter + 1
+  textInput.update(dt)
 end
 
 function scene.draw()
   love.graphics.print('type your name', 100, 100)
   love.graphics.print('press enter to continue', 100, 150)
-
   love.graphics.print('choose your name:', 100, 400)
 
-  if string.len(name) == 0 and flashing then
-    love.graphics.print('|', 400, 400)
-  end
-
-  love.graphics.printf(name, 400, 400, love.graphics.getWidth())
+  textInput.draw()
 end
 
 function scene.textinput(t)
-  name = name .. t
+  textInput.onChange(t)
 end
 
 function scene.keypressed(key)
-  if key == 'backspace' then
-    local byteOffset = utf8.offset(name, -1)
+  textInput.keyPressed(key)
 
-    if byteOffset then
-      name = string.sub(name, 1, byteOffset - 1)
-    end
-  end
-
-  if key == 'return' and string.len(name) > 0 then
-    playerName = name
+  if key == 'return' and string.len(textInput.getName()) > 0 then
+    playerName = textInput.getName()
     sceneManager.changeScene(require 'src/scenes/cutScene1')
   end
 end
