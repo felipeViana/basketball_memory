@@ -8,11 +8,12 @@ local textInput = textInputComponent;
 function scene.load()
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(0.2, 0.2, 0.9)
+  love.graphics.setBackgroundColor(0, 0, 0)
 
   textInput.load({
     posX=400,
     posY=400,
+    font=assets.textFont,
   })
 end
 

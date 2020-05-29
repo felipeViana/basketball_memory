@@ -9,6 +9,7 @@ function textInput.load(arg)
 
   textInput.posX = arg.posX
   textInput.posY = arg.posY
+  textInput.font = arg.font
   textInput.maxSize = arg.maxSize or 20
 end
 
@@ -17,21 +18,21 @@ function textInput.unload()
   textInput.loopCounter = 0
 end
 
-function textInput.update()
-  if textInput.loopCounter == 14 then
+function textInput.update(dt)
+  if textInput.loopCounter > 0.14 then
     textInput.flashing = not textInput.flashing
     textInput.loopCounter = 0
   end
 
-  textInput.loopCounter = textInput.loopCounter + 1
+  textInput.loopCounter = textInput.loopCounter + dt
 end
 
 function textInput.draw()
-  if string.len(textInput.getName()) == 0 and textInput.flashing then
-    love.graphics.print('|', textInput.posX, textInput.posY)
-  end
-
   love.graphics.print(textInput.getName(), textInput.posX, textInput.posY)
+
+  if textInput.flashing then
+    love.graphics.print('|', textInput.posX + textInput.font:getWidth(textInput.getName()), textInput.posY)
+  end
 end
 
 function textInput.getName()
