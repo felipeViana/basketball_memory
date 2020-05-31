@@ -23,7 +23,7 @@ function scene.load()
     'Shad e Travis',
     'Vocês não vão vencer, vão ser humilhados, nós vamos acabar com vocês, como é que pode um campeonato ' ..
     'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha',
-    defaultPersonTalkingConfig
+    defaultShadTravisTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -33,7 +33,7 @@ function scene.load()
   Talkies.say(
     'Melissa',
     'Tudo de negativo, pressão, desafios, é uma oportunidade para que eu me levante.',
-    defaultPersonTalkingConfig
+    defaultMelissaTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -42,17 +42,17 @@ function scene.load()
   Talkies.say(
     playerName .. ' e Bob',
     'Quem são vocês, como são seus nomes?',
-    defaultPersonTalkingConfig
+    defaultBobProtagonistTalkingConfig
   )
   Talkies.say(
     'Melissa',
     'Eu sou Melissa.',
-    defaultPersonTalkingConfig
+    defaultMelissaTalkingConfig
   )
   Talkies.say(
     'Windy',
     'Eu sou Windy e vocês?',
-    defaultPersonTalkingConfig
+    defaultWindyTalkingConfig
   )
 
   Talkies.say(
@@ -63,7 +63,7 @@ function scene.load()
   Talkies.say(
     playerName,
     'Eu sou ' .. playerName,
-    defaultPersonTalkingConfig
+    defaultProtagonistTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -72,7 +72,7 @@ function scene.load()
   Talkies.say(
     'Melissa e Windy',
     'Até logo!',
-    defaultPersonTalkingConfig
+    defaultMelissaWindyTalkingConfig
   )
   Talkies.say(
     'Narrador',

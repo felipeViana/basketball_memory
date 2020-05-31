@@ -19,7 +19,7 @@ function scene.load()
   Talkies.say(
     'Criador',
     'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre',
-    defaultPersonTalkingConfig
+    defaultCreatorTalkingConfig
   )
   Talkies.say(
     'Narrador',
@@ -29,7 +29,7 @@ function scene.load()
     'Criador',
     'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
     'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.',
-      defaultPersonTalkingConfig
+      defaultCreatorTalkingConfig
   )
   Talkies.say(
     playerName,

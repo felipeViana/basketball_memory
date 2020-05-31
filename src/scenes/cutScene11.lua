@@ -21,7 +21,7 @@ function scene.load()
     'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
     'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
     'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!',
-    defaultPersonTalkingConfig
+    defaultCreatorTalkingConfig
   )
   Talkies.say(
     'Criador',
@@ -29,7 +29,7 @@ function scene.load()
     'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
     'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
     utils.tableWithAddedTable(
-      defaultPersonTalkingConfig,
+      defaultCreatorTalkingConfig,
       {
         oncomplete = goToNextScreen,
       }

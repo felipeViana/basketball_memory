@@ -25,7 +25,7 @@ function scene.load()
     'Criador',
     'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
     utils.tableWithAddedTable(
-      defaultPersonTalkingConfig,
+      defaultCreatorTalkingConfig,
       {
         oncomplete = goToNextScreen,
       }

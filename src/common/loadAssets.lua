@@ -16,6 +16,12 @@ local function loadFaces()
   assets.bob = love.graphics.newImage("assets/faces/bob.png")
   assets.protagonist = love.graphics.newImage("assets/faces/protagonist.png")
   assets.generic = love.graphics.newImage("assets/faces/generic.png")
+  assets.creator = love.graphics.newImage("assets/faces/creator.png")
+  assets.melissa = love.graphics.newImage("assets/faces/melissa.png")
+  assets.windy = love.graphics.newImage("assets/faces/windy.png")
+  assets.shadTravis = love.graphics.newImage("assets/faces/shad+travis.png")
+  assets.bobProtagonist = love.graphics.newImage("assets/faces/bob+protagonist.png")
+  assets.melissaWindy = love.graphics.newImage("assets/faces/melissa+windy.png")
 end
 
 local function loadBackgrounds()
