@@ -10,7 +10,7 @@ function love.load()
   defaults.loadAll()
 
   if DEBUG then
-    sceneManager.changeScene(require 'src/scenes/chooseName')
+    sceneManager.changeScene(require 'src/menu/settings')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
   end
