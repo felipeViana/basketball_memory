@@ -1,5 +1,5 @@
-local assets = require "src/assets"
-local sceneManager = require 'src/sceneManager'
+local assets = require "src/common/assets"
+local sceneManager = require 'src/common/sceneManager'
 local textInputComponent = require 'src/components/textInput'
 local scene = {};
 

@@ -1,4 +1,4 @@
-local sceneManager = require 'src/sceneManager'
+local sceneManager = require 'src/common/sceneManager'
 local buttonManager = require 'src/components/button'
 
 local menu = {};

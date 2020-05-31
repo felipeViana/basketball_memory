@@ -1,5 +1,5 @@
-local assets = require "src/assets"
-local utils = require "src/utils"
+local assets = require "src/common/assets"
+local utils = require "src/common/utils"
 local globals = {};
 
 function globals.loadAll()

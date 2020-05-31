@@ -1,6 +1,6 @@
-local sceneManager = require 'src/sceneManager'
-local utils = require 'src/utils'
-local assets = require 'src/assets'
+local sceneManager = require 'src/common/sceneManager'
+local utils = require 'src/common/utils'
+local assets = require 'src/common/assets'
 
 local CARD_WIDTH = 124
 local CARD_HEIGHT = 178

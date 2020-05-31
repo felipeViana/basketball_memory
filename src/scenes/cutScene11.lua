@@ -1,6 +1,6 @@
-local sceneManager = require 'src/sceneManager'
-local assets = require 'src/assets'
-local utils = require 'src/utils'
+local sceneManager = require 'src/common/sceneManager'
+local assets = require 'src/common/assets'
+local utils = require 'src/common/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 

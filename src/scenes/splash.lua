@@ -1,4 +1,4 @@
-local sceneManager = require 'src/sceneManager'
+local sceneManager = require 'src/common/sceneManager'
 local o_ten_one = require 'libs/splashes/o-ten-one'
 
 local scene = {}

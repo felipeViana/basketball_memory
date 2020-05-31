@@ -1,6 +1,6 @@
-local assets = require "src/assets"
-local sceneManager = require 'src/sceneManager'
-local drawUtils = require 'src/drawUtils'
+local assets = require "src/common/assets"
+local sceneManager = require 'src/common/sceneManager'
+local drawUtils = require 'src/common/drawUtils'
 local gameTitle = {};
 
 local bgImage
