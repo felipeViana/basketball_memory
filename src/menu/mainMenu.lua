@@ -1,17 +1,14 @@
+local assets = require "src/assets"
 local sceneManager = require 'src/sceneManager'
+-- local button
 local menu = {};
 
 local BUTTON_HEIGHT = 64
-
 local buttons = {}
-
 local font
-
-local mouseX
-local mouseY
 local mouseReleased
 
-function newButton(text, fn)
+local function newButton(text, fn)
   return {
     text = text,
     fn = fn,
@@ -19,46 +16,44 @@ function newButton(text, fn)
   }
 end
 
-function goToSettings( ... )
-  sceneManager.changeScene(require 'src/menu/settings')
-end
-
-function menu.unload( ... )
-  buttons = {}
-end
-
-function startGame()
+local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
 end
 
-function quitGame( ... )
+local function goToSettings()
+  sceneManager.changeScene(require 'src/menu/settings')
+end
+
+local function quitGame()
   love.event.quit(0)
 end
 
 function menu.load()
   mouseReleased = false
-  love.graphics.setColor(255, 255, 255)
-  font = love.graphics.newFont('assets/fonts/Square.ttf', 28)
+  love.graphics.setColor(1, 1, 1)
+  font = assets.squareFont
   love.graphics.setFont(font)
 
   table.insert(buttons, newButton(
     "Start Game",
     startGame
   ))
-
   table.insert(buttons, newButton(
     "Settings",
     goToSettings
   ))
-
   table.insert(buttons, newButton(
     "Exit",
     quitGame
   ))
 end
 
+function menu.unload()
+  buttons = {}
+end
+
 function menu.update(dt)
-  for i, button in ipairs(buttons) do
+  for _, button in pairs(buttons) do
     if mouseReleased and button.hot then
       button.fn()
     end
@@ -77,7 +72,7 @@ function menu.draw()
   local totalHeight = (BUTTON_HEIGHT + margin) * #buttons
   local cursor_y = 0
 
-  for i, button in ipairs(buttons) do
+  for _, button in pairs(buttons) do
     local buttonX = windowWidth/2 - buttonWidth/2
     local buttonY = windowHeight/2 - totalHeight/2 + cursor_y
 
@@ -115,10 +110,8 @@ function menu.draw()
   end
 end
 
-function menu.mousereleased(x, y, button, istouch)
+function menu.mousereleased(x, y, button)
   if button == 1 then
-    mouseX = x
-    mouseY = y
     mouseReleased = true
   else
     mouseReleased = false

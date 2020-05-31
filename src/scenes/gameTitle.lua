@@ -33,7 +33,7 @@ function gameTitle.draw()
 end
 
 function gameTitle.keypressed()
-  sceneManager.changeScene(require 'src/menu/main')
+  sceneManager.changeScene(require 'src/menu/mainMenu')
 end
 
 return gameTitle;

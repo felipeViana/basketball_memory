@@ -20,7 +20,7 @@ function newButton(text, fn)
 end
 
 function goBack( ... )
-  sceneManager.changeScene(require 'src/menu/main')
+  sceneManager.changeScene(require 'src/menu/mainMenu')
 end
 
 function toggleFullScreen( ... )
