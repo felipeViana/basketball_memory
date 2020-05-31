@@ -1,6 +1,6 @@
 local utils = {}
 
-function deepcopy(orig)
+local function deepcopy(orig)
   local orig_type = type(orig)
   local copy
   if orig_type == 'table' then
@@ -15,8 +15,8 @@ function deepcopy(orig)
   return copy
 end
 
-function tableWithAddedProperty(table, key, value)
-  newTable = deepcopy(table)
+local function tableWithAddedProperty(table, key, value)
+  local newTable = deepcopy(table)
   newTable[key] = value
   return newTable
 end
@@ -44,7 +44,7 @@ function utils.shuffle(array)
 end
 
 function utils.tableWithAddedTable(t1, t2)
-  newTable = deepcopy(t1)
+  local newTable = deepcopy(t1)
   for k, v in pairs(t2) do
     newTable[k] = v
   end
