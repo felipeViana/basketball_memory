@@ -43,7 +43,12 @@ function button.unload()
 end
 
 function button.update(dt)
+  local mouseX, mouseY = love.mouse.getPosition()
+
   for _, component in pairs(components) do
+    component.hot = mouseX > component.x and mouseX < component.x + BUTTON_WIDTH and
+                    mouseY > component.y and mouseY < component.y + BUTTON_HEIGHT
+
     if mouseReleased and component.hot then
       component.fn()
     end
@@ -53,12 +58,7 @@ function button.update(dt)
 end
 
 function button.draw()
-  local mouseX, mouseY = love.mouse.getPosition()
-
   for _, component in pairs(components) do
-    component.hot = mouseX > component.x and mouseX < component.x + BUTTON_WIDTH and
-                mouseY > component.y and mouseY < component.y + BUTTON_HEIGHT
-
     local buttonColor = BUTTON_DEFAULT_COLOR
     if component.hot then
       buttonColor = BUTTON_HOT_COLOR

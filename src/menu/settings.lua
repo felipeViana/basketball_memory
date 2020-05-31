@@ -4,12 +4,7 @@ local buttonManager = require 'src/components/button'
 local settings = {};
 
 local function toggleFullScreen()
-  local fullScreen = love.window.getFullscreen()
-  if fullScreen then
-    love.window.setFullscreen(false)
-  else
-    love.window.setFullscreen(true)
-  end
+  love.window.setFullscreen(not love.window.getFullscreen())
 end
 
 local function goBack()
