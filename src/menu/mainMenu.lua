@@ -23,12 +23,12 @@ function menu.load()
     100,
     200
   )
-  buttonManager.new(
-    'Settings',
-    goToSettings,
-    100,
-    300
-  )
+  -- buttonManager.new(
+  --   'Settings',
+  --   goToSettings,
+  --   100,
+  --   300
+  -- )
   buttonManager.new(
     'Exit',
     quitGame,

@@ -23,6 +23,13 @@ local function loadBackgrounds()
   assets.kobeBackground = love.graphics.newImage("assets/backgrounds/kobe_bg.jpeg")
   assets.stageBackground = love.graphics.newImage("assets/backgrounds/stage_bg.jpeg")
   assets.titleBackground = love.graphics.newImage("assets/backgrounds/title_bg.jpeg")
+  assets.kameHouseBackground = love.graphics.newImage("assets/backgrounds/kame_house.jpg")
+  assets.daliBackground = love.graphics.newImage("assets/backgrounds/dali_wallpaper.jpg")
+  assets.trophyBackground = love.graphics.newImage("assets/backgrounds/trophy_wallpaper.jpg")
+  assets.streetBackground = love.graphics.newImage("assets/backgrounds/street_wallpaper.jpg")
+  assets.animeHouseBackground = love.graphics.newImage("assets/backgrounds/house_wallpaper.png")
+  assets.basketballCourtBackground = love.graphics.newImage("assets/backgrounds/baskteball_court_wallpaper.jpg")
+  assets.podiumBackground = love.graphics.newImage("assets/backgrounds/podium_wallpaper.png")
 end
 
 local function loadImgs()

@@ -4,12 +4,14 @@ local utils = require 'src/common/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
+local function goToNextScreen()
+  sceneManager.changeScene(require 'src/scenes/cutScene11-2')
+end
+
 function scene.load()
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(assets.textFont)
   love.graphics.setBackgroundColor(1, 1, 1)
-
-  bgImage = assets.genericBackground
 
   Talkies.font = assets.textFont
   Talkies.talkSound = assets.talkSound
@@ -35,10 +37,6 @@ function scene.load()
   )
 end
 
-function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene11-2')
-end
-
 function scene.unload()
   Talkies.clearMessages()
 end
@@ -49,7 +47,7 @@ end
 
 function scene.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(bgImage, 0, 0, 0, 1, 1)
+  love.graphics.draw(assets.podiumBackground, 0, 0, 0, 0.8, 0.8)
 
   Talkies.draw()
 end
