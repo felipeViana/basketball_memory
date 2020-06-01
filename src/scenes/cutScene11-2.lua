@@ -9,30 +9,20 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Criador',
     'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre',
     defaultCreatorTalkingConfig
   )
   Talkies.say(
-    'Narrador',
-    'Em seguida a platéia vai a loucura, os participantes também e o criador olha para o vencedor e diz:'
+    'Em seguida a platéia vai a loucura, os participantes também e o criador olha para o vencedor e diz:',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Criador',
     'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
     'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.',
       defaultCreatorTalkingConfig
   )
   Talkies.say(
-    playerName,
     'Fico muito feliz por isso e agradeço a você e à todos que me ajudaram aqui e também quero dizer que sou fã ' ..
     'do Kobe e sua filha e muitas das frases que ele falou durante sua vida me inspiraram a estar aqui hoje. ' ..
     'Parabéns pelo seu trabalho e mais uma vez obrigado.',

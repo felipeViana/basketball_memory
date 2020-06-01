@@ -1,5 +1,6 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
+local utils = require 'src/common/utils'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -8,78 +9,64 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Narrador',
-    'Quando Bob e ' .. playerName .. ' saem do local do campeonato, dois caras aparecem e os humilham dizendo coisas ruins para eles.'
+    'Quando Bob e ' .. playerName .. ' saem do local do campeonato, dois caras aparecem e os humilham dizendo coisas ruins para eles.',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Shad e Travis',
     'Vocês não vão vencer, vão ser humilhados, nós vamos acabar com vocês, como é que pode um campeonato ' ..
     'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha',
     defaultShadTravisTalkingConfig
   )
   Talkies.say(
-    'Narrador',
     'Ambos ficam com muita raiva e tentam partir para cima, mas duas garotas aparecem e os salvam dos dois babacas que estavam humilhando eles. ' ..
-    'Elas os levam até a casa de ' .. playerName .. ' e conversam com eles. Uma delas (Melissa) diz:'
+    'Elas os levam até a casa de ' .. playerName .. ' e conversam com eles. Uma delas (Melissa) diz:',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Melissa',
     'Tudo de negativo, pressão, desafios, é uma oportunidade para que eu me levante.',
     defaultMelissaTalkingConfig
   )
   Talkies.say(
-    'Narrador',
-    'Os dois ficam abismados com isso e agradecem todo cuidado que elas tiveram e então se conhecem.'
+    'Os dois ficam abismados com isso e agradecem todo cuidado que elas tiveram e então se conhecem.',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    playerName .. ' e Bob',
     'Quem são vocês, como são seus nomes?',
     defaultBobProtagonistTalkingConfig
   )
   Talkies.say(
-    'Melissa',
     'Eu sou Melissa.',
     defaultMelissaTalkingConfig
   )
   Talkies.say(
-    'Windy',
     'Eu sou Windy e vocês?',
     defaultWindyTalkingConfig
   )
-
   Talkies.say(
-    'Bob',
     'Eu sou Bob',
     defaultBobTalkingConfig
   )
   Talkies.say(
-    playerName,
     'Eu sou ' .. playerName,
     defaultProtagonistTalkingConfig
   )
   Talkies.say(
-    'Narrador',
-    'Após conversar um pouco elas vão embora'
+    'Após conversar um pouco elas vão embora',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Melissa e Windy',
     'Até logo!',
     defaultMelissaWindyTalkingConfig
   )
   Talkies.say(
-    'Narrador',
     'Bob vai para sua casa e ' .. playerName .. ' vai dormir.',
-    {
-      oncomplete = goToNextScreen,
-    }
+    utils.tableWithAddedTable(
+      defaultNarratorTalkingConfig,
+      {
+        oncomplete = goToNextScreen,
+      }
+    )
   )
 end
 

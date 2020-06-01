@@ -107,7 +107,7 @@ local Talkies = {
   dialogs            = Fifo.new(),
 }
 
-function Talkies.say(title, messages, config)
+function Talkies.say(messages, config)
   config = config or {}
   if type(messages) ~= "table" then
     messages = { messages }
@@ -122,7 +122,7 @@ function Talkies.say(title, messages, config)
 
   -- Insert the Talkies.new into its own instance (table)
   local newDialog = {
-    title         = title,
+    title         = config.title,
     messages      = msgFifo,
     image         = config.image,
     options       = config.options,

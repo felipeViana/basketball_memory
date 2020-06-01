@@ -52,6 +52,7 @@ end
 
 local function loadFonts()
   assets.squareFont = love.graphics.newFont('assets/fonts/Square.ttf', 28)
+  assets.smallFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 16)
   assets.textFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
   assets.bigFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 36)
 end

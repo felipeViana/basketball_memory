@@ -9,30 +9,17 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Narrador',
     playerName .. ' então vai até sua casa e quando ele pega o dinheiro, ele para e senta no sofá de sua casa e pensa se devia fazer isso ou não. ' ..
     'Ele então muito pensativo recebe a visita de seu melhor amigo (Bob) que o viu chegando às pressas em sua casa. ' ..
-    'Eles conversam rapidamente e Bob diz pra ele:'
+    'Eles conversam rapidamente e Bob diz pra ele:',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Bob',
     'Vamos, é preciso se atrever para ser grande.',
-    {
-      image=assets.bob,
-      talkSound=assets.talkSound,
-      typedNotTalked=false,
-    }
+    defaultBobTalkingConfig
   )
   Talkies.say(
-    playerName,
     'De onde ele tirou isso?',
     utils.tableWithAddedTable(
       defaultProtagonistTalkingConfig,

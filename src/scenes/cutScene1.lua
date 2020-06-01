@@ -1,6 +1,7 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local dictionary = require 'src/common/dictionary'
+local utils = require 'src/common/utils'
 local Talkies = require 'libs/talkies'
 
 local scene = {}
@@ -10,26 +11,23 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Narrador',
     dictionary.localize('1.1') .. playerName .. '!',
-    {
-      textSpeed='medium',
-    }
+    utils.tableWithAddedTable(
+      defaultNarratorTalkingConfig,
+      {
+        textSpeed='medium',
+      }
+    )
   )
   Talkies.say(
-    'Narrador',
     dictionary.localize('1.2'),
-    {
-      oncomplete = goToNextScreen,
-    }
+    utils.tableWithAddedTable(
+      defaultNarratorTalkingConfig,
+      {
+        oncomplete = goToNextScreen,
+      }
+    )
   )
 end
 

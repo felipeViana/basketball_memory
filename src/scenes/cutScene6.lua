@@ -9,20 +9,12 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Narrador',
     'Chegando no local do campeonato, um pouco atrasados, eles vêem o Criador prestes a começar o torneio e a plateia já está no local. ' ..
-    'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.'
+    'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Criador',
     'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
     utils.tableWithAddedTable(
       defaultCreatorTalkingConfig,

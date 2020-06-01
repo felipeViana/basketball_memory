@@ -9,29 +9,21 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(1, 1, 1)
-
-  Talkies.font = assets.textFont
-  Talkies.talkSound = assets.typeSound
-
   Talkies.say(
-    'Narrador',
     'No dia seguinte ' .. playerName .. ' acorda e vai até a casa do Bob. ' ..
     'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
-    'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:'
+    'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Narrador',
-    'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.'
+    'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    'Narrador',
-    playerName .. ' então ele ergue a cabeça e diz para Bob:'
+    playerName .. ' então ele ergue a cabeça e diz para Bob:',
+    defaultNarratorTalkingConfig
   )
   Talkies.say(
-    playerName,
     'Vamo vencer esse campeonato meu rival!',
     utils.tableWithAddedTable(
       defaultProtagonistTalkingConfig,
