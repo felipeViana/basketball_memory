@@ -18,6 +18,7 @@ local characters = {
     {
       title=playerName,
       ['image']=assets.protagonist,
+      leftBody=assets.protagonistBody,
     }
   ),
   bob = utils.tableWithAddedTable(
@@ -25,6 +26,7 @@ local characters = {
     {
       title='Bob',
       ['image']=assets.bob,
+      leftBody=assets.bobBody,
     }
   ),
   creator = utils.tableWithAddedTable(
@@ -32,6 +34,7 @@ local characters = {
     {
       title = dictionary.localize('Criador'),
       ['image']=assets.creator,
+      leftBody=assets.creatorBody,
     }
   ),
   melissa = utils.tableWithAddedTable(
@@ -39,6 +42,7 @@ local characters = {
     {
       title='Melissa',
       ['image']=assets.melissa,
+      leftBody=assets.melissaBody,
     }
   ),
   windy = utils.tableWithAddedTable(
@@ -46,6 +50,7 @@ local characters = {
     {
       title='Windy',
       ['image']=assets.windy,
+      leftBody=assets.windyBody,
     }
   ),
   shadTravis = utils.tableWithAddedTable(
@@ -53,6 +58,8 @@ local characters = {
     {
       title='Shad ' .. dictionary.localize('e') .. ' Travis',
       ['image']=assets.shadTravis,
+      leftBody=assets.shadBody,
+      rightBody=assets.travisBody,
     }
   ),
   bobProtagonist = utils.tableWithAddedTable(
@@ -60,6 +67,8 @@ local characters = {
     {
       title=playerName .. ' ' .. dictionary.localize('e') .. ' Bob',
       ['image']=assets.bobProtagonist,
+      leftBody=assets.bobBody,
+      rightBody=assets.protagonistBody,
     }
   ),
   melissaWindy = utils.tableWithAddedTable(
@@ -67,6 +76,8 @@ local characters = {
     {
       title='Melissa ' .. dictionary.localize('e') .. ' Windy',
       ['image']=assets.melissaWindy,
+      leftBody=assets.melissaBody,
+      rightBody=assets.windyBody,
     }
   ),
 }

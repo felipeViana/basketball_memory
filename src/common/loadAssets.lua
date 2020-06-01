@@ -43,11 +43,23 @@ local function loadFlags()
   assets.flagBR = love.graphics.newImage("assets/flags/flag_br.jpg")
 end
 
+local function loadBodies()
+  assets.bobBody = love.graphics.newImage("assets/bodies/bob.png")
+  assets.creatorBody = love.graphics.newImage("assets/bodies/creator.png")
+  assets.genericBody = love.graphics.newImage("assets/bodies/generic.png")
+  assets.melissaBody = love.graphics.newImage("assets/bodies/melissa.png")
+  assets.protagonistBody = love.graphics.newImage("assets/bodies/protagonist.png")
+  assets.shadBody = love.graphics.newImage("assets/bodies/shad.png")
+  assets.travisBody = love.graphics.newImage("assets/bodies/travis.png")
+  assets.windyBody = love.graphics.newImage("assets/bodies/windy.png")
+end
+
 local function loadImgs()
   loadCards()
   loadFaces()
   loadBackgrounds()
   loadFlags()
+  loadBodies()
 end
 
 local function loadFonts()

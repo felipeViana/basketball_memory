@@ -127,6 +127,8 @@ function Talkies.say(messages, config)
     messages      = msgFifo,
     image         = config.image,
     options       = config.options,
+    leftBody      = config.leftBody,
+    rightBody      = config.rightBody,
     onstart       = config.onstart or function(dialog) end,
     onmessage     = config.onmessage or function(dialog, left) end,
     oncomplete    = config.oncomplete or function(dialog) end,
@@ -212,6 +214,13 @@ function Talkies.draw()
 
   love.graphics.push()
   love.graphics.setDefaultFilter("nearest", "nearest")
+
+  if currentDialog.leftBody then
+    love.graphics.draw(currentDialog.leftBody, 50)
+  end
+  if currentDialog.rightBody then
+    love.graphics.draw(currentDialog.rightBody, 50+400*2)
+  end
 
   local function getDimensions()
     local canvas = love.graphics.getCanvas()
