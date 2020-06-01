@@ -2,7 +2,7 @@ local loadAssets = require 'src/common/loadAssets'
 local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 
-local DEBUG = false
+local DEBUG = true
 local gameIsPaused = false
 
 function love.load()
@@ -10,7 +10,7 @@ function love.load()
   globals.loadAll()
 
   if DEBUG then
-    sceneManager.changeScene(require 'src/scenes/cutScene11-2')
+    sceneManager.changeScene(require 'src/menu/settings')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
   end

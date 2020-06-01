@@ -33,7 +33,7 @@ function gameTitle.draw()
 end
 
 function gameTitle.keypressed()
-  sceneManager.changeScene(require 'src/menu/mainMenu')
+  sceneManager.changeScene(require 'src/scenes/chooseLanguage')
 end
 
 return gameTitle;

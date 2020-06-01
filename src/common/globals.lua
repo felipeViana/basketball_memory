@@ -4,6 +4,7 @@ local globals = {};
 
 function globals.loadAll()
   playerName = 'Felipe'
+  language = 'english'
 
   defaultPersonTalkingConfig = {
     image=assets.generic,

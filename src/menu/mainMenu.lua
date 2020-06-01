@@ -1,5 +1,5 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/button'
+local buttonManager = require 'src/components/buttonManager'
 
 local menu = {};
 
@@ -17,24 +17,24 @@ end
 
 function menu.load()
   buttonManager.load()
-  buttonManager.new(
-    'Start Game',
-    startGame,
-    100,
-    200
-  )
-  -- buttonManager.new(
-  --   'Settings',
-  --   goToSettings,
-  --   100,
-  --   300
-  -- )
-  buttonManager.new(
-    'Exit',
-    quitGame,
-    100,
-    400
-  )
+  buttonManager.newTextButton({
+    text = 'Start Game',
+    fn = startGame,
+    x = 100,
+    y = 200,
+  })
+  buttonManager.newTextButton({
+    text = 'Settings',
+    fn = goToSettings,
+    x = 100,
+    y = 300,
+  })
+  buttonManager.newTextButton({
+    text = 'Exit',
+    fn = quitGame,
+    x = 100,
+    y = 400,
+  })
 end
 
 function menu.unload()

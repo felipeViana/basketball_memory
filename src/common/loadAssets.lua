@@ -38,10 +38,16 @@ local function loadBackgrounds()
   assets.podiumBackground = love.graphics.newImage("assets/backgrounds/podium_wallpaper.png")
 end
 
+local function loadFlags()
+  assets.flagUK = love.graphics.newImage("assets/flags/flag_uk.jpg")
+  assets.flagBR = love.graphics.newImage("assets/flags/flag_br.jpg")
+end
+
 local function loadImgs()
   loadCards()
   loadFaces()
   loadBackgrounds()
+  loadFlags()
 end
 
 local function loadFonts()

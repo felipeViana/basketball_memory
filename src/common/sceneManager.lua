@@ -18,12 +18,12 @@ function sceneManager._validateScene(s)
   return s
 end
 
-function sceneManager.changeScene(s)
+function sceneManager.changeScene(s, option)
   s = s or error("ChangeScene requires a Scene")
 
   sceneManager.currentScene.unload()
   sceneManager.currentScene = sceneManager._validateScene(s)
-  sceneManager.currentScene.load()
+  sceneManager.currentScene.load(option)
 end
 
 sceneManager.currentScene = sceneManager._validateScene(nil)
