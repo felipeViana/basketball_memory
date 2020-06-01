@@ -2,6 +2,7 @@ local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local dictionary = require 'src/common/dictionary'
 local utils = require 'src/common/utils'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 
 local scene = {}
@@ -14,7 +15,7 @@ function scene.load()
   Talkies.say(
     dictionary.localize('1.1') .. playerName .. '!',
     utils.tableWithAddedTable(
-      defaultNarratorTalkingConfig,
+      characters.narrator,
       {
         textSpeed='medium',
       }
@@ -23,7 +24,7 @@ function scene.load()
   Talkies.say(
     dictionary.localize('1.2'),
     utils.tableWithAddedTable(
-      defaultNarratorTalkingConfig,
+      characters.narrator,
       {
         oncomplete = goToNextScreen,
       }

@@ -6,6 +6,7 @@
 -- This library is free software; you can redistribute it and/or modify it
 -- under the terms of the MIT license. See LICENSE for details.
 --
+local assets = require 'src/common/assets'
 local utf8 = require("utf8")
 
 local function playSound(sound, pitch)
@@ -96,7 +97,7 @@ local Talkies = {
   messageColor       = {1, 1, 1},
   backgroundColor    = {0, 0, 0, 0.8},
   textSpeed          = 0.01,
-  font               = love.graphics.newFont(),
+  font               = assets.smallFont,
 
   typedNotTalked     = true,
   pitchValues        = {0.7, 0.8, 1.0, 1.2, 1.3},

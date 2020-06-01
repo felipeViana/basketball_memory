@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,14 +12,13 @@ end
 
 function scene.load()
   Talkies.say(
-    'Chegando no local do campeonato, um pouco atrasados, eles vêem o Criador prestes a começar o torneio e a plateia já está no local. ' ..
-    'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.',
-    defaultNarratorTalkingConfig
+    dictionary.localize('6.1'),
+    characters.narrator
   )
   Talkies.say(
-    'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
+    dictionary.localize('6.2'),
     utils.tableWithAddedTable(
-      defaultCreatorTalkingConfig,
+      characters.creator,
       {
         oncomplete = goToNextScreen,
       }

@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,19 +12,17 @@ end
 
 function scene.load()
   Talkies.say(
-    playerName .. ' então vai até sua casa e quando ele pega o dinheiro, ele para e senta no sofá de sua casa e pensa se devia fazer isso ou não. ' ..
-    'Ele então muito pensativo recebe a visita de seu melhor amigo (Bob) que o viu chegando às pressas em sua casa. ' ..
-    'Eles conversam rapidamente e Bob diz pra ele:',
-    defaultNarratorTalkingConfig
+    dictionary.localize('3.1'),
+    characters.narrator
   )
   Talkies.say(
-    'Vamos, é preciso se atrever para ser grande.',
-    defaultBobTalkingConfig
+    dictionary.localize('3.2'),
+    characters.bob
   )
   Talkies.say(
-    'De onde ele tirou isso?',
+    dictionary.localize('3.3'),
     utils.tableWithAddedTable(
-      defaultProtagonistTalkingConfig,
+      characters.protagonist,
       {
         oncomplete=goToNextScreen,
         textSpeed='medium'

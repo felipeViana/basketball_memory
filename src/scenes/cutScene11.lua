@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,17 +12,13 @@ end
 
 function scene.load()
   Talkies.say(
-    'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
-    'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
-    'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!',
-    defaultCreatorTalkingConfig
+    dictionary.localize('11.1'),
+    characters.creator
   )
   Talkies.say(
-    'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
-    'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
-    'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
+    dictionary.localize('11.2'),
     utils.tableWithAddedTable(
-      defaultCreatorTalkingConfig,
+      characters.creator,
       {
         oncomplete = goToNextScreen,
       }

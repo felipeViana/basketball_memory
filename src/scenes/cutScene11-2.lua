@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,24 +12,21 @@ end
 
 function scene.load()
   Talkies.say(
-    'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre',
-    defaultCreatorTalkingConfig
+    dictionary.localize('11-2.1'),
+    characters.creator
   )
   Talkies.say(
-    'Em seguida a platéia vai a loucura, os participantes também e o criador olha para o vencedor e diz:',
-    defaultNarratorTalkingConfig
+    dictionary.localize('11-2.2'),
+    characters.narrator
   )
   Talkies.say(
-    'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
-    'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.',
-      defaultCreatorTalkingConfig
+    dictionary.localize('11-2.3'),
+      characters.creator
   )
   Talkies.say(
-    'Fico muito feliz por isso e agradeço a você e à todos que me ajudaram aqui e também quero dizer que sou fã ' ..
-    'do Kobe e sua filha e muitas das frases que ele falou durante sua vida me inspiraram a estar aqui hoje. ' ..
-    'Parabéns pelo seu trabalho e mais uma vez obrigado.',
+    dictionary.localize('11-2.4'),
     utils.tableWithAddedTable(
-      defaultProtagonistTalkingConfig,
+      characters.protagonist,
       {
         oncomplete = goToNextScreen,
       }

@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,23 +12,21 @@ end
 
 function scene.load()
   Talkies.say(
-    'No dia seguinte ' .. playerName .. ' acorda e vai até a casa do Bob. ' ..
-    'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
-    'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:',
-    defaultNarratorTalkingConfig
+    dictionary.localize('5.1'),
+    characters.narrator
   )
   Talkies.say(
-    'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.',
-    defaultNarratorTalkingConfig
+    dictionary.localize('5.2'),
+    characters.narrator
   )
   Talkies.say(
-    playerName .. ' então ele ergue a cabeça e diz para Bob:',
-    defaultNarratorTalkingConfig
+    dictionary.localize('5.3'),
+    characters.narrator
   )
   Talkies.say(
-    'Vamo vencer esse campeonato meu rival!',
+    dictionary.localize('5.4'),
     utils.tableWithAddedTable(
-      defaultProtagonistTalkingConfig,
+      characters.protagonist,
       {
         oncomplete = goToNextScreen,
       }

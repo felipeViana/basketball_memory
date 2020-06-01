@@ -1,5 +1,6 @@
 local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
+local dictionary = require 'src/common/dictionary'
 local buttonManager = require 'src/components/buttonManager'
 local drawUtils = require 'src/common/drawUtils'
 
@@ -67,7 +68,7 @@ function gameTitle.draw()
     font=titleFont,
     posX=440,
     posY=100,
-    text='Choose your language',
+    text=dictionary.localize('Choose your language'),
   })
 
   buttonManager.draw()

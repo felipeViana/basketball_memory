@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local utils = require 'src/common/utils'
+local dictionary = require 'src/common/dictionary'
+local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
 
@@ -10,59 +12,57 @@ end
 
 function scene.load()
   Talkies.say(
-    'Quando Bob e ' .. playerName .. ' saem do local do campeonato, dois caras aparecem e os humilham dizendo coisas ruins para eles.',
-    defaultNarratorTalkingConfig
+    dictionary.localize('4.1'),
+    characters.narrator
   )
   Talkies.say(
-    'Vocês não vão vencer, vão ser humilhados, nós vamos acabar com vocês, como é que pode um campeonato ' ..
-    'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha',
-    defaultShadTravisTalkingConfig
+    dictionary.localize('4.2'),
+    characters.shadTravis
   )
   Talkies.say(
-    'Ambos ficam com muita raiva e tentam partir para cima, mas duas garotas aparecem e os salvam dos dois babacas que estavam humilhando eles. ' ..
-    'Elas os levam até a casa de ' .. playerName .. ' e conversam com eles. Uma delas (Melissa) diz:',
-    defaultNarratorTalkingConfig
+    dictionary.localize('4.3'),
+    characters.narrator
   )
   Talkies.say(
-    'Tudo de negativo, pressão, desafios, é uma oportunidade para que eu me levante.',
-    defaultMelissaTalkingConfig
+    dictionary.localize('4.4'),
+    characters.melissa
   )
   Talkies.say(
-    'Os dois ficam abismados com isso e agradecem todo cuidado que elas tiveram e então se conhecem.',
-    defaultNarratorTalkingConfig
+    dictionary.localize('4.5'),
+    characters.narrator
   )
   Talkies.say(
-    'Quem são vocês, como são seus nomes?',
-    defaultBobProtagonistTalkingConfig
+    dictionary.localize('4.6'),
+    characters.bobProtagonist
   )
   Talkies.say(
-    'Eu sou Melissa.',
-    defaultMelissaTalkingConfig
+    dictionary.localize('4.7'),
+    characters.melissa
   )
   Talkies.say(
-    'Eu sou Windy e vocês?',
-    defaultWindyTalkingConfig
+    dictionary.localize('4.8'),
+    characters.windy
   )
   Talkies.say(
-    'Eu sou Bob',
-    defaultBobTalkingConfig
+    dictionary.localize('4.9'),
+    characters.bob
   )
   Talkies.say(
-    'Eu sou ' .. playerName,
-    defaultProtagonistTalkingConfig
+    dictionary.localize('4.10'),
+    characters.protagonist
   )
   Talkies.say(
-    'Após conversar um pouco elas vão embora',
-    defaultNarratorTalkingConfig
+    dictionary.localize('4.11'),
+    characters.narrator
   )
   Talkies.say(
-    'Até logo!',
-    defaultMelissaWindyTalkingConfig
+    dictionary.localize('4.12'),
+    characters.melissaWindy
   )
   Talkies.say(
-    'Bob vai para sua casa e ' .. playerName .. ' vai dormir.',
+    dictionary.localize('4.13'),
     utils.tableWithAddedTable(
-      defaultNarratorTalkingConfig,
+      characters.narrator,
       {
         oncomplete = goToNextScreen,
       }
