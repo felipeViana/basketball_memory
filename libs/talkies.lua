@@ -97,7 +97,7 @@ local Talkies = {
   messageColor       = {1, 1, 1},
   backgroundColor    = {0, 0, 0, 0.8},
   textSpeed          = 0.01,
-  font               = assets.smallFont,
+  font               = assets.talkiesFont,
 
   typedNotTalked     = true,
   pitchValues        = {0.7, 0.8, 1.0, 1.2, 1.3},
