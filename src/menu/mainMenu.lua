@@ -1,5 +1,6 @@
 local sceneManager = require 'src/common/sceneManager'
 local buttonManager = require 'src/components/buttonManager'
+local dictionary = require 'src/common/dictionary'
 
 local menu = {};
 
@@ -18,19 +19,19 @@ end
 function menu.load()
   buttonManager.load()
   buttonManager.newTextButton({
-    text = 'Start Game',
+    text = dictionary.localize('StartGame'),
     fn = startGame,
     x = 100,
     y = 200,
   })
   buttonManager.newTextButton({
-    text = 'Settings',
+    text = dictionary.localize('Settings'),
     fn = goToSettings,
     x = 100,
     y = 300,
   })
   buttonManager.newTextButton({
-    text = 'Exit',
+    text = dictionary.localize('Exit'),
     fn = quitGame,
     x = 100,
     y = 400,

@@ -1,8 +1,9 @@
 local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
 local textInputComponent = require 'src/components/textInput'
-local scene = {};
+local dictionary = require 'src/common/dictionary'
 
+local scene = {};
 local textInput;
 
 function scene.load()
@@ -27,9 +28,9 @@ function scene.update(dt)
 end
 
 function scene.draw()
-  love.graphics.print('type your name', 100, 100)
-  love.graphics.print('press enter to continue', 100, 150)
-  love.graphics.print('choose your name:', 100, 400)
+  love.graphics.print(dictionary.localize('type your name'), 100, 100)
+  love.graphics.print(dictionary.localize('press enter to continue'), 100, 150)
+  love.graphics.print(dictionary.localize('choose your name:'), 100, 400)
 
   textInputComponent.draw()
 end

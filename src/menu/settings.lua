@@ -1,5 +1,6 @@
 local sceneManager = require 'src/common/sceneManager'
 local buttonManager = require 'src/components/buttonManager'
+local dictionary = require 'src/common/dictionary'
 
 local settings = {};
 
@@ -18,19 +19,19 @@ end
 function settings.load()
   buttonManager.load()
   buttonManager.newTextButton({
-    text = 'Fullscreen ?',
+    text = dictionary.localize('ToggleFullscreen'),
     fn = toggleFullScreen,
     x = 400,
     y = 200,
   })
   buttonManager.newTextButton({
-    text = 'Choose language',
+    text = dictionary.localize('ChooseLanguage'),
     fn = goToChooseLanguage,
     x = 400,
     y = 300,
   })
   buttonManager.newTextButton({
-    text = 'Go back',
+    text = dictionary.localize('GoBack'),
     fn = goBack,
     x = 400,
     y = 500,

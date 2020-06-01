@@ -1,6 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
+local dictionary = require 'src/common/dictionary'
 local Talkies = require 'libs/talkies'
+
 local scene = {}
 
 local function goToNextScreen()
@@ -17,14 +19,14 @@ function scene.load()
 
   Talkies.say(
     'Narrador',
-    'Olá ' .. playerName .. '!',
+    dictionary.localize('1.1') .. playerName .. '!',
     {
       textSpeed='medium',
     }
   )
   Talkies.say(
     'Narrador',
-    'Memória!--É o que podemos deixar de melhor ou pior quando partimos. Podemos ser inspiração ou frustração, podemos ser heróis ou vilões, podemos ser várias coisas, pois tudo é história.',
+    dictionary.localize('1.2'),
     {
       oncomplete = goToNextScreen,
     }

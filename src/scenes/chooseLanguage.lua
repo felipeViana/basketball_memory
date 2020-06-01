@@ -7,9 +7,7 @@ local gameTitle = {};
 local fromSettings = false;
 local titleFont
 
-local function chooseEnglish()
-  language = 'english'
-
+local function goToNextScreen()
   if fromSettings then
     sceneManager.changeScene(require 'src/menu/settings')
   else
@@ -17,13 +15,14 @@ local function chooseEnglish()
   end
 end
 
+local function chooseEnglish()
+  language = 'english'
+  goToNextScreen()
+end
+
 local function choosePortuguese()
   language = 'portugues'
-  if fromSettings then
-    sceneManager.changeScene(require 'src/menu/settings')
-  else
-    sceneManager.changeScene(require 'src/menu/mainMenu')
-  end
+  goToNextScreen()
 end
 
 function gameTitle.load(comingFromSettings)
