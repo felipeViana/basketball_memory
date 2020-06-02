@@ -3,13 +3,23 @@ local assets = require "src/common/assets"
 local loadAssets = {};
 
 local function loadCards()
+  assets.cardBack = love.graphics.newImage("assets/cards/card-back.png")
+
   assets.card1 = love.graphics.newImage("assets/cards/1-1.png")
   assets.card2 = love.graphics.newImage("assets/cards/1-2.png")
   assets.card3 = love.graphics.newImage("assets/cards/1-3.jpg")
   assets.card4 = love.graphics.newImage("assets/cards/1-4.jpg")
   assets.card5 = love.graphics.newImage("assets/cards/1-5.png")
   assets.card6 = love.graphics.newImage("assets/cards/1-6.png")
-  assets.cardBack = love.graphics.newImage("assets/cards/card-back.png")
+
+  assets.cardImages = {
+    assets.card1,
+    assets.card2,
+    assets.card3,
+    assets.card4,
+    assets.card5,
+    assets.card6,
+  };
 end
 
 local function loadFaces()

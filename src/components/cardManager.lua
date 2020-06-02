@@ -3,10 +3,9 @@ local utils = require 'src/common/utils'
 
 local flippedNow
 
-local clickedX
-local clickedY
 local mouseReleased
-local cards
+local cards = {}
+local currentFlippedCards = {}
 
 local cardManager = {}
 
@@ -18,12 +17,12 @@ function cardManager.newPairs(totalPairs)
     table.insert(cards, newPair[2])
   end
 
-  return cards;
-  -- positions = utils.shuffle(positions)
+  return utils.shuffle(cards);
 end
 
 function cardManager.load()
   cards = {}
+  currentFlippedCards = {}
   flippedNow = 0
 end
 
@@ -31,51 +30,63 @@ function cardManager.unload()
   cards = {}
 end
 
-local function updateCards()
-  -- check for newly revelead card
-  if mouseReleased then
-    for _, card in pairs(cards) do
-      if clickedX >= card.x and clickedX <= card.x + card.width
-      and clickedY >= card.y and clickedY <= card.y + card.height then
-        if not card.flipped then
-          card.flipped = true
-          flippedNow = flippedNow + 1
-        end
-      end
-    end
+local function isMatch(card1, card2)
+  return card1.kind == card2.kind
+end
+
+local function markPairAsMatched()
+  currentFlippedCards[1].matched = true
+  currentFlippedCards[2].matched = true
+end
+
+local function removePairFromQueue()
+    table.remove(currentFlippedCards, 1)
+    table.remove(currentFlippedCards, 1)
+end
+
+local function unflipPair()
+  currentFlippedCards[1].flipped = false
+  currentFlippedCards[2].flipped = false
+end
+
+local function flipCard(card)
+  if not card.flipped then
+    card.flipped = true
+    table.insert(currentFlippedCards, card)
+    flippedNow = flippedNow + 1
   end
 
-  -- check for match
-  local pairMatched = false
   if flippedNow == 2 then
-    local kindsFlipped = nil
-    for _, card in pairs(cards) do
-      if card.flipped and not card.matched then
-        if card.kind == kindsFlipped then
-          pairMatched = true
-        end
-        kindsFlipped = card.kind
-      end
-    end
+    local match = isMatch(currentFlippedCards[1], currentFlippedCards[2])
 
-    if pairMatched then
-      for _, card in pairs(cards) do
-        if card.flipped and not card.matched then
-          card.matched = true
-        end
-      end
+    if match then
+      markPairAsMatched(card)
+      removePairFromQueue()
+      flippedNow = 0
     end
   end
 
-  -- unflip if no match
-  if flippedNow > 2 then
-    for _, card in pairs(cards) do
-      if not card.matched then
-        card.flipped = false
-      end
-    end
-    flippedNow = 0
+  if flippedNow == 3 then
+    unflipPair()
+    removePairFromQueue()
+    flippedNow = 1
   end
+end
+
+local function updateCards()
+  local mouseX, mouseY = love.mouse.getPosition()
+
+  for _, card in pairs(cards) do
+    card.hot = mouseX >= card.x and mouseX <= card.x + card.width and
+               mouseY >= card.y and mouseY <= card.y + card.height
+
+    if mouseReleased and card.hot then
+      flipCard(card)
+    end
+
+  end
+
+  mouseReleased = false
 end
 
 function cardManager.update(dt)
@@ -97,13 +108,9 @@ function cardManager.draw()
   end
 end
 
-function cardManager.mouseReleased(x, y, button)
+function cardManager.mouseReleased(_, _, button)
   if button == 1 then
-    clickedX = x
-    clickedY = y
     mouseReleased = true
-  else
-    mouseReleased = false
   end
 end
 

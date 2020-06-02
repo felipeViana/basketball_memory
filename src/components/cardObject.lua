@@ -4,24 +4,17 @@ local CARD_WIDTH = 124
 local CARD_HEIGHT = 178
 local CARD_SCALE = 0.7
 
-local cardImages = {
-  assets.card1,
-  assets.card2,
-  assets.card3,
-  assets.card4,
-  assets.card5,
-  assets.card6,
-};
 local cardObject = {}
 
-local function newCard(i, j)
+local function newCard(i)
   return {
-    image = cardImages[i],
+    image = assets.cardImages[i],
     kind = i,
+    x = 0,
+    y = 0,
     flipped = false,
     matched = false,
-    -- x = CARD_WIDTH * i,
-    -- y = CARD_HEIGHT * j,
+    hot = false,
     width = CARD_WIDTH * CARD_SCALE,
     height = CARD_HEIGHT * CARD_SCALE,
     scaleX = CARD_SCALE,
@@ -30,10 +23,7 @@ local function newCard(i, j)
 end
 
 function cardObject.newPair(i)
-  local card1 = newCard(i, 1)
-  local card2 = newCard(i, 2)
-
-  return {card1, card2}
+  return {newCard(i), newCard(i)}
 end
 
 function cardObject.draw(card)
@@ -42,7 +32,13 @@ function cardObject.draw(card)
     image = assets.cardBack
   end
 
-  love.graphics.draw(image, card.x, card.y, 0, card.scaleX, card.scaleY)
+  local extraScale = 1
+  if card.hot  then
+    extraScale = 1.2
+  end
+
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.draw(image, card.x + card.width*(1-extraScale)/2, card.y + card.height*(1-extraScale)/2, 0, card.scaleX * extraScale, card.scaleY * extraScale)
 end
 
 return cardObject;
