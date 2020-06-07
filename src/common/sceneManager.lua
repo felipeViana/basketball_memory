@@ -26,5 +26,10 @@ function sceneManager.changeScene(s, option)
   sceneManager.currentScene.load(option)
 end
 
+function sceneManager.resetScene()
+  sceneManager.currentScene.unload()
+  sceneManager.currentScene.load()
+end
+
 sceneManager.currentScene = sceneManager._validateScene(nil)
 return sceneManager;

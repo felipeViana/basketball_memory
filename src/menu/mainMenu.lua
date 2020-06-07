@@ -8,6 +8,10 @@ local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
 end
 
+local function goToStageSelection()
+  sceneManager.changeScene(require 'src/menu/stageSelection')
+end
+
 local function goToSettings()
   sceneManager.changeScene(require 'src/menu/settings')
 end
@@ -25,16 +29,22 @@ function menu.load()
     y = 200,
   })
   buttonManager.newTextButton({
+    text = dictionary.localize('StageSelection'),
+    fn = goToStageSelection,
+    x = 100,
+    y = 300,
+  })
+  buttonManager.newTextButton({
     text = dictionary.localize('Settings'),
     fn = goToSettings,
     x = 100,
-    y = 300,
+    y = 400,
   })
   buttonManager.newTextButton({
     text = dictionary.localize('Exit'),
     fn = quitGame,
     x = 100,
-    y = 400,
+    y = 500,
   })
 end
 

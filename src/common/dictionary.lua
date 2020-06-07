@@ -11,6 +11,7 @@ local english = {
   -- menus
   StartGame = 'Start Game',
   Settings = 'Settings',
+  StageSelection = 'Choose Stage',
   Exit = 'Exit',
   ToggleFullscreen = 'Toggle Fullscreen',
   ChooseLanguage = 'Choose language',
@@ -80,6 +81,7 @@ local portuguese = {
   -- menus
   StartGame = 'Começar jogo',
   Settings = 'Configurações',
+  StageSelection = 'Escolher fase',
   Exit = 'Sair',
   ToggleFullscreen = 'Alternar tela cheia',
   ChooseLanguage = 'Escolher língua',

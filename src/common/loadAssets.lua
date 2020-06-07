@@ -78,6 +78,9 @@ local function loadFonts()
   assets.textFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 28)
   assets.bigFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 36)
   assets.talkiesFont = love.graphics.newFont('assets/fonts/JMH Typewriter.ttf', 20)
+
+  assets.timerFont = love.graphics.newFont('assets/fonts/DS-DIGI.ttf', 30)
+  assets.timerFont2 = love.graphics.newFont('assets/fonts/DS-DIGI.ttf', 34)
 end
 
 local function loadSfx()

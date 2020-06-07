@@ -1,15 +1,19 @@
 local cardObject = require 'src/components/cardObject'
 local utils = require 'src/common/utils'
+local gridUtils = require 'src/common/gridUtils'
 
 local flippedNow
-
 local mouseReleased
 local cards = {}
 local currentFlippedCards = {}
 
 local cardManager = {}
 
-function cardManager.newPairs(totalPairs)
+-- TODO: make it work for pairs of 3 cards as well
+-- TODO: refactor flipCard
+
+function cardManager.newPairs(rows, columns)
+  local totalPairs = rows * columns / 2
   for i = 1, totalPairs do
     local newPair = cardObject.newPair(i)
 
@@ -17,7 +21,13 @@ function cardManager.newPairs(totalPairs)
     table.insert(cards, newPair[2])
   end
 
-  return utils.shuffle(cards);
+  local shuffledCards = utils.shuffle(cards)
+  local grid = gridUtils.makeGrid(rows, columns)
+  for i = 1, #shuffledCards do
+    shuffledCards[i].x = grid[i][1]
+    shuffledCards[i].y = grid[i][2]
+  end
+  return shuffledCards;
 end
 
 function cardManager.load()
@@ -108,7 +118,7 @@ function cardManager.draw()
   end
 end
 
-function cardManager.mouseReleased(_, _, button)
+function cardManager.mouseReleased(button)
   if button == 1 then
     mouseReleased = true
   end

@@ -7,7 +7,7 @@ local Talkies = require 'libs/talkies'
 local scene = {}
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/stages/stage1-1')
+  sceneManager.changeScene(require 'src/stages/debugStage')
 end
 
 function scene.load()

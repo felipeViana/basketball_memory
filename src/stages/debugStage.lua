@@ -1,59 +1,49 @@
 local sceneManager = require 'src/common/sceneManager'
 local cardManager = require 'src/components/cardManager'
-local stageHUD = require 'src/components/stageHUD'
 local assets = require 'src/common/assets'
-
-local TOTAL_TIME = 20
+local gridUtils = require 'src/common/gridUtils'
 
 local stage = {}
-local initialTime
-local timeLeft
 
 local function exitStage()
   sceneManager.changeScene(require 'src/menu/stageSelection')
 end
 
 function stage.load()
-  initialTime = love.timer.getTime()
-  timeLeft = TOTAL_TIME
-
-  stageHUD.load()
   cardManager.load()
-  cardManager.newPairs(4, 3)
+  local cards = cardManager.newPairs(6)
+
+  local grid = gridUtils.makeGrid(6, 2)
+  for i = 1, #cards do
+    cards[i].x = grid[i][1]
+    cards[i].y = grid[i][2]
+  end
 end
 
 function stage.unload()
-  stageHUD.unload()
-  cardManager.unload()
 end
 
 function stage.update(dt)
-  timeLeft = TOTAL_TIME - (love.timer.getTime() - initialTime)
   local gameComplete = cardManager.update(dt)
 
   if gameComplete then
-    exitStage()
+    sceneManager.changeScene(require 'src/scenes/cutScene11')
   end
-
-  local gameOver = timeLeft < 0
-  if gameOver then
-    exitStage()
-  end
-
-  stageHUD.update(dt)
 end
 
 function stage.draw()
   love.graphics.setColor(1, 1, 1)
   love.graphics.draw(assets.stageBackground)
 
+  love.graphics.setFont(assets.timerFont)
+  love.graphics.print("tempo infinito")
+
   cardManager.draw()
-  stageHUD.draw(timeLeft)
 end
 
 function stage.mousereleased(_, _, button)
   cardManager.mouseReleased(button)
-  stageHUD.mouseReleased(button)
 end
+
 
 return stage;
