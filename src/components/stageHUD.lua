@@ -57,6 +57,7 @@ function hud.draw(timeLeft)
     love.graphics.setFont(assets.timerFont)
   end
 
+  love.graphics.setColor(1, 1, 1)
   if timeLeft < 5 then
     love.graphics.setColor(redColor)
   elseif timeLeft < 10 then

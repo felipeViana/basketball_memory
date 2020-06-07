@@ -6,6 +6,7 @@ local flippedNow
 local mouseReleased
 local cards = {}
 local currentFlippedCards = {}
+local lastPairState
 
 local cardManager = {}
 
@@ -31,6 +32,7 @@ function cardManager.newPairs(rows, columns)
 end
 
 function cardManager.load()
+  lastPairState = nil
   cards = {}
   currentFlippedCards = {}
   flippedNow = 0
@@ -66,6 +68,10 @@ local function flipCard(card)
     flippedNow = flippedNow + 1
   end
 
+  if flippedNow == 1 then
+    lastPairState = nil
+  end
+
   if flippedNow == 2 then
     local match = isMatch(currentFlippedCards[1], currentFlippedCards[2])
 
@@ -73,6 +79,9 @@ local function flipCard(card)
       markPairAsMatched(card)
       removePairFromQueue()
       flippedNow = 0
+      lastPairState = 'right'
+    else
+      lastPairState = 'wrong'
     end
   end
 
@@ -80,6 +89,7 @@ local function flipCard(card)
     unflipPair()
     removePairFromQueue()
     flippedNow = 1
+    lastPairState = nil
   end
 end
 
@@ -115,6 +125,14 @@ end
 function cardManager.draw()
   for _, card in pairs(cards) do
     cardObject.draw(card)
+  end
+
+  if lastPairState == 'right' then
+    love.graphics.setColor(0, 1, 0)
+    love.graphics.print("acertou!", 600, 300)
+  elseif lastPairState == 'wrong' then
+    love.graphics.setColor(1, 0, 0)
+    love.graphics.print("errou", 600, 300)
   end
 end
 
