@@ -19,7 +19,7 @@ function sceneManager._validateScene(s)
   s.wheelmoved = s.wheelmoved or emptyFunc
 
   s.name = s.name or nil
-  s.goingBack = s.goingBack or s.load or emptyFunc
+  s.comingBack = s.comingBack or emptyFunc
   return s
 end
 
@@ -49,7 +49,7 @@ function sceneManager.popScene()
   sceneManager.currentScene.unload()
   table.remove(screenStack, #screenStack)
   sceneManager.currentScene = screenStack[#screenStack]
-  sceneManager.currentScene.goingBack()
+  sceneManager.currentScene.comingBack()
 end
 
 function sceneManager.getCurrentScene()

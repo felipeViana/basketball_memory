@@ -11,13 +11,7 @@ end
 
 function stage.load()
   cardManager.load()
-  local cards = cardManager.newPairs(6)
-
-  local grid = gridUtils.makeGrid(6, 2)
-  for i = 1, #cards do
-    cards[i].x = grid[i][1]
-    cards[i].y = grid[i][2]
-  end
+  local cards = cardManager.newPairs(4, 3)
 end
 
 function stage.unload()
@@ -36,7 +30,7 @@ function stage.draw()
   love.graphics.draw(assets.stageBackground)
 
   love.graphics.setFont(assets.timerFont)
-  love.graphics.print("tempo infinito")
+  love.graphics.print("tempo infinito", 20, 20)
 
   cardManager.draw()
 end

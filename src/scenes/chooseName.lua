@@ -7,10 +7,6 @@ local scene = {};
 local textInput;
 
 function scene.load()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.setFont(assets.textFont)
-  love.graphics.setBackgroundColor(0, 0, 0)
-
   textInput = textInputComponent.new({
     posX=400,
     posY=400,
@@ -28,6 +24,9 @@ function scene.update(dt)
 end
 
 function scene.draw()
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.setBackgroundColor(0, 0, 0)
+  love.graphics.setFont(assets.textFont)
   love.graphics.print(dictionary.localize('type your name'), 100, 100)
   love.graphics.print(dictionary.localize('press enter to continue'), 100, 150)
   love.graphics.print(dictionary.localize('choose your name:'), 100, 400)

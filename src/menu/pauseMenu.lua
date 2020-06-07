@@ -1,6 +1,7 @@
 local sceneManager = require 'src/common/sceneManager'
 local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
+local assets = require 'src/common/assets'
 
 local menu = {
   name = 'pauseMenu'
@@ -39,17 +40,26 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.setColor(128/255, 128/255, 0)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle(
     'fill',
-    400,
+    380,
     50,
-    400,
+    420,
+    600
+  )
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.rectangle(
+    'line',
+    380,
+    50,
+    420,
     600
   )
 
-  love.graphics.setColor(0, 0, 0)
-  love.graphics.print('paused', 450, 70)
+  love.graphics.setFont(assets.squareFont)
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.print('paused', 530, 70)
   buttonManager:draw()
 end
 

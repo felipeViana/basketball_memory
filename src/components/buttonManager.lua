@@ -47,7 +47,6 @@ function buttonManager:update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
 
   for _, component in pairs(self.components) do
-    print(#self.components)
     component.hot = mouseX > component.x and mouseX < component.x + component.width and
                     mouseY > component.y and mouseY < component.y + component.height
 

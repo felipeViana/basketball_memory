@@ -38,6 +38,14 @@ function textButton.draw(button)
     BUTTON_WIDTH,
     BUTTON_HEIGHT
   )
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.rectangle(
+    'line',
+    button.x,
+    button.y,
+    BUTTON_WIDTH,
+    BUTTON_HEIGHT
+  )
 
   love.graphics.setColor(TEXT_COLOR)
   local textHeight = button.font:getHeight(button.text)
