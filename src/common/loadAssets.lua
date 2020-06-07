@@ -81,6 +81,8 @@ local function loadFonts()
 
   assets.timerFont = love.graphics.newFont('assets/fonts/DS-DIGI.ttf', 30)
   assets.timerFont2 = love.graphics.newFont('assets/fonts/DS-DIGI.ttf', 34)
+
+  assets.frostbiteFont = love.graphics.newFont('assets/fonts/FROSTBITE-Narrow.ttf', 28)
 end
 
 local function loadSfx()

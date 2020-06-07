@@ -1,6 +1,7 @@
 local cardObject = require 'src/components/cardObject'
 local utils = require 'src/common/utils'
 local gridUtils = require 'src/common/gridUtils'
+local assets = require 'src/common/assets'
 
 local flippedNow
 local mouseReleased
@@ -127,12 +128,13 @@ function cardManager.draw()
     cardObject.draw(card)
   end
 
+  love.graphics.setFont(assets.frostbiteFont)
   if lastPairState == 'right' then
     love.graphics.setColor(0, 1, 0)
-    love.graphics.print("acertou!", 600, 300)
+    love.graphics.print("ACERTOU", 600, 300)
   elseif lastPairState == 'wrong' then
     love.graphics.setColor(1, 0, 0)
-    love.graphics.print("errou", 600, 300)
+    love.graphics.print("ERROU", 600, 300)
   end
 end
 
