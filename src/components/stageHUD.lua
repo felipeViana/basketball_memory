@@ -1,5 +1,5 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/buttonManager'
+local buttonManager = (require 'src/components/buttonManager').new()
 local assets = require 'src/common/assets'
 
 local hud = {}
@@ -19,8 +19,8 @@ local function exitStage()
 end
 
 function hud.load()
-  buttonManager.load()
-  buttonManager.newTextButton({
+  buttonManager:load()
+  buttonManager:newTextButton({
     text = 'Sair',
     fn = exitStage,
     x = 100,
@@ -29,11 +29,11 @@ function hud.load()
 end
 
 function hud.unload()
-  buttonManager.unload()
+  buttonManager:unload()
 end
 
 function hud.update(dt)
-  buttonManager.update(dt)
+  buttonManager:update(dt)
 
   if stretching > 0 then
     stretching = stretching - dt
@@ -67,11 +67,11 @@ function hud.draw(timeLeft)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
-  buttonManager.draw()
+  buttonManager:draw()
 end
 
 function hud.mouseReleased(button)
-  buttonManager.mouseReleased(button)
+  buttonManager:mouseReleased(button)
 end
 
 return hud;

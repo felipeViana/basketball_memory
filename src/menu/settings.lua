@@ -1,5 +1,5 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/buttonManager'
+local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 
 local settings = {};
@@ -17,20 +17,20 @@ local function goBack()
 end
 
 function settings.load()
-  buttonManager.load()
-  buttonManager.newTextButton({
+  buttonManager:load()
+  buttonManager:newTextButton({
     text = dictionary.localize('ToggleFullscreen'),
     fn = toggleFullScreen,
     x = 400,
     y = 200,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('ChooseLanguage'),
     fn = goToChooseLanguage,
     x = 400,
     y = 300,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('GoBack'),
     fn = goBack,
     x = 400,
@@ -39,19 +39,19 @@ function settings.load()
 end
 
 function settings.unload()
-  buttonManager.unload()
+  buttonManager:unload()
 end
 
 function settings.update(dt)
-  buttonManager.update(dt)
+  buttonManager:update(dt)
 end
 
 function settings.draw()
-  buttonManager.draw()
+  buttonManager:draw()
 end
 
 function settings.mousereleased(_, _, button)
-  buttonManager.mouseReleased(button)
+  buttonManager:mouseReleased(button)
 end
 
 return settings;

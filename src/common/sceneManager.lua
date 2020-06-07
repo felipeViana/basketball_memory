@@ -46,6 +46,7 @@ function sceneManager.popScene()
     error('popScene requires at least one extra scene to go back to')
   end
 
+  sceneManager.currentScene.unload()
   table.remove(screenStack, #screenStack)
   sceneManager.currentScene = screenStack[#screenStack]
   sceneManager.currentScene.goingBack()

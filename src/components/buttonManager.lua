@@ -1,56 +1,66 @@
 local textButton = require 'src/components/textButton'
 local imageButton = require 'src/components/imageButton'
 
-local components = {}
-local button = {}
+local buttonManager = {
+  components = {},
+  mouseJustReleased,
+}
+buttonManager.meta = {
+  __index = buttonManager,
+}
 
-local mouseReleased
+function buttonManager.new()
+  local newButtonManager = {}
+  setmetatable(newButtonManager, buttonManager.meta)
+  return newButtonManager
+end
 
-local function addNewButtonToTable(newButton)
+local function addNewButtonToTable(self, newButton)
   table.insert(
-    components,
+    self.components,
     newButton
   )
 end
 
-function button.newTextButton(arg)
+function buttonManager:newTextButton(arg)
   local newButton = textButton.new(arg)
-  addNewButtonToTable(newButton)
+  addNewButtonToTable(self, newButton)
   return newButton
 end
 
-function button.newImageButton(arg)
+function buttonManager:newImageButton(arg)
   local newButton = imageButton.new(arg)
-  addNewButtonToTable(newButton)
+  addNewButtonToTable(self, newButton)
   return newButton
 end
 
-function button.load()
-  components = {}
-  mouseReleased = false
+function buttonManager:load()
+  self.components = {}
+  self.mouseJustReleased = false
 end
 
-function button.unload()
-  components = {}
+function buttonManager:unload()
+  self.components = {}
 end
 
-function button.update(dt)
+function buttonManager:update(dt)
   local mouseX, mouseY = love.mouse.getPosition()
 
-  for _, component in pairs(components) do
+  for _, component in pairs(self.components) do
+    print(#self.components)
     component.hot = mouseX > component.x and mouseX < component.x + component.width and
                     mouseY > component.y and mouseY < component.y + component.height
 
-    if mouseReleased and component.hot then
+    if self.mouseJustReleased and component.hot then
       component.fn()
     end
   end
 
-  mouseReleased = false
+  self.mouseJustReleased = false
 end
 
-function button.draw()
-  for _, component in pairs(components) do
+function buttonManager:draw()
+  for _, component in pairs(self.components) do
     if component.type == 'textButton' then
       textButton.draw(component)
     end
@@ -60,12 +70,12 @@ function button.draw()
   end
 end
 
-function button.mouseReleased(btn)
+function buttonManager:mouseReleased(btn)
   if btn == 1 then
-    mouseReleased = true
+    self.mouseJustReleased = true
   else
-    mouseReleased = false
+    self.mouseJustReleased = false
   end
 end
 
-return button;
+return buttonManager;

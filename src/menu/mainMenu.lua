@@ -1,5 +1,5 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/buttonManager'
+local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 
 local menu = {};
@@ -21,26 +21,26 @@ local function quitGame()
 end
 
 function menu.load()
-  buttonManager.load()
-  buttonManager.newTextButton({
+  buttonManager:load()
+  buttonManager:newTextButton({
     text = dictionary.localize('StartGame'),
     fn = startGame,
     x = 100,
     y = 200,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('StageSelection'),
     fn = goToStageSelection,
     x = 100,
     y = 300,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('Settings'),
     fn = goToSettings,
     x = 100,
     y = 400,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('Exit'),
     fn = quitGame,
     x = 100,
@@ -49,19 +49,19 @@ function menu.load()
 end
 
 function menu.unload()
-  buttonManager.unload()
+  buttonManager:unload()
 end
 
 function menu.update(dt)
-  buttonManager.update(dt)
+  buttonManager:update(dt)
 end
 
 function menu.draw()
-  buttonManager.draw()
+  buttonManager:draw()
 end
 
 function menu.mousereleased(_, _, button)
-  buttonManager.mouseReleased(button)
+  buttonManager:mouseReleased(button)
 end
 
 return menu;

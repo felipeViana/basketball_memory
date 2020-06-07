@@ -1,5 +1,5 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/buttonManager'
+local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 
 local menu = {};
@@ -13,14 +13,14 @@ local function goBack()
 end
 
 function menu.load()
-  buttonManager.load()
-  buttonManager.newTextButton({
+  buttonManager:load()
+  buttonManager:newTextButton({
     text = 'Stage 1-1',
     fn = goToStage11,
     x = 100,
     y = 200,
   })
-  buttonManager.newTextButton({
+  buttonManager:newTextButton({
     text = dictionary.localize('GoBack'),
     fn = goBack,
     x = 100,
@@ -29,19 +29,19 @@ function menu.load()
 end
 
 function menu.unload()
-  buttonManager.unload()
+  buttonManager:unload()
 end
 
 function menu.update(dt)
-  buttonManager.update(dt)
+  buttonManager:update(dt)
 end
 
 function menu.draw()
-  buttonManager.draw()
+  buttonManager:draw()
 end
 
 function menu.mousereleased(_, _, button)
-  buttonManager.mouseReleased(button)
+  buttonManager:mouseReleased(button)
 end
 
 return menu;

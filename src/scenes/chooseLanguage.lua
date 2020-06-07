@@ -1,7 +1,7 @@
 local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
 local dictionary = require 'src/common/dictionary'
-local buttonManager = require 'src/components/buttonManager'
+local buttonManager = (require 'src/components/buttonManager').new()
 local drawUtils = require 'src/common/drawUtils'
 
 local gameTitle = {};
@@ -30,8 +30,8 @@ function gameTitle.load(comingFromSettings)
   fromSettings = comingFromSettings
   titleFont = assets.bigFont
 
-  buttonManager.load()
-  buttonManager.newImageButton({
+  buttonManager:load()
+  buttonManager:newImageButton({
     fn = chooseEnglish,
     x = 100,
     y = 300,
@@ -41,7 +41,7 @@ function gameTitle.load(comingFromSettings)
     scaleX = 0.5,
     scaleY = 0.5,
   })
-  buttonManager.newImageButton({
+  buttonManager:newImageButton({
     fn = choosePortuguese,
     x = 700,
     y = 300,
@@ -54,11 +54,11 @@ function gameTitle.load(comingFromSettings)
 end
 
 function gameTitle.unload()
-  buttonManager.unload()
+  buttonManager:unload()
 end
 
 function gameTitle.update(dt)
-  buttonManager.update(dt)
+  buttonManager:update(dt)
 end
 
 function gameTitle.draw()
@@ -71,11 +71,11 @@ function gameTitle.draw()
     text=dictionary.localize('Choose your language'),
   })
 
-  buttonManager.draw()
+  buttonManager:draw()
 end
 
 function gameTitle.mousereleased(_, _, button)
-  buttonManager.mouseReleased(button)
+  buttonManager:mouseReleased(button)
 end
 
 return gameTitle;
