@@ -2,6 +2,8 @@ local sceneManager = {};
 
 local emptyFunc = function() end
 
+local screenStack = {}
+
 function sceneManager._validateScene(s)
   s = s or {}
 
@@ -15,6 +17,9 @@ function sceneManager._validateScene(s)
   s.mousepressed = s.mousepressed or emptyFunc
   s.mousereleased = s.mousereleased or emptyFunc
   s.wheelmoved = s.wheelmoved or emptyFunc
+
+  s.name = s.name or nil
+  s.goingBack = s.goingBack or s.load or emptyFunc
   return s
 end
 
@@ -24,6 +29,30 @@ function sceneManager.changeScene(s, option)
   sceneManager.currentScene.unload()
   sceneManager.currentScene = sceneManager._validateScene(s)
   sceneManager.currentScene.load(option)
+
+  screenStack = {s}
+end
+
+function sceneManager.pushScene(s, option)
+  s = s or error("pushScene requires a scene")
+
+  table.insert(screenStack, s)
+  sceneManager.currentScene = sceneManager._validateScene(s)
+  sceneManager.currentScene.load(option)
+end
+
+function sceneManager.popScene()
+  if #screenStack < 2 then
+    error('popScene requires at least one extra scene to go back to')
+  end
+
+  table.remove(screenStack, #screenStack)
+  sceneManager.currentScene = screenStack[#screenStack]
+  sceneManager.currentScene.goingBack()
+end
+
+function sceneManager.getCurrentScene()
+  return sceneManager.currentScene
 end
 
 function sceneManager.resetScene()

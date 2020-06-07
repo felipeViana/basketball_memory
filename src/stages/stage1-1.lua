@@ -22,6 +22,11 @@ function stage.load()
   cardManager.newPairs(4, 3)
 end
 
+function stage.goingBack()
+  stageHUD.load()
+  initialTime = timeLeft - TOTAL_TIME + love.timer.getTime()
+end
+
 function stage.unload()
   stageHUD.unload()
   cardManager.unload()

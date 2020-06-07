@@ -26,6 +26,7 @@ function button.newImageButton(arg)
 end
 
 function button.load()
+  components = {}
   mouseReleased = false
 end
 

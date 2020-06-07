@@ -51,4 +51,8 @@ function utils.tableWithAddedTable(t1, t2)
   return newTable
 end
 
+function utils.copyTable(orig)
+  return deepcopy(orig)
+end
+
 return utils

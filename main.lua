@@ -3,7 +3,8 @@ local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 
 local DEBUG = true
-local gameIsPaused = false
+local inPause = false
+local justPaused = false
 
 function love.load()
   loadAssets.loadAll()
@@ -17,8 +18,15 @@ function love.load()
 end
 
 function love.update(dt)
-  if gameIsPaused then
-    return
+  if not inPause and justPaused then
+    sceneManager.pushScene(require 'src/menu/pauseMenu')
+    justPaused = false
+    inPause = true
+  end
+
+  local currentScene = sceneManager.getCurrentScene()
+  if currentScene.name ~= 'pauseMenu' then
+    inPause = false
   end
 
   sceneManager.currentScene.update(dt)
@@ -34,8 +42,8 @@ end
 
 function love.keypressed(key)
   sceneManager.currentScene.keypressed(key)
-  if key == "escape" then
-    love.event.quit(0)
+  if key == "escape" and not inPause then
+    justPaused = true
   end
 end
 
@@ -44,5 +52,7 @@ function love.textinput(t)
 end
 
 function love.focus(f)
-  gameIsPaused = not f
+  if not f and not inPause then
+    justPaused = true
+  end
 end
