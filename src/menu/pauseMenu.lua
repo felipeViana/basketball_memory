@@ -2,6 +2,7 @@ local sceneManager = require 'src/common/sceneManager'
 local btnManager = require 'src/components/buttonManager'
 local dictionary = require 'src/common/dictionary'
 local utils = require 'src/common/utils'
+local assets = require 'src/common/assets'
 
 local menu = {
   name = 'pauseMenu'
@@ -23,13 +24,13 @@ function menu.load()
   buttonManager.newTextButton({
     text = dictionary.localize('GoBack'),
     fn = goBack,
-    x = 100,
+    x = 450,
     y = 200,
   })
   buttonManager.newTextButton({
     text = dictionary.localize('Exit'),
     fn = quitGame,
-    x = 100,
+    x = 450,
     y = 500,
   })
 end
@@ -43,7 +44,17 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.print('paused', 600, 300)
+  love.graphics.setColor(128/255, 128/255, 0)
+  love.graphics.rectangle(
+    'fill',
+    400,
+    50,
+    400,
+    600
+  )
+
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.print('paused', 450, 70)
   buttonManager.draw()
 end
 

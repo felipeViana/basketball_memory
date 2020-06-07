@@ -33,7 +33,7 @@ function love.update(dt)
 end
 
 function love.draw()
-  sceneManager.currentScene.draw()
+  sceneManager.draw()
 end
 
 function love.mousereleased(x, y, button, istouch)

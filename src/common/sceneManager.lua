@@ -55,6 +55,12 @@ function sceneManager.getCurrentScene()
   return sceneManager.currentScene
 end
 
+function sceneManager.draw()
+  for i = 1, #screenStack do
+    screenStack[i].draw()
+  end
+end
+
 function sceneManager.resetScene()
   sceneManager.currentScene.unload()
   sceneManager.currentScene.load()
