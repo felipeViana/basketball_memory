@@ -10,6 +10,7 @@ end
 
 function scene.draw()
   love.graphics.setFont(assets.textFont)
+  love.graphics.setColor(1, 1, 1)
   love.graphics.print('Em Memória da lenda Kobe Bryant e sua Filha Gianna Bryant', 100, 100)
 
   love.graphics.setFont(assets.smallFont)
