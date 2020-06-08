@@ -17,13 +17,12 @@ function stage.load()
   initialTime = love.timer.getTime()
   timeLeft = TOTAL_TIME
 
-  stageHUD.load()
   cardManager.load()
   cardManager.newPairs(4, 3)
+  stageHUD.load()
 end
 
 function stage.comingBack()
-  stageHUD.load()
   initialTime = timeLeft - TOTAL_TIME + love.timer.getTime()
 end
 

@@ -26,11 +26,11 @@ end
 function sceneManager.changeScene(s, option)
   s = s or error("ChangeScene requires a Scene")
 
+  screenStack = {s}
+
   sceneManager.currentScene.unload()
   sceneManager.currentScene = sceneManager._validateScene(s)
   sceneManager.currentScene.load(option)
-
-  screenStack = {s}
 end
 
 function sceneManager.pushScene(s, option)

@@ -26,6 +26,8 @@ function hud.load()
     x = 100,
     y = 600,
   })
+
+  sceneManager.pushScene(require 'src/stages/getPrepared')
 end
 
 function hud.unload()
