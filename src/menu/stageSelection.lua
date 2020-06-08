@@ -28,6 +28,42 @@ local function goToStage21()
   sceneManager.changeScene(require 'src/stages/stage2-1')
 end
 
+local function goToStage22()
+  sceneManager.changeScene(require 'src/stages/stage2-2')
+end
+
+local function goToStage23()
+  sceneManager.changeScene(require 'src/stages/stage2-3')
+end
+
+local function goToStage24()
+  sceneManager.changeScene(require 'src/stages/stage2-4')
+end
+
+local function goToStage25()
+  sceneManager.changeScene(require 'src/stages/stage2-5')
+end
+
+local function goToStage31()
+  sceneManager.changeScene(require 'src/stages/stage3-1')
+end
+
+local function goToStage32()
+  sceneManager.changeScene(require 'src/stages/stage3-2')
+end
+
+local function goToStage33()
+  sceneManager.changeScene(require 'src/stages/stage3-3')
+end
+
+local function goToStage34()
+  sceneManager.changeScene(require 'src/stages/stage3-4')
+end
+
+local function goToStage35()
+  sceneManager.changeScene(require 'src/stages/stage3-5')
+end
+
 local function goBack()
   sceneManager.changeScene(require 'src/menu/mainMenu')
 end
@@ -70,6 +106,61 @@ function menu.load()
     fn = goToStage21,
     x = 450,
     y = 50,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 2-2',
+    fn = goToStage22,
+    x = 450,
+    y = 150,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 2-3',
+    fn = goToStage23,
+    x = 450,
+    y = 250,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 2-4',
+    fn = goToStage24,
+    x = 450,
+    y = 350,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 2-5',
+    fn = goToStage25,
+    x = 450,
+    y = 450,
+  })
+
+  buttonManager:newTextButton({
+    text = 'Stage 3-1',
+    fn = goToStage31,
+    x = 800,
+    y = 50,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-2',
+    fn = goToStage32,
+    x = 800,
+    y = 150,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-3',
+    fn = goToStage33,
+    x = 800,
+    y = 250,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-4',
+    fn = goToStage34,
+    x = 800,
+    y = 350,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-5',
+    fn = goToStage35,
+    x = 800,
+    y = 450,
   })
 
   buttonManager:newTextButton({

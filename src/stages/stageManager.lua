@@ -8,6 +8,8 @@ local stageManager = {
   timeLeft,
   TOTAL_TIME,
   errorsDiscountTime,
+  numberOfErrors,
+  limitedErrors,
 }
 stageManager.meta = {
   __index = stageManager,
@@ -19,11 +21,15 @@ function stageManager:new()
   return newStageManager
 end
 
-function stageManager:load(totalTime, errorsDiscountTime)
+function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors)
   self.initialTime = love.timer.getTime()
   self.TOTAL_TIME = totalTime
   self.timeLeft = self.TOTAL_TIME
   self.errorsDiscountTime = errorsDiscountTime
+
+  print(numberOfErrors)
+  self.numberOfErrors = numberOfErrors
+  self.limitedErrors = numberOfErrors ~= nil
 
   cardManager.load()
   cardManager.newPairs(4, 3)
@@ -40,14 +46,23 @@ function stageManager:unload()
 end
 
 function stageManager:update(dt)
+  local gameComplete, hasMissed = cardManager.update(dt)
+
+  if self.limitedErrors and hasMissed then
+    self.numberOfErrors = self.numberOfErrors - 1
+  end
+
+  if hasMissed and self.errorsDiscountTime then
+    self.initialTime = self.initialTime - 5
+  end
+
   self.timeLeft = self.TOTAL_TIME - (love.timer.getTime() - self.initialTime)
-  local gameComplete = cardManager.update(dt)
 
   if gameComplete then
     sceneManager.pushScene(require 'src/stages/winStageScreen')
   end
 
-  local gameOver = self.timeLeft < 0
+  local gameOver = self.timeLeft < 0 or (self.limitedErrors and self.numberOfErrors < 0)
   if gameOver then
     sceneManager.pushScene(require 'src/stages/gameOverScreen')
   end
@@ -60,7 +75,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft)
+  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors)
 end
 
 function stageManager:mouseReleased(button)

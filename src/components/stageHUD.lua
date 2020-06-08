@@ -47,7 +47,7 @@ function hud.update(dt)
   end
 end
 
-function hud.draw(timeLeft)
+function hud.draw(timeLeft, limitedErrors, numberOfErrors)
   local x = 200
   local y = 25
 
@@ -68,6 +68,13 @@ function hud.draw(timeLeft)
     love.graphics.setColor(yellowColor)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
+
+  love.graphics.setFont(assets.squareFont)
+  if not limitedErrors then
+    love.graphics.print("infinitas tentativas", 650, 100)
+  else
+    love.graphics.print(numberOfErrors .. " erros permitidos", 650, 100)
+  end
 
   buttonManager:draw()
 end

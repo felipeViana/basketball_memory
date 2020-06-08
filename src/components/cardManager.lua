@@ -83,6 +83,7 @@ local function flipCard(card)
       lastPairState = 'right'
     else
       lastPairState = 'wrong'
+      return true
     end
   end
 
@@ -92,26 +93,31 @@ local function flipCard(card)
     flippedNow = 1
     lastPairState = nil
   end
+
+  return false
 end
 
 local function updateCards()
   local mouseX, mouseY = love.mouse.getPosition()
 
+  local hasMissed
   for _, card in pairs(cards) do
     card.hot = mouseX >= card.x and mouseX <= card.x + card.width and
                mouseY >= card.y and mouseY <= card.y + card.height
 
-    if mouseReleased and card.hot then
-      flipCard(card)
+    if mouseReleased and card.hot and not card.flipped then
+      hasMissed = flipCard(card)
     end
 
   end
 
   mouseReleased = false
+
+  return hasMissed
 end
 
 function cardManager.update(dt)
-  updateCards()
+  local hasMissed = updateCards()
 
   local gameComplete = true
   for _, card in pairs(cards) do
@@ -120,7 +126,7 @@ function cardManager.update(dt)
     end
   end
 
-  return gameComplete
+  return gameComplete, hasMissed
 end
 
 function cardManager.draw()
