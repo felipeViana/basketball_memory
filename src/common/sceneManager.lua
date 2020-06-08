@@ -41,7 +41,7 @@ function sceneManager.pushScene(s, option)
   sceneManager.currentScene.load(option)
 end
 
-function sceneManager.popScene()
+function sceneManager.popScene(load)
   if #screenStack < 2 then
     error('popScene requires at least one extra scene to go back to')
   end
@@ -50,6 +50,9 @@ function sceneManager.popScene()
   table.remove(screenStack, #screenStack)
   sceneManager.currentScene = screenStack[#screenStack]
   sceneManager.currentScene.comingBack()
+  if load then
+    sceneManager.currentScene.load()
+  end
 end
 
 function sceneManager.getCurrentScene()

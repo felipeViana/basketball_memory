@@ -3,29 +3,27 @@ local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 local assets = require 'src/common/assets'
 
-local menu = {
-  name = 'pauseMenu'
-};
+local menu = {};
 
-local function goBack()
-  sceneManager.popScene()
+local function restart()
+  sceneManager.popScene(true)
 end
 
-local function quitGame()
-  love.event.quit(0)
+local function quitStage()
+  sceneManager.changeScene(require 'src/menu/stageSelection')
 end
 
 function menu.load()
   buttonManager:load()
   buttonManager:newTextButton({
-    text = dictionary.localize('GoBack'),
-    fn = goBack,
+    text = 'Reiniciar',
+    fn = restart,
     x = 450,
     y = 200,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('Exit'),
-    fn = quitGame,
+    fn = quitStage,
     x = 450,
     y = 500,
   })
@@ -40,25 +38,24 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.setColor(0, 0, 0)
+  love.graphics.setColor(0, 128/255, 0)
   love.graphics.rectangle(
     'fill',
-    380,
+    300,
     50,
-    420,
+    620,
     600
   )
-
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle(
     'line',
-    380,
+    300,
     50,
-    420,
+    620,
     600
   )
   love.graphics.setFont(assets.squareFont)
-  love.graphics.print('paused', 530, 70)
+  love.graphics.print('Você Venceu', 530, 70)
   buttonManager:draw()
 end
 

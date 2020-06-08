@@ -3,15 +3,11 @@ local cardManager = require 'src/components/cardManager'
 local stageHUD = require 'src/components/stageHUD'
 local assets = require 'src/common/assets'
 
-local TOTAL_TIME = 20
+local TOTAL_TIME = 60
 
 local stage = {}
 local initialTime
 local timeLeft
-
-local function exitStage()
-  sceneManager.changeScene(require 'src/menu/stageSelection')
-end
 
 function stage.load()
   initialTime = love.timer.getTime()
@@ -36,12 +32,12 @@ function stage.update(dt)
   local gameComplete = cardManager.update(dt)
 
   if gameComplete then
-    exitStage()
+    sceneManager.pushScene(require 'src/stages/winStageScreen')
   end
 
   local gameOver = timeLeft < 0
   if gameOver then
-    exitStage()
+    sceneManager.pushScene(require 'src/stages/gameOverScreen')
   end
 
   stageHUD.update(dt)
