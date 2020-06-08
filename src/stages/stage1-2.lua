@@ -3,7 +3,7 @@ local stageManager = (require 'src/stages/stageManager').new()
 local stage = {}
 
 function stage.load()
-  stageManager:load(60)
+  stageManager:load(30)
 end
 
 function stage.comingBack()
