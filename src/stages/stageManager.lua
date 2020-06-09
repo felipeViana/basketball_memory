@@ -4,6 +4,8 @@ local stageHUD = require 'src/components/stageHUD'
 local assets = require 'src/common/assets'
 
 local stageManager = {
+  music,
+
   initialTime,
   timeLeft,
   TOTAL_TIME,
@@ -27,13 +29,16 @@ function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors)
   self.timeLeft = self.TOTAL_TIME
   self.errorsDiscountTime = errorsDiscountTime
 
-  print(numberOfErrors)
   self.numberOfErrors = numberOfErrors
   self.limitedErrors = numberOfErrors ~= nil
 
   cardManager.load()
   cardManager.newPairs(4, 3)
   stageHUD.load()
+
+  self.music = assets.inGameMusic
+  self.music:setLooping(true)
+  self.music:play()
 end
 
 function stageManager:comingBack()
@@ -43,6 +48,7 @@ end
 function stageManager:unload()
   stageHUD.unload()
   cardManager.unload()
+  self.music:stop()
 end
 
 function stageManager:update(dt)

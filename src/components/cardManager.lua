@@ -81,8 +81,10 @@ local function flipCard(card)
       removePairFromQueue()
       flippedNow = 0
       lastPairState = 'right'
+      assets.rightPair:play()
     else
       lastPairState = 'wrong'
+      assets.wrongPair:play()
       return true
     end
   end

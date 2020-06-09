@@ -88,12 +88,19 @@ end
 local function loadSfx()
   assets.typeSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
   assets.talkSound = love.audio.newSource("assets/sfx/talk.wav", "static")
+  assets.rightPair = love.audio.newSource("assets/sfx/comb2.wav", "static")
+  assets.wrongPair = love.audio.newSource("assets/sfx/errorC.wav", "static")
+end
+
+local function loadMusic()
+  assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "static")
 end
 
 function loadAssets.loadAll()
   loadImgs()
   loadFonts()
   loadSfx()
+  loadMusic()
 end
 
 return loadAssets;
