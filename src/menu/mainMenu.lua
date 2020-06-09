@@ -1,8 +1,11 @@
 local sceneManager = require 'src/common/sceneManager'
 local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
+local assets = require 'src/common/assets'
 
 local menu = {};
+
+local music
 
 local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
@@ -46,10 +49,15 @@ function menu.load()
     x = 100,
     y = 500,
   })
+
+  music = assets.menuMusic
+  music:setLooping(true)
+  music:play()
 end
 
 function menu.unload()
   buttonManager:unload()
+  music:pause()
 end
 
 function menu.update(dt)

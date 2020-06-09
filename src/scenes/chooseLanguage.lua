@@ -4,9 +4,10 @@ local dictionary = require 'src/common/dictionary'
 local buttonManager = (require 'src/components/buttonManager').new()
 local drawUtils = require 'src/common/drawUtils'
 
-local gameTitle = {};
+local screen = {};
 local fromSettings = false;
 local titleFont
+local music
 
 local function goToNextScreen()
   if fromSettings then
@@ -26,7 +27,7 @@ local function choosePortuguese()
   goToNextScreen()
 end
 
-function gameTitle.load(comingFromSettings)
+function screen.load(comingFromSettings)
   fromSettings = comingFromSettings
   titleFont = assets.bigFont
 
@@ -51,17 +52,22 @@ function gameTitle.load(comingFromSettings)
     scaleX = 0.5,
     scaleY = 0.36,
   })
+
+  music = assets.menuMusic
+  music:setLooping(true)
+  music:play()
 end
 
-function gameTitle.unload()
+function screen.unload()
   buttonManager:unload()
+  music:pause()
 end
 
-function gameTitle.update(dt)
+function screen.update(dt)
   buttonManager:update(dt)
 end
 
-function gameTitle.draw()
+function screen.draw()
   love.graphics.setColor(1, 1, 1)
 
   drawUtils.drawTextRectangle({
@@ -74,8 +80,8 @@ function gameTitle.draw()
   buttonManager:draw()
 end
 
-function gameTitle.mousereleased(_, _, button)
+function screen.mousereleased(_, _, button)
   buttonManager:mouseReleased(button)
 end
 
-return gameTitle;
+return screen;

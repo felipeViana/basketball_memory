@@ -1,8 +1,10 @@
 local sceneManager = require 'src/common/sceneManager'
 local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
+local assets = require 'src/common/assets'
 
 local settings = {};
+local music
 
 local function toggleFullScreen()
   love.window.setFullscreen(not love.window.getFullscreen())
@@ -36,10 +38,15 @@ function settings.load()
     x = 400,
     y = 500,
   })
+
+  music = assets.menuMusic
+  music:setLooping(true)
+  music:play()
 end
 
 function settings.unload()
   buttonManager:unload()
+  music:pause()
 end
 
 function settings.update(dt)

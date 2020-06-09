@@ -6,11 +6,20 @@ local gameTitle = {};
 local bgImage
 local smallFont
 local titleFont
+local music
 
 function gameTitle.load()
   smallFont = assets.textFont
   titleFont = assets.bigFont
   bgImage = assets.titleBackground
+
+  music = assets.menuMusic
+  music:setLooping(true)
+  music:play()
+end
+
+function gameTitle.unload()
+  music:pause()
 end
 
 function gameTitle.draw()
