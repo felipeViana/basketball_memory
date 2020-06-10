@@ -96,7 +96,10 @@ end
 
 local function loadMusic()
   assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "static")
+  assets.inGameMusic:setLooping(true)
+
   assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "static")
+  assets.menuMusic:setLooping(true)
 end
 
 function loadAssets.loadAll()

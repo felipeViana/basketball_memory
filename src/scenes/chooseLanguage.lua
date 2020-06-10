@@ -54,7 +54,6 @@ function screen.load(comingFromSettings)
   })
 
   music = assets.menuMusic
-  music:setLooping(true)
   music:play()
 end
 

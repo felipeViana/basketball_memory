@@ -14,7 +14,6 @@ function gameTitle.load()
   bgImage = assets.titleBackground
 
   music = assets.menuMusic
-  music:setLooping(true)
   music:play()
 end
 

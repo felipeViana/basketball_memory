@@ -37,7 +37,6 @@ function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors)
   stageHUD.load()
 
   self.music = assets.inGameMusic
-  self.music:setLooping(true)
   self.music:play()
 end
 

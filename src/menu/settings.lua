@@ -40,7 +40,6 @@ function settings.load()
   })
 
   music = assets.menuMusic
-  music:setLooping(true)
   music:play()
 end
 
