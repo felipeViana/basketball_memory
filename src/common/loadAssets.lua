@@ -103,6 +103,15 @@ local function loadMusic()
 
   assets.streetMusic = love.audio.newSource("assets/music/streetMusic.mp3", "static")
   assets.streetMusic:setLooping(true)
+
+  assets.scene1Music = love.audio.newSource("assets/music/On-Thngs-to-Come_Looping.mp3", "static")
+  assets.scene1Music:setLooping(true)
+
+  assets.scene2Music = love.audio.newSource("assets/music/Extreme-Sports-Mayhem_Looping.mp3", "static")
+  assets.scene2Music:setLooping(true)
+
+  assets.scene3Music = love.audio.newSource("assets/music/Autumn-Changes_Looping.mp3", "static")
+  assets.scene3Music:setLooping(true)
 end
 
 function loadAssets.loadAll()

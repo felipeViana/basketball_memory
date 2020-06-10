@@ -11,7 +11,7 @@ function love.load()
   globals.loadAll()
 
   if DEBUG then
-    sceneManager.changeScene(require 'src/menu/stageSelection')
+    sceneManager.changeScene(require 'src/scenes/cutScene5')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
   end
