@@ -100,6 +100,9 @@ local function loadMusic()
 
   assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "static")
   assets.menuMusic:setLooping(true)
+
+  assets.streetMusic = love.audio.newSource("assets/music/streetMusic.mp3", "static")
+  assets.streetMusic:setLooping(true)
 end
 
 function loadAssets.loadAll()

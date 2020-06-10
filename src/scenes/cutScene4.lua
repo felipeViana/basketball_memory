@@ -5,6 +5,7 @@ local dictionary = require 'src/common/dictionary'
 local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 local scene = {}
+local music
 
 local function goToNextScreen()
   sceneManager.changeScene(require 'src/scenes/cutScene5')
@@ -68,10 +69,14 @@ function scene.load()
       }
     )
   )
+
+  music = assets.streetMusic
+  music:play()
 end
 
 function scene.unload()
   Talkies.clearMessages()
+  music:stop()
 end
 
 function scene.update(dt)
