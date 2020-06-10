@@ -2,6 +2,7 @@ local cardObject = require 'src/components/cardObject'
 local utils = require 'src/common/utils'
 local gridUtils = require 'src/common/gridUtils'
 local assets = require 'src/common/assets'
+local soundManager = require 'src/components/soundManager'
 
 local flippedNow
 local mouseReleased
@@ -81,12 +82,10 @@ local function flipCard(card)
       removePairFromQueue()
       flippedNow = 0
       lastPairState = 'right'
-      assets.rightPair:seek(0)
-      assets.rightPair:play()
+      soundManager.playSound(assets.rightPair)
     else
       lastPairState = 'wrong'
-      assets.wrongPair:seek(0)
-      assets.wrongPair:play()
+      soundManager.playSound(assets.wrongPair)
       return true
     end
   end
