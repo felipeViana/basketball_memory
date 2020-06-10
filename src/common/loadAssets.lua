@@ -91,6 +91,7 @@ local function loadSfx()
   assets.rightPair = love.audio.newSource("assets/sfx/comb2.wav", "static")
   assets.rightPair:setVolume(0.8)
   assets.wrongPair = love.audio.newSource("assets/sfx/errorC.wav", "static")
+  assets.selectSound = love.audio.newSource("assets/sfx/select.wav", "static")
 end
 
 local function loadMusic()

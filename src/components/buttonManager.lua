@@ -1,5 +1,7 @@
 local textButton = require 'src/components/textButton'
 local imageButton = require 'src/components/imageButton'
+local soundManager = require 'src/components/soundManager'
+local assets = require 'src/common/assets'
 
 local buttonManager = {
   components = {},
@@ -51,6 +53,7 @@ function buttonManager:update(dt)
                     mouseY > component.y and mouseY < component.y + component.height
 
     if self.mouseJustReleased and component.hot then
+      soundManager.playSound(assets.selectSound)
       component.fn()
     end
   end
