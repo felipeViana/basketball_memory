@@ -4,6 +4,15 @@ local CARD_WIDTH = 124
 local CARD_HEIGHT = 178
 local CARD_SCALE = 0.7
 
+local colors = {
+  {1, 1, 1},
+  {0, 0, 1},
+  {1, 0, 0},
+  {0, 1, 0},
+  {0, 1, 1},
+  {1, 1, 0},
+}
+
 local cardObject = {}
 
 local function newCard(i)
@@ -38,6 +47,7 @@ function cardObject.draw(card)
   end
 
   love.graphics.setColor(1, 1, 1)
+  -- love.graphics.setColor(colors[card.kind])
   love.graphics.draw(image, card.x + card.width*(1-extraScale)/2, card.y + card.height*(1-extraScale)/2, 0, card.scaleX * extraScale, card.scaleY * extraScale)
 end
 

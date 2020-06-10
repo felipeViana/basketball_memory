@@ -89,6 +89,8 @@ local function loadSfx()
   assets.typeSound = love.audio.newSource("assets/sfx/typeSound.wav", "static")
   assets.talkSound = love.audio.newSource("assets/sfx/talk.wav", "static")
   assets.rightPair = love.audio.newSource("assets/sfx/comb2.wav", "static")
+  assets.rightPair:setPitch(0.8)
+  assets.rightPair:setVolume(0.8)
   assets.wrongPair = love.audio.newSource("assets/sfx/errorC.wav", "static")
 end
 
