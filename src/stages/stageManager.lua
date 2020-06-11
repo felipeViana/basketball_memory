@@ -2,6 +2,7 @@ local sceneManager = require 'src/common/sceneManager'
 local cardManager = require 'src/components/cardManager'
 local stageHUD = require 'src/components/stageHUD'
 local assets = require 'src/common/assets'
+local soundManager = require 'src/components/soundManager'
 
 local stageManager = {
   music,
@@ -65,11 +66,13 @@ function stageManager:update(dt)
 
   if gameComplete then
     sceneManager.pushScene(require 'src/stages/winStageScreen')
+    soundManager.playSound(assets.winningSound)
   end
 
   local gameOver = self.timeLeft < 0 or (self.limitedErrors and self.numberOfErrors < 0)
   if gameOver then
     sceneManager.pushScene(require 'src/stages/gameOverScreen')
+    soundManager.playSound(assets.losingSound)
   end
 
   stageHUD.update(dt)
