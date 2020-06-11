@@ -95,10 +95,14 @@ local function loadSfx()
 end
 
 local function loadMusic()
+  -- assets.winningMusic = love.audio.newSource("assets/music/megaman_winning.wav", "static")
+
   assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "stream")
+  assets.inGameMusic:setVolume(0.7)
   assets.inGameMusic:setLooping(true)
 
   assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "stream")
+  assets.menuMusic:setVolume(0.7)
   assets.menuMusic:setLooping(true)
 
   assets.scene1Music = love.audio.newSource("assets/music/On-Thngs-to-Come_Looping.mp3", "stream")
