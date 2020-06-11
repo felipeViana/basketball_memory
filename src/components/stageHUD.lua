@@ -69,6 +69,7 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
+  love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(assets.squareFont)
   if not limitedErrors then
     love.graphics.print("infinitas tentativas", 650, 100)
