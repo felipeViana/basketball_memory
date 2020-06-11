@@ -95,23 +95,29 @@ local function loadSfx()
 end
 
 local function loadMusic()
-  assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "static")
+  assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "stream")
   assets.inGameMusic:setLooping(true)
 
-  assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "static")
+  assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "stream")
   assets.menuMusic:setLooping(true)
 
-  assets.streetMusic = love.audio.newSource("assets/music/streetMusic.mp3", "static")
-  assets.streetMusic:setLooping(true)
-
-  assets.scene1Music = love.audio.newSource("assets/music/On-Thngs-to-Come_Looping.mp3", "static")
+  assets.scene1Music = love.audio.newSource("assets/music/On-Thngs-to-Come_Looping.mp3", "stream")
   assets.scene1Music:setLooping(true)
 
-  assets.scene2Music = love.audio.newSource("assets/music/Extreme-Sports-Mayhem_Looping.mp3", "static")
+  assets.scene2Music = love.audio.newSource("assets/music/Extreme-Sports-Mayhem_Looping.mp3", "stream")
   assets.scene2Music:setLooping(true)
 
-  assets.scene3Music = love.audio.newSource("assets/music/Autumn-Changes_Looping.mp3", "static")
+  assets.scene3Music = love.audio.newSource("assets/music/Autumn-Changes_Looping.mp3", "stream")
   assets.scene3Music:setLooping(true)
+
+  assets.streetMusic = love.audio.newSource("assets/music/streetMusic.mp3", "stream")
+  assets.streetMusic:setLooping(true)
+
+  assets.scene5Music = love.audio.newSource("assets/music/WalkingOnTheMesmerizingSkyInSpring.mp3", "stream")
+  assets.scene5Music:setLooping(true)
+
+  assets.scene6Music = love.audio.newSource("assets/music/S31-Let the Games Begin.ogg", "stream")
+  assets.scene6Music:setLooping(true)
 end
 
 function loadAssets.loadAll()

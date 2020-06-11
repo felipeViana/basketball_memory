@@ -4,6 +4,7 @@ local utils = require 'src/common/utils'
 local dictionary = require 'src/common/dictionary'
 local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
+
 local scene = {}
 local music
 
