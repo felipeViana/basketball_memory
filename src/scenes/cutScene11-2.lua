@@ -6,6 +6,7 @@ local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
 
 local scene = {}
+local music
 
 local function goToNextScreen()
   sceneManager.changeScene(require 'src/scenes/credits')
@@ -33,6 +34,9 @@ function scene.load()
       }
     )
   )
+
+  music = assets.endingMusic
+  music:play()
 end
 
 function scene.unload()

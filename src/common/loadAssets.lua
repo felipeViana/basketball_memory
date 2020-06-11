@@ -126,6 +126,9 @@ local function loadMusic()
   assets.scene11Music = love.audio.newSource("assets/music/champion.wav", "stream")
   assets.scene11Music:setVolume(0.6)
   assets.scene11Music:setLooping(true)
+
+  assets.endingMusic = love.audio.newSource("assets/music/ending.wav", "stream")
+  assets.endingMusic:setLooping(true)
 end
 
 function loadAssets.loadAll()
