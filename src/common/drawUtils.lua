@@ -1,3 +1,5 @@
+local colors = require 'src/common/colors'
+
 local drawUtils = {};
 
 local defaultTextBackgroundColor = {0, 0, 0}
@@ -36,6 +38,19 @@ function drawUtils.drawTextRectangle(arg)
     textBackgroundColor=arg.textBackgroundColor or defaultTextBackgroundColor,
     textForegroundColor=arg.textForegroundColor or defaultTextForegroundColor,
   })
+end
+
+function drawUtils.drawRainbowCosText(text, font, time)
+  for i=1, #text do
+    for j=1, #colors.getRainbowColors() do
+      local t1 = time + i*4 - j*2
+      local y = 60 + math.cos(t1*3)*20
+
+      love.graphics.setColor(colors.getRainbowColors()[j])
+      love.graphics.setFont(font)
+      love.graphics.print(text:sub(i, i), 250 + i * 30, y)
+    end
+  end
 end
 
 return drawUtils;

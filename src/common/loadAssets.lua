@@ -98,7 +98,6 @@ local function loadSfx()
 end
 
 local function loadMusic()
-
   assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "stream")
   assets.inGameMusic:setVolume(0.6)
   assets.inGameMusic:setLooping(true)
