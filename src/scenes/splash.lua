@@ -1,11 +1,14 @@
 local sceneManager = require 'src/common/sceneManager'
-local o_ten_one = require 'libs/splashes/o-ten-one'
+local o_ten_one = require 'libs/splashes'
 
 local scene = {}
 local splash = {}
 
 function scene.load()
-  splash = o_ten_one({background={0, 0, 0}})
+  splash = o_ten_one({
+    background={0, 0, 0},
+    fill = 'lighten',
+  })
 
   function splash.onDone()
     sceneManager.changeScene(require 'src/scenes/gameTitle')
