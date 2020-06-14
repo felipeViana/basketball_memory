@@ -46,7 +46,7 @@ function menu.load()
     y = 400,
   })
   buttonManager:newTextButton({
-    text = dictionary.localize('Exit'),
+    text = dictionary.localize('ExitGame'),
     fn = quitGame,
     x = 100,
     y = 500,

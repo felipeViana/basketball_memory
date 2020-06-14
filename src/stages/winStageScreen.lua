@@ -22,7 +22,7 @@ function menu.load()
     y = 200,
   })
   buttonManager:newTextButton({
-    text = dictionary.localize('Exit'),
+    text = dictionary.localize('ExitToMenu'),
     fn = quitStage,
     x = 450,
     y = 500,
