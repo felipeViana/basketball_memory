@@ -2,6 +2,7 @@ local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
 local textInputComponent = require 'src/components/textInput'
 local dictionary = require 'src/common/dictionary'
+local globals = require 'src/common/globals'
 
 local scene = {};
 local textInput;
@@ -42,7 +43,7 @@ function scene.keypressed(key)
   textInputComponent.keyPressed(key)
 
   if key == 'return' and string.len(textInput.name) > 0 then
-    playerName = textInput.name
+    globals.playerName = textInput.name
     sceneManager.changeScene(require 'src/scenes/cutScene1')
   end
 end

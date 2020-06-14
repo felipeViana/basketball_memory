@@ -1,6 +1,7 @@
 local assets = require "src/common/assets"
 local utils = require "src/common/utils"
 local dictionary = require 'src/common/dictionary'
+local globals = require 'src/common/globals'
 
 local generic = {
   image=assets.generic,
@@ -16,7 +17,7 @@ local characters = {
   protagonist = utils.tableWithAddedTable(
     generic,
     {
-      title=playerName,
+      title=globals.playerName,
       ['image']=assets.protagonist,
       leftBody=assets.protagonistBody,
     }
@@ -65,7 +66,7 @@ local characters = {
   bobProtagonist = utils.tableWithAddedTable(
     generic,
     {
-      title=playerName .. ' ' .. dictionary.localize('e') .. ' Bob',
+      title=globals.playerName .. ' ' .. dictionary.localize('e') .. ' Bob',
       ['image']=assets.bobProtagonist,
       leftBody=assets.bobBody,
       rightBody=assets.protagonistBody,

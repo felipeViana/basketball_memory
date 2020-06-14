@@ -3,6 +3,7 @@ local sceneManager = require 'src/common/sceneManager'
 local dictionary = require 'src/common/dictionary'
 local buttonManager = (require 'src/components/buttonManager').new()
 local drawUtils = require 'src/common/drawUtils'
+local globals = require 'src/common/globals'
 
 local screen = {};
 local fromSettings = false;
@@ -18,12 +19,12 @@ local function goToNextScreen()
 end
 
 local function chooseEnglish()
-  language = 'english'
+  globals.language = 'english'
   goToNextScreen()
 end
 
 local function choosePortuguese()
-  language = 'portugues'
+  globals.language = 'portugues'
   goToNextScreen()
 end
 

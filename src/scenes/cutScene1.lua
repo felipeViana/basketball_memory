@@ -14,7 +14,7 @@ end
 
 function scene.load()
   Talkies.say(
-    dictionary.localize('1.1') .. playerName .. '!',
+    dictionary.localize('1.1'),
     utils.tableWithAddedTable(
       characters.narrator,
       {

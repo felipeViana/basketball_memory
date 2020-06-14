@@ -1,8 +1,6 @@
-local globals = {};
-
-function globals.loadAll()
-  playerName = 'Felipe'
-  language = 'english2'
-end
+local globals = {
+  playerName = 'Felipe',
+  language = 'portugues',
+};
 
 return globals;
