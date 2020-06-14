@@ -11,6 +11,10 @@ local function goBack()
   sceneManager.popScene()
 end
 
+local function goToMenu()
+  sceneManager.changeScene(require 'src/menu/mainMenu')
+end
+
 local function quitGame()
   love.event.quit(0)
 end
@@ -22,6 +26,12 @@ function menu.load()
     fn = goBack,
     x = 450,
     y = 200,
+  })
+  buttonManager:newTextButton({
+    text = dictionary.localize('ExitToMenu'),
+    fn = goToMenu,
+    x = 450,
+    y = 300,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitGame'),
