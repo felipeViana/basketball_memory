@@ -35,6 +35,7 @@ local function loadFaces()
 end
 
 local function loadBackgrounds()
+  -- trocar por assets próprios
   assets.genericBackground = love.graphics.newImage("assets/backgrounds/generic_bg.jpeg")
   assets.kobeBackground = love.graphics.newImage("assets/backgrounds/kobe_bg.jpeg")
   assets.stageBackground = love.graphics.newImage("assets/backgrounds/stage_bg.jpeg")
@@ -93,18 +94,20 @@ local function loadSfx()
   assets.wrongPair = love.audio.newSource("assets/sfx/errorC.wav", "static")
   assets.selectSound = love.audio.newSource("assets/sfx/select.wav", "static")
 
+  -- trocar por assets próprios
   assets.winningSound = love.audio.newSource("assets/sfx/megaman_winning.wav", "static")
   assets.losingSound = love.audio.newSource("assets/sfx/losing.wav", "static")
 end
 
 local function loadMusic()
-  assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "stream")
-  assets.inGameMusic:setVolume(0.6)
-  assets.inGameMusic:setLooping(true)
-
   assets.menuMusic = love.audio.newSource("assets/music/menuSong.wav", "stream")
   assets.menuMusic:setVolume(0.6)
   assets.menuMusic:setLooping(true)
+
+  -- trocar por assets próprios
+  assets.inGameMusic = love.audio.newSource("assets/music/Mind-Bender.mp3", "stream")
+  assets.inGameMusic:setVolume(0.6)
+  assets.inGameMusic:setLooping(true)
 
   assets.scene1Music = love.audio.newSource("assets/music/On-Thngs-to-Come_Looping.mp3", "stream")
   assets.scene1Music:setLooping(true)
