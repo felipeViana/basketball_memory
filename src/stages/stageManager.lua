@@ -88,7 +88,6 @@ end
 
 function stageManager:mouseReleased(button)
   cardManager.mouseReleased(button)
-  stageHUD.mouseReleased(button)
 end
 
 return stageManager;

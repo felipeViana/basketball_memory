@@ -1,5 +1,4 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = (require 'src/components/buttonManager').new()
 local assets = require 'src/common/assets'
 
 local hud = {}
@@ -19,24 +18,13 @@ local function exitStage()
 end
 
 function hud.load()
-  buttonManager:load()
-  buttonManager:newTextButton({
-    text = 'Sair',
-    fn = exitStage,
-    x = 100,
-    y = 600,
-  })
-
   sceneManager.pushScene(require 'src/stages/getPrepared')
 end
 
 function hud.unload()
-  buttonManager:unload()
 end
 
 function hud.update(dt)
-  buttonManager:update(dt)
-
   if stretching > 0 then
     stretching = stretching - dt
   end
@@ -76,12 +64,6 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors)
   else
     love.graphics.print(numberOfErrors .. " erros permitidos", 650, 100)
   end
-
-  buttonManager:draw()
-end
-
-function hud.mouseReleased(button)
-  buttonManager:mouseReleased(button)
 end
 
 return hud;
