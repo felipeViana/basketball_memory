@@ -13,6 +13,8 @@ local stageManager = {
   errorsDiscountTime,
   numberOfErrors,
   limitedErrors,
+
+  goToNextStage,
 }
 stageManager.meta = {
   __index = stageManager,
@@ -24,7 +26,7 @@ function stageManager:new()
   return newStageManager
 end
 
-function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors)
+function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors, goToNextStage)
   self.initialTime = love.timer.getTime()
   self.TOTAL_TIME = totalTime
   self.timeLeft = self.TOTAL_TIME
@@ -32,6 +34,8 @@ function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors)
 
   self.numberOfErrors = numberOfErrors
   self.limitedErrors = numberOfErrors ~= nil
+
+  self.goToNextStage = goToNextStage
 
   cardManager.load()
   cardManager.newPairs(4, 3)
@@ -65,7 +69,7 @@ function stageManager:update(dt)
   self.timeLeft = self.TOTAL_TIME - (love.timer.getTime() - self.initialTime)
 
   if gameComplete then
-    sceneManager.pushScene(require 'src/stages/winStageScreen')
+    sceneManager.pushScene(require 'src/stages/winStageScreen', self.goToNextStage)
     soundManager.playSound(assets.winningSound)
   end
 

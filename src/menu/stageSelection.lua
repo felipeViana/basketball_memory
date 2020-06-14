@@ -6,67 +6,67 @@ local assets = require 'src/common/assets'
 local menu = {};
 
 local function goToStage11()
-  sceneManager.changeScene(require 'src/stages/stage1-1')
+  sceneManager.changeScene(require 'src/stages/stage1-1', true)
 end
 
 local function goToStage12()
-  sceneManager.changeScene(require 'src/stages/stage1-2')
+  sceneManager.changeScene(require 'src/stages/stage1-2', true)
 end
 
 local function goToStage13()
-  sceneManager.changeScene(require 'src/stages/stage1-3')
+  sceneManager.changeScene(require 'src/stages/stage1-3', true)
 end
 
 local function goToStage14()
-  sceneManager.changeScene(require 'src/stages/stage1-4')
+  sceneManager.changeScene(require 'src/stages/stage1-4', true)
 end
 
 local function goToStage15()
-  sceneManager.changeScene(require 'src/stages/stage1-5')
+  sceneManager.changeScene(require 'src/stages/stage1-5', true)
 end
 
 local function goToStage21()
-  sceneManager.changeScene(require 'src/stages/stage2-1')
+  sceneManager.changeScene(require 'src/stages/stage2-1', true)
 end
 
 local function goToStage22()
-  sceneManager.changeScene(require 'src/stages/stage2-2')
+  sceneManager.changeScene(require 'src/stages/stage2-2', true)
 end
 
 local function goToStage23()
-  sceneManager.changeScene(require 'src/stages/stage2-3')
+  sceneManager.changeScene(require 'src/stages/stage2-3', true)
 end
 
 local function goToStage24()
-  sceneManager.changeScene(require 'src/stages/stage2-4')
+  sceneManager.changeScene(require 'src/stages/stage2-4', true)
 end
 
 local function goToStage25()
-  sceneManager.changeScene(require 'src/stages/stage2-5')
+  sceneManager.changeScene(require 'src/stages/stage2-5', true)
 end
 
 local function goToStage31()
-  sceneManager.changeScene(require 'src/stages/stage3-1')
+  sceneManager.changeScene(require 'src/stages/stage3-1', true)
 end
 
 local function goToStage32()
-  sceneManager.changeScene(require 'src/stages/stage3-2')
+  sceneManager.changeScene(require 'src/stages/stage3-2', true)
 end
 
 local function goToStage33()
-  sceneManager.changeScene(require 'src/stages/stage3-3')
+  sceneManager.changeScene(require 'src/stages/stage3-3', true)
 end
 
 local function goToStage34()
-  sceneManager.changeScene(require 'src/stages/stage3-4')
+  sceneManager.changeScene(require 'src/stages/stage3-4', true)
 end
 
 local function goToStage35()
-  sceneManager.changeScene(require 'src/stages/stage3-5')
+  sceneManager.changeScene(require 'src/stages/stage3-5', true)
 end
 
 local function goBack()
-  sceneManager.changeScene(require 'src/menu/mainMenu')
+  sceneManager.changeScene(require 'src/menu/mainMenu', true)
 end
 
 function menu.load()

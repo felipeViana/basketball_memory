@@ -13,10 +13,6 @@ local bigFont = true
 
 -- TODO: refactor stretching font
 
-local function exitStage()
-  sceneManager.changeScene(require 'src/menu/stageSelection')
-end
-
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
 end

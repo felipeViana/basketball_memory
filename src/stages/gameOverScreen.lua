@@ -10,7 +10,7 @@ local function restart()
 end
 
 local function quitStage()
-  sceneManager.changeScene(require 'src/menu/stageSelection')
+  sceneManager.changeScene(require 'src/menu/mainMenu')
 end
 
 function menu.load()

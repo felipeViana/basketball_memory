@@ -1,17 +1,12 @@
 local sceneManager = require 'src/common/sceneManager'
 local cardManager = require 'src/components/cardManager'
 local assets = require 'src/common/assets'
-local gridUtils = require 'src/common/gridUtils'
 
 local stage = {}
 
-local function exitStage()
-  sceneManager.changeScene(require 'src/menu/stageSelection')
-end
-
 function stage.load()
   cardManager.load()
-  local cards = cardManager.newPairs(4, 3)
+  cardManager.newPairs(4, 3)
 end
 
 function stage.unload()

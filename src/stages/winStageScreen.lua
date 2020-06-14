@@ -10,16 +10,25 @@ local function restart()
 end
 
 local function quitStage()
-  sceneManager.changeScene(require 'src/menu/stageSelection')
+  sceneManager.changeScene(require 'src/menu/mainMenu')
 end
 
-function menu.load()
+function menu.load(goToNextStage)
   buttonManager:load()
+
+  if goToNextStage ~= nil then
+    buttonManager:newTextButton({
+      text = 'ir para próxima fase',
+      fn = goToNextStage,
+      x = 450,
+      y = 200,
+    })
+  end
   buttonManager:newTextButton({
     text = 'Reiniciar',
     fn = restart,
     x = 450,
-    y = 200,
+    y = 300,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitToMenu'),
