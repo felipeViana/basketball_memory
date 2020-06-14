@@ -18,10 +18,17 @@ function imageButton.new(arg)
 end
 
 function imageButton.draw(button)
+  love.graphics.setColor(1, 1, 1)
+
   if button.hot then
+    love.graphics.rectangle(
+      'line',
+      button.x,
+      button.y,
+      button.width,
+      button.height
+    )
     love.graphics.setColor(BUTTON_HOT_COLOR)
-  else
-    love.graphics.setColor(1, 1, 1)
   end
 
   love.graphics.draw(button.image, button.x, button.y, 0, button.scaleX, button.scaleY)

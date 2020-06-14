@@ -2,7 +2,7 @@ local loadAssets = require 'src/common/loadAssets'
 local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 
-local DEBUG = true
+local DEBUG = false
 local inPause = false
 local justPaused = false
 

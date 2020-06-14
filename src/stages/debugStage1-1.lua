@@ -3,7 +3,10 @@ local stageManager = (require 'src/stages/stageManager').new()
 local stage = {}
 
 function stage.load()
-  stageManager:load(90, false, 12)
+  stageManager:load({
+    totalTime = 60,
+    stageName = 'debug stage 1-1',
+  })
 end
 
 function stage.comingBack()

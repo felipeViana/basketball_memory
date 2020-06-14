@@ -31,7 +31,7 @@ function hud.update(dt)
   end
 end
 
-function hud.draw(timeLeft, limitedErrors, numberOfErrors)
+function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName)
   local x = 200
   local y = 25
 
@@ -53,12 +53,17 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
+
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.setFont(assets.timerFont)
+  love.graphics.print(stageName, 600, 25)
+
   love.graphics.setColor(1, 1, 1)
   love.graphics.setFont(assets.squareFont)
   if not limitedErrors then
-    love.graphics.print("infinitas tentativas", 650, 100)
+    love.graphics.print("infinitas tentativas", 650, 150)
   else
-    love.graphics.print(numberOfErrors .. " erros permitidos", 650, 100)
+    love.graphics.print(numberOfErrors .. " erros permitidos", 650, 150)
   end
 end
 

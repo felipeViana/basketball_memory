@@ -14,6 +14,7 @@ local stageManager = {
   numberOfErrors,
   limitedErrors,
 
+  stageName,
   goToNextStage,
 }
 stageManager.meta = {
@@ -26,16 +27,17 @@ function stageManager:new()
   return newStageManager
 end
 
-function stageManager:load(totalTime, errorsDiscountTime, numberOfErrors, goToNextStage)
+function stageManager:load(arg)
   self.initialTime = love.timer.getTime()
-  self.TOTAL_TIME = totalTime
+  self.TOTAL_TIME = arg.totalTime
   self.timeLeft = self.TOTAL_TIME
-  self.errorsDiscountTime = errorsDiscountTime
+  self.errorsDiscountTime = arg.errorsDiscountTime
 
-  self.numberOfErrors = numberOfErrors
-  self.limitedErrors = numberOfErrors ~= nil
+  self.numberOfErrors = arg.numberOfErrors
+  self.limitedErrors = arg.numberOfErrors ~= nil
 
-  self.goToNextStage = goToNextStage
+  self.goToNextStage = arg.goToNextStage
+  self.stageName = arg.stageName
 
   cardManager.load()
   cardManager.newPairs(4, 3)
@@ -87,7 +89,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors)
+  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName)
 end
 
 function stageManager:mouseReleased(button)

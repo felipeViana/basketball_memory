@@ -7,12 +7,12 @@ end
 
 local stage = {}
 
-function stage.load(comingFromStageSelection)
-  if comingFromStageSelection then
-    stageManager:load(60, nil, nil)
-  else
-    stageManager:load(60, nil, nil, goToNextStage)
-  end
+function stage.load()
+  stageManager:load({
+    totalTime = 60,
+    stageName = 'stage 1-1',
+    goToNextStage = goToNextStage,
+  })
 end
 
 function stage.comingBack()

@@ -1,9 +1,19 @@
+local sceneManager = require 'src/common/sceneManager'
 local stageManager = (require 'src/stages/stageManager').new()
+
+local function goToNextStage()
+  sceneManager.changeScene(require 'src/stages/stage1-4')
+end
 
 local stage = {}
 
 function stage.load()
-  stageManager:load(20)
+  stageManager:load({
+    totalTime = 60,
+    errorsDiscountTime = true,
+    stageName = 'stage 1-3',
+    goToNextStage = goToNextStage,
+  })
 end
 
 function stage.comingBack()
