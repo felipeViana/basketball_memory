@@ -1,8 +1,8 @@
 local cardObject = require 'src/components/cardObject'
-local utils = require 'src/common/utils'
 local gridUtils = require 'src/common/gridUtils'
 local assets = require 'src/common/assets'
 local soundManager = require 'src/components/soundManager'
+local lume = require "libs/lume"
 
 local flippedNow
 local mouseReleased
@@ -24,7 +24,7 @@ function cardManager.newPairs(rows, columns)
     table.insert(cards, newPair[2])
   end
 
-  local shuffledCards = utils.shuffle(cards)
+  local shuffledCards = lume.shuffle(cards)
   local grid = gridUtils.makeGrid(rows, columns)
   for i = 1, #shuffledCards do
     shuffledCards[i].x = grid[i][1]

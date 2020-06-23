@@ -1,7 +1,7 @@
 local assets = require "src/common/assets"
-local utils = require "src/common/utils"
 local dictionary = require 'src/common/dictionary'
 local globals = require 'src/common/globals'
+local lume = require "libs/lume"
 
 local generic = {
   image=assets.generic,
@@ -14,7 +14,7 @@ local characters = {
     title = dictionary.localize('Narrador'),
     talkSound=assets.typeSound,
   },
-  protagonist = utils.tableWithAddedTable(
+  protagonist = lume.extend(
     generic,
     {
       title=globals.playerName,
@@ -22,7 +22,7 @@ local characters = {
       leftBody=assets.protagonistBody,
     }
   ),
-  bob = utils.tableWithAddedTable(
+  bob = lume.extend(
     generic,
     {
       title='Bob',
@@ -30,7 +30,7 @@ local characters = {
       leftBody=assets.bobBody,
     }
   ),
-  creator = utils.tableWithAddedTable(
+  creator = lume.extend(
     generic,
     {
       title = dictionary.localize('Criador'),
@@ -38,7 +38,7 @@ local characters = {
       leftBody=assets.creatorBody,
     }
   ),
-  melissa = utils.tableWithAddedTable(
+  melissa = lume.extend(
     generic,
     {
       title='Melissa',
@@ -46,7 +46,7 @@ local characters = {
       leftBody=assets.melissaBody,
     }
   ),
-  windy = utils.tableWithAddedTable(
+  windy = lume.extend(
     generic,
     {
       title='Windy',
@@ -54,7 +54,7 @@ local characters = {
       leftBody=assets.windyBody,
     }
   ),
-  shadTravis = utils.tableWithAddedTable(
+  shadTravis = lume.extend(
     generic,
     {
       title='Shad ' .. dictionary.localize('e') .. ' Travis',
@@ -63,7 +63,7 @@ local characters = {
       rightBody=assets.travisBody,
     }
   ),
-  bobProtagonist = utils.tableWithAddedTable(
+  bobProtagonist = lume.extend(
     generic,
     {
       title=globals.playerName .. ' ' .. dictionary.localize('e') .. ' Bob',
@@ -72,7 +72,7 @@ local characters = {
       rightBody=assets.protagonistBody,
     }
   ),
-  melissaWindy = utils.tableWithAddedTable(
+  melissaWindy = lume.extend(
     generic,
     {
       title='Melissa ' .. dictionary.localize('e') .. ' Windy',

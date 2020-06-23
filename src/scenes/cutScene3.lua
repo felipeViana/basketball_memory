@@ -1,9 +1,9 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
-local utils = require 'src/common/utils'
 local dictionary = require 'src/common/dictionary'
 local characters = require 'src/common/characters'
 local Talkies = require 'libs/talkies'
+local lume = require 'libs/lume'
 
 local scene = {}
 local music
@@ -23,7 +23,7 @@ function scene.load()
   )
   Talkies.say(
     dictionary.localize('3.3'),
-    utils.tableWithAddedTable(
+    lume.extend(
       characters.protagonist,
       {
         oncomplete=goToNextScreen,
