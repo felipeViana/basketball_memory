@@ -9,22 +9,38 @@ local scene = {}
 local music
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene4')
+  sceneManager.changeScene(require 'src/scenes/cutScene3-2')
 end
 
 function scene.load()
   Talkies.say(
-    dictionary.localize('3.1'),
+    dictionary.localize('3-1.1'),
     characters.narrator
   )
   Talkies.say(
-    dictionary.localize('3.2'),
+    dictionary.localize('3-1.2'),
     characters.bob
   )
   Talkies.say(
-    dictionary.localize('3.3'),
+    dictionary.localize('3-1.3'),
+    characters.narrator
+  )
+  Talkies.say(
+    dictionary.localize('3-1.4'),
+    characters.protagonist
+  )
+  Talkies.say(
+    dictionary.localize('3-1.5'),
+    characters.narrator
+  )
+  Talkies.say(
+    dictionary.localize('3-1.6'),
+    characters.bob
+  )
+  Talkies.say(
+    dictionary.localize('3-1.7'),
     lume.extend(
-      characters.protagonist,
+      characters.narrator,
       {
         oncomplete=goToNextScreen,
         textSpeed='medium'

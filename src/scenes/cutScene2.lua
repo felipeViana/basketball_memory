@@ -9,7 +9,7 @@ local scene = {}
 local music
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene3')
+  sceneManager.changeScene(require 'src/scenes/cutScene3-1')
 end
 
 function scene.load()
@@ -31,14 +31,6 @@ function scene.load()
   )
   Talkies.say(
     dictionary.localize('2.5'),
-    characters.creator
-  )
-  Talkies.say(
-    dictionary.localize('2.6'),
-    characters.creator
-  )
-  Talkies.say(
-    dictionary.localize('2.7'),
     lume.extend(
       characters.creator,
       {
