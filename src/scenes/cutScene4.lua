@@ -9,7 +9,7 @@ local scene = {}
 local music
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene5')
+  sceneManager.changeScene(require 'src/scenes/cutScene5-1')
 end
 
 function scene.load()
