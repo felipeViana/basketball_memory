@@ -62,6 +62,22 @@ local characters = {
       leftBody=assets.windyBody,
     }
   ),
+  shad = lume.extend(
+    generic,
+    {
+      title='Shad',
+      ['image']=assets.shadTravis,
+      leftBody=assets.shadBody,
+    }
+  ),
+  travis = lume.extend(
+    generic,
+    {
+      title = 'Travis',
+      ['image']=assets.shadTravis,
+      leftBody=assets.travisBody,
+    }
+  ),
   shadTravis = lume.extend(
     generic,
     {
