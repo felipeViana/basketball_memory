@@ -200,6 +200,22 @@ local function getPortugueseDict()
     ['3-2.20'] = 'Tudo bem, já sei o que fazer.',
     ['3-2.21'] = 'Certo. Agradeço muito. ',
 
+    ['3-3.1'] = 'De repente o jovem garoto chega apressado em casa e dá um susto no pai do Bob',
+    ['3-3.2'] = 'Eiiiiii! Vai pra onde tão apressado filho? O que aconteceu? Cadê o Bob?',
+    ['3-3.3'] = 'Esqueci de levar o dinheiro pro campeonato e não pude me inscrever tenho que ' ..
+      'ser rápido senão perco a vaga.',
+    ['3-3.4'] = 'Ah, ok, pois vá logo, vai.',
+    ['3-3.5'] = 'Depois de pegar o dinheiro dele e chegar na sala da casa, ele olha para o pai do Bob e ...',
+    ['3-3.6'] = 'Não sei se consigo. Muitas vezes me dou mal no jogo porque não lembro aonde estão as cartas. ' ..
+      'Minha memória é muito fraca',
+    ['3-3.7'] = 'Filho, você vai conseguir sim, só tem que acreditar. Vou lhe dizer algo agora que ouvi ' ..
+      'recentemente e achei muito interessante: é preciso se atrever a ser grande. Então vai lá e se atreva ' ..
+      'a vencer, seja uma rodada, duas ou o campeonato todo, só vá. Eu, Bob e Samanta temos muito orgulho de ter ' ..
+      'você conosco e com certeza teremos mais ainda depois do campeonato.',
+    ['3-3.8'] = 'Nossa, obrigado tio Sam. Vocês são minha família! Tenho que ir, desculpa, fui!',
+    ['3-3.9'] = 'Hahahaha! Vai lá filho, boa sorte!',
+    ['3-3.10'] = 'Obrigadoooo!',
+
     ['4.1'] = 'Quando Bob e ' .. globals.playerName .. ' saem do local do campeonato, dois caras aparecem e os humilham dizendo coisas ruins para eles.',
     ['4.2'] = 'Vocês não vão vencer, vão ser humilhados, nós vamos acabar com vocês, como é que pode um campeonato ' ..
       'desse deixar dois zé ninguém participar, vocês não são de nada, vão perder feio hahahaha',

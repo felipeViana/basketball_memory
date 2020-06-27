@@ -30,6 +30,14 @@ local characters = {
       leftBody=assets.bobBody,
     }
   ),
+  bobFather = lume.extend(
+    generic,
+    {
+      title='pai do Bob',
+      ['image']=assets.generic,
+      leftBody=assets.genericBody,
+    }
+  ),
   creator = lume.extend(
     generic,
     {
