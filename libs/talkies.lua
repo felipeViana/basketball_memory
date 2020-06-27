@@ -336,6 +336,10 @@ end
 function Talkies.keypressed(key)
   if key == 'space' or key == 'return' then
     Talkies.onAction()
+  elseif key == 'up' then
+    Talkies.prevOption()
+  elseif key == 'down' then
+    Talkies.nextOption()
   end
 end
 

@@ -220,6 +220,7 @@ local function getPortugueseDict()
     ['3-4.2'] = 'Chegueiiiii. Está aqui o dinheiro, ainda da tempo?',
     ['3-4.3'] = 'Hehehehe, calma garoto, sua vaga está garantida.',
     ['3-4.4'] = 'Ufaa, obrigadoo!',
+    ['3-4.5'] = 'Quer mesmo se inscrever?',
 
     ['4.1'] = 'Quando Bob e ' .. globals.playerName .. ' saem do local do campeonato, dois caras aparecem e os ' ..
       'humilham dizendo coisas ruins para eles.',
@@ -260,7 +261,14 @@ local function getPortugueseDict()
     ['4.33'] = 'O prazer é nosso!',
     ['4.34'] = 'Depois disso elas vão embora e os dois entram em casa e vão dormir. ',
 
-
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
+    -- ['5-1.1'] = '',
 
 
     ['5.1'] = 'No dia seguinte ' .. globals.playerName .. ' acorda e vai até a casa do Bob. ' ..

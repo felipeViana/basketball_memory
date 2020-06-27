@@ -12,6 +12,10 @@ local function goToNextScreen()
   sceneManager.changeScene(require 'src/scenes/cutScene4')
 end
 
+local function onNoAnswer( ... )
+  -- body
+end
+
 function scene.load()
   Talkies.say(
     dictionary.localize('3-4.1'),
@@ -36,8 +40,21 @@ function scene.load()
     lume.extend(
       characters.protagonist,
       {
-        oncomplete=goToNextScreen,
         rightBody = assets.creatorBody,
+      }
+    )
+  )
+  Talkies.say(
+    dictionary.localize('3-4.5'),
+    lume.extend(
+      characters.creator,
+      {
+        leftBody = assets.protagonistBody,
+        rightBody = assets.creatorBody,
+        options = {
+          {'Sim', goToNextScreen},
+          {'Não', goToNextScreen},
+        },
       }
     )
   )
