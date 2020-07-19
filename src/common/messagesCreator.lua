@@ -502,17 +502,73 @@ end
 local function messages6(fn)
   return {
     {
-      message = dictionary.localize('5-2.1'),
+      message = dictionary.localize('6.1'),
       config = characters.narrator,
     },
     {
-      message = dictionary.localize('5-2.2'),
+      message = dictionary.localize('6.2'),
       config = characters.narrator,
     },
     {
-      message = dictionary.localize('5-2.3'),
+      message = dictionary.localize('6.3'),
+      config = characters.shad,
+    },
+    {
+      message = dictionary.localize('6.4'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('6.5'),
+      config = characters.travis,
+    },
+    {
+      message = dictionary.localize('6.6'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('6.7'),
+      config = characters.melissa,
+    },
+    {
+      message = dictionary.localize('6.8'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('6.9'),
+      config = characters.bobProtagonist,
+    },
+    {
+      message = dictionary.localize('6.10'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('6.11'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('6.12'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('6.13'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('6.14'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('6.15'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('6.16'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('6.17'),
       config = lume.extend(
-        characters.creator,
+        characters.narrator,
         {
           oncomplete = fn,
         }
