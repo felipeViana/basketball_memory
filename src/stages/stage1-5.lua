@@ -2,7 +2,7 @@ local sceneManager = require 'src/common/sceneManager'
 local stageManager = (require 'src/stages/stageManager').new()
 
 local function goToNextStage()
-  sceneManager.changeScene(require 'src/scenes/cutScene11')
+  sceneManager.changeScene(require 'src/scenes/cutScene6')
 end
 
 local stage = {}

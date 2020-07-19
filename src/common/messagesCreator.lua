@@ -435,6 +435,120 @@ local function messages4(fn)
   }
 end
 
+local function messages5p1(fn)
+  return {
+    {
+      message = dictionary.localize('5-1.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-1.2'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-1.3'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-1.4'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-1.5'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('5-1.6'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('5-1.7'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('5-1.8'),
+      config = lume.extend(
+        characters.narrator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
+end
+
+local function messages5p2(fn)
+  return {
+    {
+      message = dictionary.localize('5-2.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-2.2'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-2.3'),
+      config = lume.extend(
+        characters.creator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
+end
+
+local function messages6(fn)
+  return {
+    {
+      message = dictionary.localize('5-2.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-2.2'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('5-2.3'),
+      config = lume.extend(
+        characters.creator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
+end
+
+local function messages7(fn)
+  error('not implemented')
+end
+
+local function messages8(fn)
+  error('not implemented')
+end
+
+local function messages9(fn)
+  error('not implemented')
+end
+
+local function messages10(fn)
+  error('not implemented')
+end
+
+local function messages11(fn)
+  error('not implemented')
+end
+
+local function messages12(fn)
+  error('not implemented')
+end
+
+local function messages13(fn)
+  error('not implemented')
+end
+
 function messagesCreator.getMessage(sceneName, fn)
   if sceneName == '1' then
     return messages1(fn)
@@ -450,6 +564,26 @@ function messagesCreator.getMessage(sceneName, fn)
     return messages3p4(fn)
   elseif sceneName == '4' then
     return messages4(fn)
+  elseif sceneName == '5-1' then
+    return messages5p1(fn)
+  elseif sceneName == '5-2' then
+    return messages5p2(fn)
+  elseif sceneName == '6' then
+    return messages6(fn)
+  elseif sceneName == '7' then
+    return messages7(fn)
+  elseif sceneName == '8' then
+    return messages8(fn)
+  elseif sceneName == '9' then
+    return messages9(fn)
+  elseif sceneName == '10' then
+    return messages10(fn)
+  elseif sceneName == '11' then
+    return messages11(fn)
+  elseif sceneName == '12' then
+    return messages12(fn)
+  elseif sceneName == '13' then
+    return messages13(fn)
   else
     error('invalid sceneName')
   end

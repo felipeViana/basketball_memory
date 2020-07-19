@@ -261,28 +261,63 @@ local function getPortugueseDict()
     ['4.33'] = 'O prazer é nosso!',
     ['4.34'] = 'Depois disso elas vão embora e os dois entram em casa e vão dormir. ',
 
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
-    -- ['5-1.1'] = '',
+    ['5-1.1'] = 'Quando o dia do campeonato chega, o jovem garoto já está um pouco melhor do que tinha ' ..
+      'acontecido, mas ainda estava com um pouco de raiva e se sentindo estranho, como se tivesse doído ' ..
+      'bastante o que aqueles garotos disseram, e o pior é que ele e Bob iam encontrá-los de novo.',
+    ['5-1.2'] = 'Mas antes de sair eles fizeram uma pesquisa no computador do Bob sobre dor e acharam ' ..
+      'uma frase interessante a qual dizia:',
+    ['5-1.3'] = 'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta ' ..
+      'impedí-lo, pois sabe que, se você continuar, você irá mudar.',
+    ['5-1.4'] = 'Eles então erguem a cabeça e olham um para o outro e ' .. globals.playerName .. ' diz:',
+    ['5-1.5'] = 'Vamos vencer esse campeonato meu rival!',
+    ['5-1.6'] = 'Você sabe que só um vence né, e serei eu! Hahahah!',
+    ['5-1.7'] = 'hehehe! Eu não vou perder pra você!',
+    ['5-1.8'] = 'Em seguida ambos vão até o local do campeonato.',
 
+    ['5-2.1'] = 'Chegando lá o Criador vai estar prestes a começar, a plateia já está no local, o jogo será ' ..
+      'transmitido em um telão para a plateia e os jogadores terão um computador para poder visualizar o jogo.',
+    ['5-2.2'] = 'Depois de todos os participantes chegarem eles irão ser divididos em chaves ' ..
+      'e em seguida o criador os mandará para seus lugares. ' ..
+      'Quando estiverem todos em seus lugares o criador irá falar para todos:',
+    ['5-2.3'] = 'A partida? Está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
 
-    ['5.1'] = 'No dia seguinte ' .. globals.playerName .. ' acorda e vai até a casa do Bob. ' ..
-      'Eles já estão um pouco atrasados, mas ele precisava pesquisar algo sobre dor no computador e só podia ' ..
-      'fazer isso na casa do Bob porque não tinha um em casa. Lá ele faz a pesquisa sobre dor e acaba encontrando a seguinte frase:',
-    ['5.2'] = 'A dor não diz quando você deve parar. A dor é a vozinha em sua cabeça que tenta impedi-lo, pois sabe que, se você continuar, você irá mudar.',
-    ['5.3'] = globals.playerName .. ' então ele ergue a cabeça e diz para Bob:',
-    ['5.4'] = 'Vamo vencer esse campeonato meu rival!',
+    ['6.1'] = 'Início das Quartas de Final. Os participantes que nela estão são: ' .. globals.playerName ..
+      ', Bob, Wind, Melissa, Shad, Travis, Jake e Blake.',
+    ['6.2'] = 'Neste momento, Shad e Travis irão se vingar das garotas e começam a xingá-las, dizendo:',
+    ['6.3'] = 'Ei vocês duas, tiveram sorte, mas podem ter certeza que vamos humilhar ' ..
+      'vocês se nos enfrentarmos. Hahaha',
+    ['6.4'] = 'Pode vir seu louco, estamos preparadas.',
+    ['6.5'] = 'Pra quê? Para serem humilhadas?  Hahaha , vocês são umas fracassadas, não sabem nem jogar, ' ..
+      'esses que perderam pra vocês deviam ser muito ruins mesmo, se nos enfrentarmos nós ' ..
+      'acabaremos com vocês suas ...',
+    ['6.6'] = 'Melissa começa a ficar com raiva e ao mesmo tempo chateada e fala:',
+    ['6.7'] = 'Vocês vão pagar seus chatos, ahhhhh! Vamos sair daqui Wind.',
+    ['6.8'] = 'Wind começa a chorar junto com Melissa e quando estão saindo se deparam com ' .. globals.playerName ..
+      ' e Bob, então eles perguntam:',
+    ['6.9'] = 'O que aconteceu?',
+    ['6.10'] = 'Wind e Melissa não respondem mas apontam para Shad e Travis.',
+    ['6.11'] = 'Ahhhh, seus .... Não se preocupem meninas, nós iremos vencê-los e mudaremos essa situação, ' ..
+      'não importa o que eles disseram, não acreditem.',
+    ['6.12'] = 'É, prestem atenção as duas. Quando você conhece a sensação de fracasso, a determinação ' ..
+      'persegue o sucesso. Então não desistam, estamos com vocês.',
+    ['6.13'] = 'Em seguidas elas se aliviam um pouco, mas recebem uma má notícia.',
+    ['6.14'] = 'O sorteio vai começar, vamos ver quem vamos enfrentar, estou doido pra acabar ' ..
+      'com a raça daqueles dois.',
+    ['6.15'] = 'Calma aí rapaz, só dá pra enfrentar um, vamos ver no que dá, porque também ' ..
+      'estou doido pra acabar com eles.',
+    ['6.16'] = 'O sorteio então acontece e vem à má notícia para as meninas. Shad e Travis irão enfrentá-las ' ..
+      'nas quartas de final. Será Shad vs Melissa e Travis vs Windy.',
+    ['6.17'] = 'Mas as meninas vencem. Depois da vitória, elas agradecem a cada um (' ..
+      globals.playerName .. ' e Bob) com um beijo no rosto.',
 
+    ['7.1'] = '',
+    ['7.2'] = '',
+    ['7.3'] = '',
+    ['7.4'] = '',
+    ['7.5'] = '',
+    ['7.6'] = '',
+    ['7.7'] = '',
 
-
-    ['6.1'] = 'Chegando no local do campeonato, um pouco atrasados, eles vêem o Criador prestes a começar o torneio e a plateia já está no local. ' ..
-      'Os jogadores terão um computador para poder visualizar o jogo. Será dividido agora as chaves e cada jogador irá para seu lugar.',
-    ['6.2'] = 'Prestem atenção, porque agora a partida está apenas começando. Este é o lugar onde a diversão começa. Que comecem os jogos!',
 
     ['11.1'] = 'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
       'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
