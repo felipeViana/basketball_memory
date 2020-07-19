@@ -99,7 +99,7 @@ local function getEnglishDict()
     ['11-2.3'] = '11-2.3',
     ['11-2.4'] = '11-2.4',
 
-    credits = 'créditos',
+    credits = 'credits',
   }
 end
 
@@ -310,29 +310,103 @@ local function getPortugueseDict()
     ['6.17'] = 'Mas as meninas vencem. Depois da vitória, elas agradecem a cada um (' ..
       globals.playerName .. ' e Bob) com um beijo no rosto.',
 
-    ['7.1'] = '',
-    ['7.2'] = '',
-    ['7.3'] = '',
-    ['7.4'] = '',
-    ['7.5'] = '',
-    ['7.6'] = '',
-    ['7.7'] = '',
+    ['7.1'] = 'Depois da vitória das garotas, Shad e Travis ficam muito abalados, mas são consolados por ' ..
+      globals.playerName .. ', que mesmo tendo sofrido algumas coisas ruins com eles e tendo visto o que eles ' ..
+      'fizeram com as garotas resolve perdoá-los e os encoraja a erguer a cabeça.',
+    ['7.2'] = 'Não fiquem assim, vocês podem melhorar, se sairão melhor na próxima vez, são bons jogadores, ' ..
+      'só precisam melhorar como pessoas.',
+    ['7.3'] = 'Porém eles não dão ouvidos e saem com raiva dizendo:',
+    ['7.4'] = 'Não precisamos da sua ajuda, quem você pensa que é?',
+    ['7.5'] = 'Só sou alguém que tenta ser o melhor para todo mundo, até pra vocês que nem merecem.',
+    ['7.6'] = 'Cala a boca, você não é ninguém, você não tem nada e não vai vencer esse campeonato.',
+    ['7.7'] = 'É num vai vencer não!',
+    ['7.8'] = 'É o que vamos ver.',
+    ['7.9'] = 'E assim ele sai do local e vai ao encontro das garotas parabenizá-las pela vitória.',
 
+    ['8-1.1'] = '',
+    ['8-1.2'] = '',
+    ['8-1.3'] = '',
+    ['8-1.4'] = '',
+    ['8-1.5'] = '',
+    ['8-1.6'] = '',
 
-    ['11.1'] = 'Meu povo, hehe, o final do campeonato chegou, finalmente conhecemos o campeão, agora vamos para a cerimônia de premiação. ' ..
-      'Mas antes quero revelar a vocês a homenagem que fiz aqui e olha que me surpreendi, pois andando por aí eu escutei algumas frases ' ..
-      'da pessoa que estou homenageando aqui, nao tinha como ser mais incrivel esse campeonato. Dêem uma salva de palmas pra todos agora por favor!',
-    ['11.2'] = 'Agora sim vou divulgar o segredo desse campeonato! Lá vai. ' ..
-      'Esse jogo foi realizado não só para meu ganho pessoal, mas para homenagear uma lenda do basquete juntamente com sua filha, ' ..
-      'pois eles morreram muito cedo e está muito recente também. Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês:',
+    ['8-2.1'] = '',
+    ['8-2.2'] = '',
+    ['8-2.3'] = '',
+    ['8-2.4'] = '',
 
-    ['11-2.1'] = 'E também com uma frase que ele mesmo disse:  Heróis vem e vão, mas lendas são para sempre',
-    ['11-2.2'] = 'Em seguida a platéia vai a loucura, os participantes também e o criador olha para o vencedor e diz:',
-    ['11-2.3'] = 'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito de participar sem ' ..
-      'se inscrever porque você já está dentro dele e na fase de grupos, sem precisar passar do primeiro mata-mata.',
-    ['11-2.4'] = 'Fico muito feliz por isso e agradeço a você e à todos que me ajudaram aqui e também quero dizer que sou fã ' ..
-      'do Kobe e sua filha e muitas das frases que ele falou durante sua vida me inspiraram a estar aqui hoje. ' ..
-      'Parabéns pelo seu trabalho e mais uma vez obrigado.',
+    ['9.1'] = '',
+    ['9.2'] = '',
+    ['9.3'] = '',
+    ['9.4'] = '',
+    ['9.5'] = '',
+    ['9.6'] = '',
+    ['9.7'] = '',
+    ['9.8'] = '',
+
+    ['10.1'] = '',
+    ['10.2'] = '',
+    ['10.3'] = '',
+    ['10.4'] = '',
+    ['10.5'] = '',
+    ['10.6'] = '',
+    ['10.7'] = '',
+    ['10.8'] = '',
+    ['10.9'] = '',
+    ['10.10'] = '',
+    ['10.11'] = '',
+    ['10.12'] = '',
+
+    ['11.1'] = '',
+    ['11.2'] = '',
+    ['11.3'] = '',
+    ['11.4'] = '',
+    ['11.5'] = '',
+    ['11.6'] = '',
+    ['11.7'] = '',
+    ['11.8'] = '',
+    ['11.9'] = '',
+    ['11.10'] = '',
+    ['11.11'] = '',
+    ['11.12'] = '',
+    ['11.13'] = '',
+    ['11.14'] = '',
+    ['11.15'] = '',
+    ['11.16'] = '',
+    ['11.17'] = '',
+    ['11.18'] = '',
+
+    ['12.1'] = '',
+    ['12.2'] = '',
+    ['12.3'] = '',
+    ['12.4'] = '',
+    ['12.5'] = '',
+    ['12.6'] = '',
+    ['12.7'] = '',
+    ['12.8'] = '',
+    ['12.9'] = '',
+    ['12.10'] = '',
+    ['12.11'] = '',
+    ['12.12'] = '',
+
+    ['13.1'] = '',
+    ['13.2'] = '',
+    ['13.3'] = '',
+    ['13.4'] = '',
+    ['13.5'] = '',
+    ['13.6'] = '',
+    ['13.7'] = '',
+    ['13.8'] = '',
+    ['13.9'] = '',
+    ['13.10'] = '',
+    ['13.11'] = '',
+    ['13.12'] = '',
+    ['13.13'] = '',
+    ['13.14'] = '',
+    ['13.15'] = '',
+    ['13.16'] = '',
+    ['13.17'] = '',
+    ['13.18'] = '',
 
     credits = 'Eles se tornaram inspiração para muitas pessoas nessa vida e deixaram um bom exemplo para nós.' ..
       '\nFaça como eles, seja uma Lenda.' ..
