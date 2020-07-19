@@ -1,59 +1,40 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
-local dictionary = require 'src/common/dictionary'
-local characters = require 'src/common/characters'
-local Talkies = require 'libs/talkies'
-local lume = require "libs/lume"
+local basicCutscene = require 'src/scenes/basicCutscene'
+local messagesCreator = require 'src/common/messagesCreator'
 
 local scene = {}
-local music
+
+local music = assets.scene1Music
+local background = assets.daliBackground
 
 local function goToNextScreen()
   sceneManager.changeScene(require 'src/scenes/cutScene2')
 end
 
 function scene.load()
-  Talkies.say(
-    dictionary.localize('1.1'),
-    lume.extend(
-      characters.narrator,
-      {
-        textSpeed='medium',
-      }
-    )
-  )
-  Talkies.say(
-    dictionary.localize('1.2'),
-    lume.extend(
-      characters.narrator,
-      {
-        oncomplete = goToNextScreen,
-      }
-    )
-  )
-
-  music = assets.scene1Music
-  music:play()
+  local messages = messagesCreator.getMessage('1', goToNextScreen)
+  basicCutscene.load(messages, music)
 end
 
 function scene.unload()
-  Talkies.clearMessages()
-  music:stop()
+  basicCutscene.unload()
 end
 
 function scene.update(dt)
-  Talkies.update(dt)
+  basicCutscene.update(dt)
 end
 
 function scene.draw()
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(assets.daliBackground)
-
-  Talkies.draw()
+  basicCutscene.draw(background)
 end
 
 function scene.keypressed(key)
-  Talkies.keypressed(key)
+  basicCutscene.keypressed(key)
+end
+
+function scene.mousereleased()
+  basicCutscene.mousereleased()
 end
 
 return scene;

@@ -343,4 +343,8 @@ function Talkies.keypressed(key)
   end
 end
 
+function Talkies.mousereleased()
+  Talkies.onAction()
+end
+
 return Talkies
