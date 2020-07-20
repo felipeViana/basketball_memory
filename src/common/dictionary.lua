@@ -327,10 +327,10 @@ local function getPortugueseDict()
     ['8-1.2'] = 'Agora é a nossa vez, não vai perder!',
     ['8-1.3'] = 'Humm, claro que não vou, quero te enfrentar na final!',
 
-    ['8-2.1'] = '',
-    ['8-2.2'] = '',
-    ['8-2.3'] = '',
-    ['8-2.4'] = '',
+    ['8-2.1'] = 'E depois que termina essa disputa, aparece o Bob vencendo também.',
+    ['8-2.2'] = 'Então um olha para o outro e fazem um sinal de que mostra que eles conseguiram.',
+    ['8-2.3'] = 'Em seguida ocorre outro sorteio para as semifinais, e a disputa fica entre ' ..
+      globals.playerName .. ' vs Windy e Bob vs Melissa.',
 
     ['9.1'] = '',
     ['9.2'] = '',

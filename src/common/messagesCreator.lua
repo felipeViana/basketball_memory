@@ -648,17 +648,17 @@ end
 local function messages8p2(fn)
   return {
     {
-      message = dictionary.localize('8-1.1'),
+      message = dictionary.localize('8-2.1'),
       config = characters.narrator,
     },
     {
-      message = dictionary.localize('8-1.2'),
-      config = characters.protagonist,
+      message = dictionary.localize('8-2.2'),
+      config = characters.narrator,
     },
     {
-      message = dictionary.localize('8-1.3'),
+      message = dictionary.localize('8-2.3'),
       config = lume.extend(
-        characters.bob,
+        characters.narrator,
         {
           oncomplete = fn,
         }
