@@ -623,8 +623,48 @@ local function messages7(fn)
   }
 end
 
-local function messages8(fn)
-  error('not implemented')
+local function messages8p1(fn)
+  return {
+    {
+      message = dictionary.localize('8-1.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('8-1.2'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('8-1.3'),
+      config = lume.extend(
+        characters.bob,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
+end
+
+local function messages8p2(fn)
+  return {
+    {
+      message = dictionary.localize('8-1.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('8-1.2'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('8-1.3'),
+      config = lume.extend(
+        characters.bob,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
 end
 
 local function messages9(fn)
@@ -670,8 +710,10 @@ function messagesCreator.getMessage(sceneName, fn)
     return messages6(fn)
   elseif sceneName == '7' then
     return messages7(fn)
-  elseif sceneName == '8' then
-    return messages8(fn)
+  elseif sceneName == '8-1' then
+    return messages8p1(fn)
+  elseif sceneName == '8-2' then
+    return messages8p2(fn)
   elseif sceneName == '9' then
     return messages9(fn)
   elseif sceneName == '10' then

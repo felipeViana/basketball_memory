@@ -323,12 +323,9 @@ local function getPortugueseDict()
     ['7.8'] = 'É o que vamos ver.',
     ['7.9'] = 'E assim ele sai do local e vai ao encontro das garotas parabenizá-las pela vitória.',
 
-    ['8-1.1'] = '',
-    ['8-1.2'] = '',
-    ['8-1.3'] = '',
-    ['8-1.4'] = '',
-    ['8-1.5'] = '',
-    ['8-1.6'] = '',
+    ['8-1.1'] = globals.playerName .. ' e Bob enfrentam Jake e Blake.',
+    ['8-1.2'] = 'Agora é a nossa vez, não vai perder!',
+    ['8-1.3'] = 'Humm, claro que não vou, quero te enfrentar na final!',
 
     ['8-2.1'] = '',
     ['8-2.2'] = '',
