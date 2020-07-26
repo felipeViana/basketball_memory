@@ -332,14 +332,17 @@ local function getPortugueseDict()
     ['8-2.3'] = 'Em seguida ocorre outro sorteio para as semifinais, e a disputa fica entre ' ..
       globals.playerName .. ' vs Windy e Bob vs Melissa.',
 
-    ['9.1'] = '',
-    ['9.2'] = '',
-    ['9.3'] = '',
-    ['9.4'] = '',
-    ['9.5'] = '',
-    ['9.6'] = '',
-    ['9.7'] = '',
-    ['9.8'] = '',
+    ['9.1'] = 'Depois do sorteio, Bob e Melissa se enfrentam, mas antes há uma pequena conversa entre ' ..
+      'os dois e Bob começa falando:',
+    ['9.2'] = 'Saiba de uma coisa melissa, eu estou gostando de você, mas é minha rival agora. ' ..
+      'Não vou perder, treinei muito para estar aqui.',
+    ['9.3'] = 'Eu também Bob. Digo o mesmo, porém acrescento que estou sempre no meu limite. ' ..
+      'Eu tomei todos os meus treinos e jogos como se fosse o último, então pode ter certeza ' ..
+      'que estou mais que preparada para enfrentá-lo.',
+    ['9.4'] = 'Uau! Agora gosto mais ainda de você. Bom jogo!',
+    ['9.5'] = 'Melissa dá um sorriso e diz:',
+    ['9.6'] = 'Bom jogo fofinho.',
+    ['9.7'] = 'Bob fica todo errado e vai para seu lugar e melissa também.',
 
     ['10.1'] = '',
     ['10.2'] = '',
