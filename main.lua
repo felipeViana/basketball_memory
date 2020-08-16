@@ -2,7 +2,7 @@ local loadAssets = require 'src/common/loadAssets'
 local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 
-local DEBUG = true
+local DEBUG = false
 local inPause = false
 local justPaused = false
 
@@ -12,7 +12,7 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
     -- sceneManager.changeScene(require 'src/menu/mainMenu')
-    sceneManager.changeScene(require 'src/scenes/cutScene13-2')
+    sceneManager.changeScene(require 'src/scenes/cutScene7')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')

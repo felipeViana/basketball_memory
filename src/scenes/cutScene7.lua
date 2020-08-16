@@ -9,7 +9,7 @@ local music = assets.scene6Music
 local background = assets.basketballCourtBackground
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene8')
+  sceneManager.changeScene(require 'src/scenes/cutScene8-1')
 end
 
 function scene.load()
