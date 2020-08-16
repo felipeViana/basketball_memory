@@ -401,28 +401,52 @@ local function getPortugueseDict()
     ['12.8'] = 'Vamos para a cerimônia de premiação, está na hora.',
     ['12.9'] = 'Simbora!',
 
-    ['13.1'] = '',
-    ['13.2'] = '',
-    ['13.3'] = '',
-    ['13.4'] = '',
-    ['13.5'] = '',
-    ['13.6'] = '',
-    ['13.7'] = '',
-    ['13.8'] = '',
-    ['13.9'] = '',
-    ['13.10'] = '',
-    ['13.11'] = '',
-    ['13.12'] = '',
-    ['13.13'] = '',
-    ['13.14'] = '',
-    ['13.15'] = '',
-    ['13.16'] = '',
-    ['13.17'] = '',
-    ['13.18'] = '',
+    ['13-1.1'] = 'Senhoras e Senhores, o que foi esse campeonato ein? Me digam, não foi uma loucura? ' ..
+      'E olha, esses quatro últimos competidores, minha nossa, são de tirar o fôlego, parabéns a todos vocês. ' ..
+      'Agora, deixa eu explicar uma coisa, esse jogo foi realizado não só para meu ganho pessoal, mas para ' ..
+      'homenagear uma lenda do basquete juntamente com sua filha, ' ..
+      'pois eles morreram muito cedo e está muito recente também.',
+    ['13-1.2'] = 'Eu sou fã dos dois e encerro essa premiação mostrando essa imagem para vocês. ' ..
+      'Heróis vem e vão, mas lendas são para sempre.',
+
+    ['13-2.1'] = 'A plateia vai a loucura, os participantes também, e o criador olha para o vencedor e diz:',
+    ['13-2.2'] = 'Haverá um campeonato maior que esse na cidade cérebro, e você como foi campeão tem o direito ' ..
+      'de participar sem se inscrever porque você já está dentro dele, ' ..
+      'mas precisa passar pelo desafio dos selos antes, porém você já começa com um.',
+    ['13-2.3'] = 'Annnhh??? Como assim?',
+    ['13-2.4'] = 'Esse é o brinde especial, um selo deste campeonato e assim você já começa na ' ..
+      'frente dos outros participantes.',
+    ['13-2.5'] = 'Sério???? Não acredito!!! Uhuuuuuu!',
+    ['13-2.6'] = 'Hehehe, parabéns garoto e a propósito, eu vi a sua conversa com seu amigo e acredito que ' ..
+      'seus pais podem estar na cidade cérebro, pois lá é um lugar onde pessoas que perderam a memória ' ..
+      'totalmente ou parte dela são enviadas e tratadas.',
+    ['13-2.7'] = 'Isso é verdade?',
+    ['13-2.8'] = 'Calma, é só um palpite, então não crie muitas esperanças.',
+    ['13-2.9'] = 'Ai caramba, blz, pode deixar, mas obrigado, me ajudou bastante. Bob, faz as malas que vamos viajar!',
+    ['13-2.10'] = 'Mas é claro, tô dentro, vamo nessa.',
+    ['13-2.11'] = 'Windy e Melissa que estavam na premiação também falam.',
+    ['13-2.12'] = 'Como vocês irão para lá?',
+    ['13-2.13'] = 'Sem nós vocês não vão.',
+    ['13-2.14'] = 'Não é de avião que vamos?',
+    ['13-2.15'] = 'kkkkk! Bobinho, não dá pra ir de avião. A cidade cérebro fica numa ilha, ' ..
+      'ao redor de várias outras, então temos que ir de Navio.',
+    ['13-2.16'] = 'Vixe, e agora, como iremos? Não temos dinheiro para pagar a passagem.',
+    ['13-2.17'] = 'E esse dinheiro do campeonato?',
+    ['13-2.18'] = 'É mais que o suficiente para vocês. Mas não se preocupem, eu tenho aqui quatro ' ..
+      'passagens para vocês, usem-as e nos veremos lá.',
+    ['13-2.19'] = 'Como assim? Sério?',
+    ['13-2.20'] = 'E eu to com cara de quem ta brincando, não perguntem e vão logo. ' ..
+      'Vocês merecem. Mas antes peguem isso.',
+    ['13-2.21'] = 'Aqui o segundo, terceiro e quarto lugar recebem suas premiações e em seguida ' ..
+      globals.playerName .. ' recebe o troféu de campeão, levanta ele, a plateia vai a loucura, aplaudem a todos ' ..
+      'e é mostrado que a mãe e pai do Bob estão lá assistindo também.',
+    ['13-2.22'] = 'Em seguida a cerimônia de premiação termina e começa a homenagem ao Kobe e a Gianna ' ..
+      'com os quatro vestidos com as camisas do Kobe e da Gianna Bryant',
 
     credits = 'Eles se tornaram inspiração para muitas pessoas nessa vida e deixaram um bom exemplo para nós.' ..
       '\nFaça como eles, seja uma Lenda.' ..
-      '\nSua memória é o que você pode deixar de melhor para as pessoas depois de partir pois você é responsável por como as pessoas se lembram de você.' ..
+      '\nSua memória é o que você pode deixar de melhor para as pessoas depois de partir pois você é responsável ' ..
+        'por como as pessoas se lembram de você.' ..
       '\nEntão, qual será a memória que os outros irão ter de você?' ..
       '\n#Lendasnuncamorrem' ..
       '\n\nFim',

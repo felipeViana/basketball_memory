@@ -867,8 +867,120 @@ local function messages12(fn)
   }
 end
 
-local function messages13(fn)
-  error('not implemented')
+local function messages13p1(fn)
+  return {
+    {
+      message = dictionary.localize('13-1.1'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-1.2'),
+      config = lume.extend(
+        characters.creator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
+end
+
+local function messages13p2(fn)
+  return {
+    {
+      message = dictionary.localize('13-2.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('13-2.2'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.3'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.4'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.5'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.6'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.7'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.8'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.9'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.10'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('13-2.11'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('13-2.12'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('13-2.13'),
+      config = characters.melissa,
+    },
+    {
+      message = dictionary.localize('13-2.14'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.15'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('13-2.16'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.17'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('13-2.18'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.19'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('13-2.20'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('13-2.21'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('13-2.22'),
+      config = lume.extend(
+        characters.narrator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
 end
 
 function messagesCreator.getMessage(sceneName, fn)
@@ -906,8 +1018,10 @@ function messagesCreator.getMessage(sceneName, fn)
     return messages11(fn)
   elseif sceneName == '12' then
     return messages12(fn)
-  elseif sceneName == '13' then
-    return messages13(fn)
+  elseif sceneName == '13-1' then
+    return messages13p1(fn)
+  elseif sceneName == '13-2' then
+    return messages13p2(fn)
   else
     error('invalid sceneName')
   end

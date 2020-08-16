@@ -9,11 +9,11 @@ local music = assets.scene6Music
 local background = assets.basketballCourtBackground
 
 local function goToNextScreen()
-  sceneManager.changeScene(require 'src/scenes/cutScene13-1')
+  sceneManager.changeScene(require 'src/scenes/cutScene13-2')
 end
 
 function scene.load()
-  local messages = messagesCreator.getMessage('12', goToNextScreen)
+  local messages = messagesCreator.getMessage('13-1', goToNextScreen)
   basicCutscene.load(messages, music)
 end
 

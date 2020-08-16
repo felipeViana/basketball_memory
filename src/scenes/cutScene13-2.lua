@@ -13,7 +13,7 @@ local function goToNextScreen()
 end
 
 function scene.load()
-  local messages = messagesCreator.getMessage('13', goToNextScreen)
+  local messages = messagesCreator.getMessage('13-2', goToNextScreen)
   basicCutscene.load(messages, music)
 end
 
