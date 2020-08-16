@@ -344,37 +344,47 @@ local function getPortugueseDict()
     ['9.6'] = 'Bom jogo fofinho.',
     ['9.7'] = 'Bob fica todo errado e vai para seu lugar e melissa também.',
 
-    ['10.1'] = '',
-    ['10.2'] = '',
-    ['10.3'] = '',
-    ['10.4'] = '',
-    ['10.5'] = '',
-    ['10.6'] = '',
-    ['10.7'] = '',
-    ['10.8'] = '',
-    ['10.9'] = '',
-    ['10.10'] = '',
-    ['10.11'] = '',
-    ['10.12'] = '',
+    ['10.1'] = 'Em seguida a história se volta para ' .. globals.playerName .. ' e Windy. Eles estão conversando ' ..
+      'antes de sua vez chegar, então Windy fala:',
+    ['10.2'] = 'Quem é você? Existe algo diferente em você. Como conseguiu perdoar aqueles chatos? ' ..
+      'Ainda estou com muita raiva deles.',
+    ['10.3'] = 'Mesmo com minhas dificuldades eu tento inspirar as pessoas a serem excelentes no que querem fazer, ' ..
+      'só isso. Não foi fácil perdoá-los, mas foi melhor do que guardar rancor deles, além do mais, não vou sair ' ..
+      'por aí andando com eles, porém também não os quero como meus inimigos, nem eles, nem ninguém. ' ..
+      'Temos que fazer o melhor pelos outros por mais difícil que às vezes seja.',
+    ['10.4'] = 'Uau! Que bela resposta. Aprendeu isso aonde?',
+    ['10.5'] = 'Com um grande esportista que não tive a oportunidade de vê-lo jogar tanto em sua época, ' ..
+      'mas que me inspirou muito a estar aqui. E também, é o meu jeito de ser. ' ..
+      'Faz uma fusão disso tudo e fica bem melhor. Hehehe.',
+    ['10.6'] = 'Nossa, sério? Gostei, muito interessante, estou começando a gostar de você. ' ..
+      'Mas quem foi esse esportista?',
+    ['10.7'] = 'Nessa hora soa o gongo e eles são chamados para começar a partida. ' ..
+      'Então ' .. globals.playerName .. ' diz:',
+    ['10.8'] = 'Só agora está gostando de mim? Sério? Hummm... Eu digo o mesmo. Hahaha. Quanto ao jogador, ' ..
+      'não posso te dizer quem é agora, mas tem algo acontecendo aqui para que a gente descubra. Enfim, bom Jogo!',
+    ['10.9'] = 'Bom Jogo!',
+    ['10.10'] = 'Os dois saem com sorrisos nos rostos e vão para seus lugares.',
 
-    ['11.1'] = '',
-    ['11.2'] = '',
-    ['11.3'] = '',
-    ['11.4'] = '',
-    ['11.5'] = '',
-    ['11.6'] = '',
-    ['11.7'] = '',
-    ['11.8'] = '',
-    ['11.9'] = '',
-    ['11.10'] = '',
-    ['11.11'] = '',
-    ['11.12'] = '',
-    ['11.13'] = '',
-    ['11.14'] = '',
-    ['11.15'] = '',
-    ['11.16'] = '',
-    ['11.17'] = '',
-    ['11.18'] = '',
+    ['11.1'] = 'Depois de vencer a partida ' .. globals.playerName .. ' vai ao encontro de Bob e diz:',
+    ['11.2'] = 'Cumpriu a promessa né, agora é a hora da verdade.',
+    ['11.3'] = 'Mas é claro, porém foi bastante difícil, essa garota além de linda é uma belíssima jogadora. ' ..
+      'Mas agora é hora de saber quem é o melhor no momento.',
+    ['11.4'] = 'Digo o mesmo, Windy foi demais, foi muito difícil vencer também, mas agora vamos para ' ..
+      'o que interessa, boa sorte mano!',
+    ['11.5'] = 'Boa sorte mano!',
+    ['11.6'] = 'Em seguida soa o gongo e eles vão para os seus lugares. Mas antes de começar o jogo o Criador fala:',
+    ['11.7'] = 'Senhoras e senhores, temos aqui os nossos finalistas, e olha só, os dois melhores amigos ' ..
+      'da cidade vão agora se enfrentar, o que será que vai acontecer? E ' .. globals.playerName ..
+      ', eu lhe digo uma coisa, vê essas fotos que estão espalhadas por aqui?',
+    ['11.8'] = 'Sim, desde que chegamos, me perguntei o campeonato inteiro o porquê disso, mas fiquei feliz ' ..
+      'pois me ajuda a lembrar um pouco do meu passado.',
+    ['11.9'] = 'Foi o seu amigo aí que me deu pra eu colocá-las aqui, você tem sorte de tê-lo como amigo.',
+    ['11.10'] = 'Amigo? Não, ele é um irmão.',
+    ['11.11'] = 'Bob fica emocionado, mas se segura e diz:',
+    ['11.12'] = 'Vamos deixar isso pra depois? Está na hora de eu te vencer.',
+    ['11.13'] = 'Hahahaha! Na hora! Vamo nessa!',
+    ['11.14'] = 'Chegou a hora pessoal, vamos apreciar mais uma bela jogatina de jogo da memória com esses ' ..
+      'dois aqui! Boa sorte para vocês. Que os jogos comecem!',
 
     ['12.1'] = '',
     ['12.2'] = '',

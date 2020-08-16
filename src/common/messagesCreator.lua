@@ -706,11 +706,119 @@ local function messages9(fn)
 end
 
 local function messages10(fn)
-  error('not implemented')
+  return {
+    {
+      message = dictionary.localize('10.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('10.2'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('10.3'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('10.4'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('10.5'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('10.6'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('10.7'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('10.8'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('10.9'),
+      config = characters.windy,
+    },
+    {
+      message = dictionary.localize('10.10'),
+      config = lume.extend(
+        characters.narrator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
 end
 
 local function messages11(fn)
-  error('not implemented')
+  return {
+    {
+      message = dictionary.localize('11.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('11.2'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('11.3'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('11.4'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('11.5'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('11.6'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('11.7'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('11.8'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('11.9'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('11.10'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('11.11'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('11.12'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('11.13'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('11.14'),
+      config = lume.extend(
+        characters.creator,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
 end
 
 local function messages12(fn)
