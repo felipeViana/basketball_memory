@@ -822,7 +822,49 @@ local function messages11(fn)
 end
 
 local function messages12(fn)
-  error('not implemented')
+  return {
+    {
+      message = dictionary.localize('12.1'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('12.2'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('12.3'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('12.4'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('12.5'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('12.6'),
+      config = characters.protagonist,
+    },
+    {
+      message = dictionary.localize('12.7'),
+      config = characters.narrator,
+    },
+    {
+      message = dictionary.localize('12.8'),
+      config = characters.bob,
+    },
+    {
+      message = dictionary.localize('12.9'),
+      config = lume.extend(
+        characters.protagonist,
+        {
+          oncomplete = fn,
+        }
+      ),
+    },
+  }
 end
 
 local function messages13(fn)

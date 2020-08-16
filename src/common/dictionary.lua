@@ -386,18 +386,20 @@ local function getPortugueseDict()
     ['11.14'] = 'Chegou a hora pessoal, vamos apreciar mais uma bela jogatina de jogo da memória com esses ' ..
       'dois aqui! Boa sorte para vocês. Que os jogos comecem!',
 
-    ['12.1'] = '',
-    ['12.2'] = '',
-    ['12.3'] = '',
-    ['12.4'] = '',
-    ['12.5'] = '',
-    ['12.6'] = '',
-    ['12.7'] = '',
-    ['12.8'] = '',
-    ['12.9'] = '',
-    ['12.10'] = '',
-    ['12.11'] = '',
-    ['12.12'] = '',
+    ['12.1'] = 'Depois de vencer o campeonato ' .. globals.playerName .. ' chega para Bob e diz:',
+    ['12.2'] = 'Obrigado por ter cumprido a promessa e pelas fotos que colocou aqui, me ajudou a lembrar ' ..
+      'que  você desde sempre foi mais que uma amigo pra mim, e seus pais são como se fossem os meus. ' ..
+      'Mas você sabe dizer se os meus pais ainda estão vivos?',
+    ['12.3'] = 'Fico feliz que tenha gostado, e você é também um irmão pra mim, e sinceramente eu não sei, ' ..
+      'mas podemos procurar saber, Você e seus pais se separaram depois do acidente e eu e meus pais ' ..
+      'ainda não conseguimos achá-los. Já te falamos, mas acho que você não lembra.',
+    ['12.4'] = 'É, não lembro muito bem, mas obrigado. Pelo menos agora eu lembro deles especificamente, ' ..
+      'principalmente com essa foto do acidente.',
+    ['12.5'] = 'Nossa, sinto muito, mas nós vamos achá-los. Eu prometo.',
+    ['12.6'] = 'Muito obrigado irmão.',
+    ['12.7'] = 'Os dois então dão as mãos e sorriem um para o outro e Bob fala:',
+    ['12.8'] = 'Vamos para a cerimônia de premiação, está na hora.',
+    ['12.9'] = 'Simbora!',
 
     ['13.1'] = '',
     ['13.2'] = '',
