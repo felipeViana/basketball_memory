@@ -4,6 +4,7 @@ local dictionary = require 'src/common/dictionary'
 local assets = require 'src/common/assets'
 
 local menu = {};
+local music;
 
 local function goToStage11()
   sceneManager.changeScene(require 'src/stages/debugStage1-1')
