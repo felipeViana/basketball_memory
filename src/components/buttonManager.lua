@@ -1,5 +1,7 @@
 local textButton = require 'src/components/textButton'
 local imageButton = require 'src/components/imageButton'
+local arrowButton = require 'src/components/arrowButton'
+
 local soundManager = require 'src/components/soundManager'
 local assets = require 'src/common/assets'
 
@@ -22,6 +24,12 @@ local function addNewButtonToTable(self, newButton)
     self.components,
     newButton
   )
+end
+
+function buttonManager:newArrowButton(arg)
+  local newButton = arrowButton.new(arg)
+  addNewButtonToTable(self, newButton)
+  return newButton
 end
 
 function buttonManager:newTextButton(arg)
@@ -69,6 +77,9 @@ function buttonManager:draw()
     end
     if component.type == 'imageButton' then
       imageButton.draw(component)
+    end
+    if component.type == 'arrowButton' then
+      arrowButton.draw(component)
     end
   end
 end

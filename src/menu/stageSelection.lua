@@ -85,120 +85,120 @@ function menu.load()
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-1',
     fn = goToStage11,
-    x = 100,
+    x = 150,
     y = 50,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-2',
     fn = goToStage12,
-    x = 100,
+    x = 150,
     y = 150,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-3',
     fn = goToStage13,
-    x = 100,
+    x = 150,
     y = 250,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-4',
     fn = goToStage14,
-    x = 100,
+    x = 150,
     y = 350,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-5',
     fn = goToStage15,
-    x = 100,
+    x = 150,
     y = 450,
   })
 
   scrollableButtonManager:newTextButton({
     text = 'Stage 2-1',
     fn = goToStage21,
-    x = 450,
+    x = 500,
     y = 50,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 2-2',
     fn = goToStage22,
-    x = 450,
+    x = 500,
     y = 150,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 2-3',
     fn = goToStage23,
-    x = 450,
+    x = 500,
     y = 250,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 2-4',
     fn = goToStage24,
-    x = 450,
+    x = 500,
     y = 350,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 2-5',
     fn = goToStage25,
-    x = 450,
+    x = 500,
     y = 450,
   })
 
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-1',
     fn = goToStage31,
-    x = 800,
+    x = 850,
     y = 50,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-2',
     fn = goToStage32,
-    x = 800,
+    x = 850,
     y = 150,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-3',
     fn = goToStage33,
-    x = 800,
+    x = 850,
     y = 250,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-4',
     fn = goToStage34,
-    x = 800,
+    x = 850,
     y = 350,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-5',
     fn = goToStage35,
-    x = 800,
+    x = 850,
     y = 450,
   })
 
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-6',
     fn = goToStage35,
-    x = 800,
+    x = 850,
     y = 550,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-7',
     fn = goToStage35,
-    x = 800,
+    x = 850,
     y = 650,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-8',
     fn = goToStage35,
-    x = 800,
+    x = 850,
     y = 750,
   })
 
-  fixedButtonManager:newTextButton({
-    text = dictionary.localize('GoBack'),
+  fixedButtonManager:newArrowButton({
     fn = goBack,
-    x = 100,
-    y = 600,
+    x = 25,
+    y = 25,
+    direction = 'left',
   })
 
   music = assets.menuMusic
