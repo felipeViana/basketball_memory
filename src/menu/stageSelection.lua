@@ -9,6 +9,18 @@ local music;
 local verticalScroll;
 local scrollAmount = 200;
 
+local function scrollUp()
+  if verticalScroll < 0 then
+    verticalScroll = verticalScroll + scrollAmount;
+  end
+end
+
+local function scrollDown()
+  if verticalScroll > -700 then
+    verticalScroll = verticalScroll - scrollAmount;
+  end
+end
+
 local function goToStage11()
   sceneManager.changeScene(require 'src/stages/debugStage1-1')
 end
@@ -85,31 +97,31 @@ function menu.load()
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-1',
     fn = goToStage11,
-    x = 150,
+    x = 200,
     y = 50,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-2',
     fn = goToStage12,
-    x = 150,
+    x = 200,
     y = 150,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-3',
     fn = goToStage13,
-    x = 150,
+    x = 200,
     y = 250,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-4',
     fn = goToStage14,
-    x = 150,
+    x = 200,
     y = 350,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 1-5',
     fn = goToStage15,
-    x = 150,
+    x = 200,
     y = 450,
   })
 
@@ -147,51 +159,63 @@ function menu.load()
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-1',
     fn = goToStage31,
-    x = 850,
+    x = 800,
     y = 50,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-2',
     fn = goToStage32,
-    x = 850,
+    x = 800,
     y = 150,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-3',
     fn = goToStage33,
-    x = 850,
+    x = 800,
     y = 250,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-4',
     fn = goToStage34,
-    x = 850,
+    x = 800,
     y = 350,
   })
   scrollableButtonManager:newTextButton({
     text = 'Stage 3-5',
     fn = goToStage35,
-    x = 850,
+    x = 800,
     y = 450,
   })
 
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-6',
+    text = 'Stage 4-1',
     fn = goToStage35,
-    x = 850,
-    y = 550,
+    x = 200,
+    y = 600,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-7',
+    text = 'Stage 4-2',
     fn = goToStage35,
-    x = 850,
-    y = 650,
+    x = 200,
+    y = 700,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-8',
+    text = 'Stage 4-3',
     fn = goToStage35,
-    x = 850,
-    y = 750,
+    x = 200,
+    y = 800,
+  })
+  scrollableButtonManager:newTextButton({
+    text = 'Stage 4-4',
+    fn = goToStage35,
+    x = 200,
+    y = 900,
+  })
+  scrollableButtonManager:newTextButton({
+    text = 'Stage 4-5',
+    fn = goToStage35,
+    x = 200,
+    y = 1000,
   })
 
   fixedButtonManager:newArrowButton({
@@ -199,6 +223,18 @@ function menu.load()
     x = 25,
     y = 25,
     direction = 'left',
+  })
+  fixedButtonManager:newArrowButton({
+    fn = scrollUp,
+    x = 1150,
+    y = 300,
+    direction = 'up',
+  })
+  fixedButtonManager:newArrowButton({
+    fn = scrollDown,
+    x = 1150,
+    y = 400,
+    direction = 'down',
   })
 
   music = assets.menuMusic
@@ -232,9 +268,9 @@ end
 
 function menu.keypressed(key)
   if key == 'up' then
-    verticalScroll = verticalScroll + scrollAmount;
+    scrollUp()
   elseif key == 'down' then
-    verticalScroll = verticalScroll - scrollAmount;
+    scrollDown()
   end
 end
 

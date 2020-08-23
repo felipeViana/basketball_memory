@@ -56,6 +56,30 @@ function arrowButton.draw(button)
       button.x + 3 * BUTTON_WIDTH/4,
       button.y + 3 * BUTTON_HEIGHT/4
     )
+  elseif button.direction == 'up' then
+    love.graphics.polygon(
+      'fill',
+      button.x + BUTTON_WIDTH/2,
+      button.y + BUTTON_HEIGHT/4,
+
+      button.x + 3 * BUTTON_WIDTH/4,
+      button.y + 3 * BUTTON_HEIGHT/4,
+
+      button.x + BUTTON_WIDTH/4,
+      button.y + 3 * BUTTON_HEIGHT/4
+    )
+  elseif button.direction == 'down' then
+    love.graphics.polygon(
+      'fill',
+      button.x + BUTTON_WIDTH/2,
+      button.y + 3 * BUTTON_HEIGHT/4,
+
+      button.x + BUTTON_WIDTH/4,
+      button.y + BUTTON_HEIGHT/4,
+
+      button.x + 3 * BUTTON_WIDTH/4,
+      button.y + BUTTON_HEIGHT/4
+    )
   end
 end
 
