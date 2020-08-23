@@ -45,12 +45,13 @@ function buttonManager:unload()
   self.components = {}
 end
 
-function buttonManager:update(dt)
+function buttonManager:update(dt, verticalScroll)
+  local dy = verticalScroll or 0
   local mouseX, mouseY = love.mouse.getPosition()
 
   for _, component in pairs(self.components) do
     component.hot = mouseX > component.x and mouseX < component.x + component.width and
-                    mouseY > component.y and mouseY < component.y + component.height
+                    mouseY > component.y + dy and mouseY < component.y + dy + component.height
 
     if self.mouseJustReleased and component.hot then
       soundManager.playSound(assets.selectSound)

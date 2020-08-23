@@ -6,6 +6,9 @@ local assets = require 'src/common/assets'
 local menu = {};
 local music;
 
+local verticalScroll = 0;
+local scrollAmount = 200;
+
 local function goToStage11()
   sceneManager.changeScene(require 'src/stages/debugStage1-1')
 end
@@ -166,6 +169,25 @@ function menu.load()
   })
 
   buttonManager:newTextButton({
+    text = 'Stage 3-6',
+    fn = goToStage35,
+    x = 800,
+    y = 550,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-7',
+    fn = goToStage35,
+    x = 800,
+    y = 650,
+  })
+  buttonManager:newTextButton({
+    text = 'Stage 3-8',
+    fn = goToStage35,
+    x = 800,
+    y = 750,
+  })
+
+  buttonManager:newTextButton({
     text = dictionary.localize('GoBack'),
     fn = goBack,
     x = 100,
@@ -182,15 +204,28 @@ function menu.unload()
 end
 
 function menu.update(dt)
-  buttonManager:update(dt)
+  buttonManager:update(dt, verticalScroll)
 end
 
 function menu.draw()
+  love.graphics.push()
+  love.graphics.translate(0, verticalScroll)
   buttonManager:draw()
+  love.graphics.pop()
 end
 
 function menu.mousereleased(_, _, button)
   buttonManager:mouseReleased(button)
+end
+
+function menu.keypressed(key)
+  if key == 'up' then
+    verticalScroll = verticalScroll + scrollAmount;
+  end
+
+  if key == 'down' then
+    verticalScroll = verticalScroll - scrollAmount;
+  end
 end
 
 return menu;
