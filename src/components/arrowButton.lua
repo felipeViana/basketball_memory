@@ -6,12 +6,15 @@ local BUTTON_WIDTH = 64
 local BUTTON_DEFAULT_COLOR = {0, 0, 0}
 local BUTTON_HOT_COLOR = {148/255, 0, 211/255}
 local TEXT_COLOR = {1, 1, 0}
+local DISABLED_TEXT_COLOR = {1, 1, 0, 0.3}
 
 function arrowButton.new(arg)
   return {
     fn = arg.fn,
     x = arg.x,
     y = arg.y,
+    disabledFunction = arg.disabledFunction,
+    disabled = arg.disabled or false,
     hot = false,
     type = 'arrowButton',
     width = BUTTON_WIDTH,
@@ -22,7 +25,7 @@ end
 
 function arrowButton.draw(button)
   local buttonColor = BUTTON_DEFAULT_COLOR
-  if button.hot then
+  if button.hot and not button.disabled then
     buttonColor = BUTTON_HOT_COLOR
   end
 
@@ -43,7 +46,12 @@ function arrowButton.draw(button)
     BUTTON_HEIGHT
   )
 
-  love.graphics.setColor(TEXT_COLOR)
+  if button.disabled then
+    love.graphics.setColor(DISABLED_TEXT_COLOR)
+  else
+    love.graphics.setColor(TEXT_COLOR)
+  end
+
   if button.direction == 'left' then
     love.graphics.polygon(
       'fill',

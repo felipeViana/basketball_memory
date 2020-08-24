@@ -61,6 +61,14 @@ function buttonManager:update(dt, verticalScroll)
     component.hot = mouseX > component.x and mouseX < component.x + component.width and
                     mouseY > component.y + dy and mouseY < component.y + dy + component.height
 
+    if component.disabledFunction then
+      if component.disabledFunction() then
+        component.disabled = true
+      else
+        component.disabled = false
+      end
+    end
+
     if self.mouseJustReleased and component.hot then
       soundManager.playSound(assets.selectSound)
       component.fn()

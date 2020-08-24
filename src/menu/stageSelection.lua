@@ -9,14 +9,22 @@ local music;
 local verticalScroll;
 local scrollAmount = 200;
 
+local function isScrollUpDisabled()
+  return not (verticalScroll < 0);
+end
+
+local function isScrollDownDisabled()
+  return not (verticalScroll > -700);
+end
+
 local function scrollUp()
-  if verticalScroll < 0 then
+  if not isScrollUpDisabled() then
     verticalScroll = verticalScroll + scrollAmount;
   end
 end
 
 local function scrollDown()
-  if verticalScroll > -700 then
+  if not isScrollDownDisabled() then
     verticalScroll = verticalScroll - scrollAmount;
   end
 end
@@ -229,12 +237,14 @@ function menu.load()
     x = 1150,
     y = 300,
     direction = 'up',
+    disabledFunction = isScrollUpDisabled,
   })
   fixedButtonManager:newArrowButton({
     fn = scrollDown,
     x = 1150,
     y = 400,
     direction = 'down',
+    disabledFunction = isScrollDownDisabled,
   })
 
   music = assets.menuMusic
