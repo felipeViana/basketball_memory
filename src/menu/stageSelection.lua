@@ -238,6 +238,7 @@ function menu.load()
     y = 300,
     direction = 'up',
     disabledFunction = isScrollUpDisabled,
+    disabled = true,
   })
   fixedButtonManager:newArrowButton({
     fn = scrollDown,
