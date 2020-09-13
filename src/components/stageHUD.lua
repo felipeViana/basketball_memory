@@ -1,11 +1,8 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
+local colors = require 'src/common/colors'
 
 local hud = {}
-
-local redColor = {1, 0, 0}
-local yellowColor = {1, 1, 0}
-local orangeColor = {1, 165/255, 0}
 
 local STRETCHING_TIME = 0.3
 local stretching = STRETCHING_TIME
@@ -43,22 +40,22 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName)
     love.graphics.setFont(assets.timerFont)
   end
 
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(colors.white)
   if timeLeft < 5 then
-    love.graphics.setColor(redColor)
+    love.graphics.setColor(colors.red)
   elseif timeLeft < 10 then
-    love.graphics.setColor(orangeColor)
+    love.graphics.setColor(colors.orange)
   elseif timeLeft < 15 then
-    love.graphics.setColor(yellowColor)
+    love.graphics.setColor(colors.yellow)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
 
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.timerFont)
   love.graphics.print(stageName, 600, 25)
 
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.squareFont)
   if not limitedErrors then
     love.graphics.print("infinitas tentativas", 650, 150)
