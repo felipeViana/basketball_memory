@@ -8,7 +8,13 @@ local STRETCHING_TIME = 0.3
 local stretching = STRETCHING_TIME
 local bigFont = true
 
+local JUST_MISSED_TIME = 0.5
+local showingJustMissed = false
+local justMissedRemainingTime = JUST_MISSED_TIME
+
 -- TODO: refactor stretching font
+
+-- TODO: refactor showingJustMissed, create timer associated with variable factory
 
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
@@ -17,18 +23,29 @@ end
 function hud.unload()
 end
 
-function hud.update(dt)
+local function calculateFontStretching(dt)
   if stretching > 0 then
     stretching = stretching - dt
-  end
-
-  if stretching < 0 then
-    bigFont = not bigFont
+  elseif stretching < 0 then
     stretching = STRETCHING_TIME
   end
 end
 
-function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName)
+function hud.update(dt)
+  calculateFontStretching(dt)
+  if stretching < 0 then
+    bigFont = not bigFont
+  end
+
+  if showingJustMissed then
+    justMissedRemainingTime = justMissedRemainingTime - dt
+  end
+  if justMissedRemainingTime < 0 then
+    showingJustMissed = false
+  end
+end
+
+function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName, justMissed, errorsDiscountTime)
   local x = 200
   local y = 25
 
@@ -49,6 +66,16 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName)
     love.graphics.setColor(colors.yellow)
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
+
+  if justMissed and errorsDiscountTime then
+    showingJustMissed = true
+    justMissedRemainingTime = JUST_MISSED_TIME
+  end
+
+  love.graphics.setColor(colors.red)
+  if showingJustMissed then
+    love.graphics.print(string.format("- 5.00", timeLeft), x + 200, y + 30)
+  end
 
 
   love.graphics.setColor(colors.white)

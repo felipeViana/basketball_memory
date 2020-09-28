@@ -21,6 +21,8 @@ stageManager.meta = {
   __index = stageManager,
 }
 
+local justMissed = false;
+
 function stageManager:new()
   local newStageManager = {}
   setmetatable(newStageManager, stageManager.meta)
@@ -60,6 +62,12 @@ end
 function stageManager:update(dt)
   local gameComplete, hasMissed = cardManager.update(dt)
 
+  if hasMissed then
+    justMissed = true
+  else
+    justMissed = false
+  end
+
   if self.limitedErrors and hasMissed then
     self.numberOfErrors = self.numberOfErrors - 1
   end
@@ -89,7 +97,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName)
+  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName, justMissed, self.errorsDiscountTime)
 end
 
 function stageManager:mouseReleased(button)

@@ -46,9 +46,21 @@ function cardObject.draw(card)
     extraScale = 1.2
   end
 
+  local width = card.width
+  local height = card.height
+
+  -- code for bigger cards
+  -- if card.flipped then
+  --   extraScale = 178/500
+
+  --   width = width * extraScale
+  --   height = height * extraScale
+  -- end
+
+
   love.graphics.setColor(1, 1, 1)
   -- love.graphics.setColor(colors[card.kind])
-  love.graphics.draw(image, card.x + card.width*(1-extraScale)/2, card.y + card.height*(1-extraScale)/2, 0, card.scaleX * extraScale, card.scaleY * extraScale)
+  love.graphics.draw(image, card.x + width*(1-extraScale)/2, card.y + height*(1-extraScale)/2, 0, card.scaleX * extraScale, card.scaleY * extraScale)
 end
 
 return cardObject;
