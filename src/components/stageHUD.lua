@@ -8,7 +8,7 @@ local STRETCHING_TIME = 0.3
 local stretching = STRETCHING_TIME
 local bigFont = true
 
-local JUST_MISSED_TIME = 0.5
+local JUST_MISSED_TIME = 1
 local showingJustMissed = false
 local justMissedRemainingTime = JUST_MISSED_TIME
 
