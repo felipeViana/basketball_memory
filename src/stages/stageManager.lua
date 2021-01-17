@@ -57,30 +57,48 @@ function stageManager:unload()
   self.music:stop()
 end
 
+local function removeTry(self)
+  if self.limitedTries then
+    self.numberOfTries = self.numberOfTries - 1
+  end
+end
+
+local function discountTime(self)
+  if self.errorsDiscountTime then
+    self.initialTime = self.initialTime - 5
+  end
+end
+
+local function updateTime(self)
+  self.timeLeft = self.TOTAL_TIME - (love.timer.getTime() - self.initialTime)
+end
+
+local function winGame(self)
+  sceneManager.pushScene(require 'src/stages/winStageScreen', self.goToNextStage)
+  soundManager.playSound(assets.winningSound)
+end
+
+local function gameOver()
+  sceneManager.pushScene(require 'src/stages/gameOverScreen')
+  soundManager.playSound(assets.losingSound)
+end
+
 function stageManager:update(dt)
   local gameComplete, hasMissed = cardManager.update(dt)
 
   if hasMissed then
-    if self.limitedTries then
-      self.numberOfTries = self.numberOfTries - 1
-    end
-
-    if self.errorsDiscountTime then
-      self.initialTime = self.initialTime - 5
-    end
+    removeTry(self)
+    discountTime(self)
   end
 
-  self.timeLeft = self.TOTAL_TIME - (love.timer.getTime() - self.initialTime)
+  updateTime(self)
 
   if gameComplete then
-    sceneManager.pushScene(require 'src/stages/winStageScreen', self.goToNextStage)
-    soundManager.playSound(assets.winningSound)
+    winGame(self)
   end
 
-  local gameOver = self.timeLeft < 0 or (self.limitedTries and self.numberOfTries < 0)
-  if gameOver then
-    sceneManager.pushScene(require 'src/stages/gameOverScreen')
-    soundManager.playSound(assets.losingSound)
+  if self.timeLeft < 0 or (self.limitedTries and self.numberOfTries < 0) then
+    gameOver()
   end
 
   stageHUD.update(dt, hasMissed)
