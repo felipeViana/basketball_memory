@@ -11,7 +11,7 @@ local stageManager = {
   timeLeft,
   TOTAL_TIME,
   errorsDiscountTime,
-  numberOfErrors,
+  numberOfTries,
   limitedErrors,
 
   stageName,
@@ -20,8 +20,6 @@ local stageManager = {
 stageManager.meta = {
   __index = stageManager,
 }
-
-local justMissed = false;
 
 function stageManager:new()
   local newStageManager = {}
@@ -35,8 +33,8 @@ function stageManager:load(arg)
   self.timeLeft = self.TOTAL_TIME
   self.errorsDiscountTime = arg.errorsDiscountTime
 
-  self.numberOfErrors = arg.numberOfErrors
-  self.limitedErrors = arg.numberOfErrors ~= nil
+  self.numberOfTries = arg.numberOfTries
+  self.limitedErrors = arg.numberOfTries ~= nil
 
   self.goToNextStage = arg.goToNextStage
   self.stageName = arg.stageName
@@ -62,14 +60,8 @@ end
 function stageManager:update(dt)
   local gameComplete, hasMissed = cardManager.update(dt)
 
-  if hasMissed then
-    justMissed = true
-  else
-    justMissed = false
-  end
-
-  if self.limitedErrors and hasMissed then
-    self.numberOfErrors = self.numberOfErrors - 1
+  if hasMissed and self.limitedErrors then
+    self.numberOfTries = self.numberOfTries - 1
   end
 
   if hasMissed and self.errorsDiscountTime then
@@ -83,13 +75,13 @@ function stageManager:update(dt)
     soundManager.playSound(assets.winningSound)
   end
 
-  local gameOver = self.timeLeft < 0 or (self.limitedErrors and self.numberOfErrors < 0)
+  local gameOver = self.timeLeft < 0 or (self.limitedErrors and self.numberOfTries < 0)
   if gameOver then
     sceneManager.pushScene(require 'src/stages/gameOverScreen')
     soundManager.playSound(assets.losingSound)
   end
 
-  stageHUD.update(dt, justMissed)
+  stageHUD.update(dt, hasMissed)
 end
 
 function stageManager:draw()
@@ -97,7 +89,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName, self.errorsDiscountTime)
+  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfTries, self.stageName, self.errorsDiscountTime)
 end
 
 function stageManager:mouseReleased(button)
