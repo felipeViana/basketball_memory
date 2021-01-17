@@ -92,21 +92,21 @@ local function drawStageName(stageName)
   love.graphics.print(stageName, 600, 25)
 end
 
-local function drawRemainingTries(limitedErrors, numberOfTries)
+local function drawRemainingTries(limitedTries, numberOfTries)
   love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.squareFont)
 
-  if not limitedErrors then
+  if not limitedTries then
     love.graphics.print("infinitas tentativas", 650, 150)
   else
     love.graphics.print(numberOfTries .. " erros permitidos", 650, 150)
   end
 end
 
-function hud.draw(timeLeft, limitedErrors, numberOfTries, stageName, errorsDiscountTime)
+function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime)
   drawRemainingTime(timeLeft, errorsDiscountTime)
   drawStageName(stageName)
-  drawRemainingTries(limitedErrors, numberOfTries)
+  drawRemainingTries(limitedTries, numberOfTries)
 end
 
 return hud;

@@ -12,7 +12,7 @@ local stageManager = {
   TOTAL_TIME,
   errorsDiscountTime,
   numberOfTries,
-  limitedErrors,
+  limitedTries,
 
   stageName,
   goToNextStage,
@@ -34,7 +34,7 @@ function stageManager:load(arg)
   self.errorsDiscountTime = arg.errorsDiscountTime
 
   self.numberOfTries = arg.numberOfTries
-  self.limitedErrors = arg.numberOfTries ~= nil
+  self.limitedTries = arg.numberOfTries ~= nil
 
   self.goToNextStage = arg.goToNextStage
   self.stageName = arg.stageName
@@ -60,12 +60,14 @@ end
 function stageManager:update(dt)
   local gameComplete, hasMissed = cardManager.update(dt)
 
-  if hasMissed and self.limitedErrors then
-    self.numberOfTries = self.numberOfTries - 1
-  end
+  if hasMissed then
+    if self.limitedTries then
+      self.numberOfTries = self.numberOfTries - 1
+    end
 
-  if hasMissed and self.errorsDiscountTime then
-    self.initialTime = self.initialTime - 5
+    if self.errorsDiscountTime then
+      self.initialTime = self.initialTime - 5
+    end
   end
 
   self.timeLeft = self.TOTAL_TIME - (love.timer.getTime() - self.initialTime)
@@ -75,7 +77,7 @@ function stageManager:update(dt)
     soundManager.playSound(assets.winningSound)
   end
 
-  local gameOver = self.timeLeft < 0 or (self.limitedErrors and self.numberOfTries < 0)
+  local gameOver = self.timeLeft < 0 or (self.limitedTries and self.numberOfTries < 0)
   if gameOver then
     sceneManager.pushScene(require 'src/stages/gameOverScreen')
     soundManager.playSound(assets.losingSound)
@@ -89,7 +91,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfTries, self.stageName, self.errorsDiscountTime)
+  stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime)
 end
 
 function stageManager:mouseReleased(button)
