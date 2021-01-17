@@ -89,7 +89,7 @@ function stageManager:update(dt)
     soundManager.playSound(assets.losingSound)
   end
 
-  stageHUD.update(dt)
+  stageHUD.update(dt, justMissed)
 end
 
 function stageManager:draw()
@@ -97,7 +97,7 @@ function stageManager:draw()
   love.graphics.draw(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName, justMissed, self.errorsDiscountTime)
+  stageHUD.draw(self.timeLeft, self.limitedErrors, self.numberOfErrors, self.stageName, self.errorsDiscountTime)
 end
 
 function stageManager:mouseReleased(button)

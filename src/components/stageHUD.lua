@@ -12,10 +12,6 @@ local JUST_MISSED_TIME = 1
 local showingJustMissed = false
 local justMissedRemainingTime = JUST_MISSED_TIME
 
--- TODO: refactor stretching font
-
--- TODO: refactor showingJustMissed, create timer associated with variable factory
-
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
 end
@@ -31,12 +27,14 @@ local function calculateFontStretching(dt)
   end
 end
 
-function hud.update(dt)
+local function updateFontStretching(dt)
   calculateFontStretching(dt)
   if stretching < 0 then
     bigFont = not bigFont
   end
+end
 
+local function updateShowingJustMissed(dt)
   if showingJustMissed then
     justMissedRemainingTime = justMissedRemainingTime - dt
   end
@@ -45,7 +43,21 @@ function hud.update(dt)
   end
 end
 
-function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName, justMissed, errorsDiscountTime)
+local function updateTimers(dt)
+  updateFontStretching(dt)
+  updateShowingJustMissed(dt)
+end
+
+function hud.update(dt, justMissed)
+  updateTimers(dt)
+
+  if justMissed then
+    showingJustMissed = true
+    justMissedRemainingTime = JUST_MISSED_TIME
+  end
+end
+
+local function drawRemainingTime(timeLeft, errorsDiscountTime)
   local x = 200
   local y = 25
 
@@ -67,28 +79,34 @@ function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName, justMissed
   end
   love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
-  if justMissed and errorsDiscountTime then
-    showingJustMissed = true
-    justMissedRemainingTime = JUST_MISSED_TIME
-  end
-
-  love.graphics.setColor(colors.red)
-  if showingJustMissed then
+  -- draw just missed
+  if errorsDiscountTime and showingJustMissed then
+    love.graphics.setColor(colors.red)
     love.graphics.print(string.format("- 5.00", timeLeft), x + 200, y + 30)
   end
+end
 
-
+local function drawStageName(stageName)
   love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.timerFont)
   love.graphics.print(stageName, 600, 25)
+end
 
+local function drawRemainingTries(limitedErrors, numberOfErrors)
   love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.squareFont)
+
   if not limitedErrors then
     love.graphics.print("infinitas tentativas", 650, 150)
   else
     love.graphics.print(numberOfErrors .. " erros permitidos", 650, 150)
   end
+end
+
+function hud.draw(timeLeft, limitedErrors, numberOfErrors, stageName, errorsDiscountTime)
+  drawRemainingTime(timeLeft, errorsDiscountTime)
+  drawStageName(stageName)
+  drawRemainingTries(limitedErrors, numberOfErrors)
 end
 
 return hud;
