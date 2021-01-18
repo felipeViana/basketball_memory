@@ -10,7 +10,7 @@ local stage = {}
 function stage.load()
   stageManager:load({
     totalTime = 40,
-    numberOfErrors = 8,
+    numberOfTries = 8,
     stageName = 'stage 1-5',
     goToNextStage = goToNextStage,
   })
