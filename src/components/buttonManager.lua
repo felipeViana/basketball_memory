@@ -70,7 +70,11 @@ function buttonManager:update(dt, verticalScroll)
     end
 
     if self.mouseJustReleased and component.hot then
-      soundManager.playSound(assets.selectSound)
+      if not component.disabled then
+        soundManager.playSound(assets.selectSound)
+      end
+      -- TODO: play disabled sound
+
       component.fn()
     end
   end
