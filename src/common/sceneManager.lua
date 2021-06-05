@@ -12,11 +12,11 @@ function sceneManager._validateScene(s)
   s.update = s.update or emptyFunc
   s.draw = s.draw or emptyFunc
   s.resize = s.resize or emptyFunc
-  s.keypressed = s.keypressed or emptyFunc
-  s.textinput = s.textinput or emptyFunc
-  s.mousepressed = s.mousepressed or emptyFunc
-  s.mousereleased = s.mousereleased or emptyFunc
-  s.wheelmoved = s.wheelmoved or emptyFunc
+  s.keypressed = s.keypressed or s.keyPressed or emptyFunc
+  s.textinput = s.textinput or s.textInput or emptyFunc
+  s.mousepressed = s.mousepressed or s.mousePressed or emptyFunc
+  s.mousereleased = s.mousereleased or s.mouseReleased or emptyFunc
+  s.wheelmoved = s.wheelmoved or s.wheelMoved or emptyFunc
 
   s.name = s.name or nil
   s.comingBack = s.comingBack or emptyFunc

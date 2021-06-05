@@ -44,6 +44,9 @@ function gameTitle.keypressed()
   sceneManager.changeScene(require 'src/scenes/chooseLanguage')
 end
 
--- TODO: implement mouse function
+
+function gameTitle.mouseReleased(btn)
+  sceneManager.changeScene(require 'src/scenes/chooseLanguage')
+end
 
 return gameTitle;
