@@ -12,6 +12,9 @@ local JUST_MISSED_TIME = 1
 local showingJustMissed = false
 local justMissedRemainingTime = JUST_MISSED_TIME
 
+local REMAINING_TIME_POSITION = {['x'] = 200, ['y'] = 25}
+local JUST_MISSED_TIME_POSITION = {['x'] = 400, ['y'] = 55}
+
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
 end
@@ -58,32 +61,44 @@ function hud.update(dt, justMissed)
 end
 
 local function drawRemainingTime(timeLeft, errorsDiscountTime)
-  local x = 200
-  local y = 25
-
-  if bigFont and timeLeft < 5 then
-    love.graphics.setFont(assets.timerFont2)
-    x = 198
-    y = 23
-  else
-    love.graphics.setFont(assets.timerFont)
+  local function adjustColor(timeLeft)
+    love.graphics.setColor(colors.white)
+    if timeLeft < 5 then
+      love.graphics.setColor(colors.red)
+    elseif timeLeft < 10 then
+      love.graphics.setColor(colors.orange)
+    elseif timeLeft < 15 then
+      love.graphics.setColor(colors.yellow)
+    end
   end
 
-  love.graphics.setColor(colors.white)
-  if timeLeft < 5 then
-    love.graphics.setColor(colors.red)
-  elseif timeLeft < 10 then
-    love.graphics.setColor(colors.orange)
-  elseif timeLeft < 15 then
-    love.graphics.setColor(colors.yellow)
+  local function adjustFontSize(bigFont, timeLeft)    
+    if bigFont and timeLeft < 5 then
+      love.graphics.setFont(assets.timerFont2)
+    else
+      love.graphics.setFont(assets.timerFont)
+    end
   end
-  love.graphics.print(string.format("tempo restante: %.2f", timeLeft), x, y)
 
-  -- draw just missed
+  adjustFontSize(bigFont, timeLeft)
+  adjustColor(timeLeft)
+
+  love.graphics.print(
+    string.format("tempo restante: %.2f", timeLeft), 
+    REMAINING_TIME_POSITION.x, 
+    REMAINING_TIME_POSITION.y
+  )
+end
+
+local function drawJustMissedTime(errorsDiscountTime)
   if errorsDiscountTime and showingJustMissed then
     love.graphics.setColor(colors.red)
-    love.graphics.print(string.format("- 5.00", timeLeft), x + 200, y + 30)
-  end
+    love.graphics.print(
+      string.format("- 5.00", timeLeft),
+      JUST_MISSED_TIME_POSITION.x,
+      JUST_MISSED_TIME_POSITION.y
+    )
+  end  
 end
 
 local function drawStageName(stageName)
@@ -93,26 +108,33 @@ local function drawStageName(stageName)
 end
 
 local function drawRemainingTries(limitedTries, numberOfTries)
-  love.graphics.setColor(colors.white)
-  love.graphics.setFont(assets.squareFont)
-
-  if not limitedTries then
-    love.graphics.print("infinitas tentativas", 650, 150)
-  else
-    if numberOfTries < 2 then
+  local function adjustColor(limitedTries, numberOfTries)
+    if not limitedTries then
+      love.graphics.setColor(colors.white)
+    elseif numberOfTries < 2 then
       love.graphics.setColor(colors.red)
     elseif numberOfTries < 4 then
       love.graphics.setColor(colors.orange)
     elseif numberOfTries < 6 then
       love.graphics.setColor(colors.yellow)
+    else
+      love.graphics.setColor(colors.white)
     end
+  end
 
+  adjustColor(limitedTries, numberOfTries)
+  love.graphics.setFont(assets.squareFont)
+
+  if not limitedTries then
+    love.graphics.print("infinitas tentativas", 650, 150)
+  else
     love.graphics.print(numberOfTries .. " erros permitidos", 650, 150)
   end
 end
 
 function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime)
   drawRemainingTime(timeLeft, errorsDiscountTime)
+  drawJustMissedTime(errorsDiscountTime)
   drawStageName(stageName)
   drawRemainingTries(limitedTries, numberOfTries)
 end
