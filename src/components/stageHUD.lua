@@ -99,6 +99,14 @@ local function drawRemainingTries(limitedTries, numberOfTries)
   if not limitedTries then
     love.graphics.print("infinitas tentativas", 650, 150)
   else
+    if numberOfTries < 2 then
+      love.graphics.setColor(colors.red)
+    elseif numberOfTries < 4 then
+      love.graphics.setColor(colors.orange)
+    elseif numberOfTries < 6 then
+      love.graphics.setColor(colors.yellow)
+    end
+
     love.graphics.print(numberOfTries .. " erros permitidos", 650, 150)
   end
 end
