@@ -39,13 +39,13 @@ end
 
 function scene.textinput(t)
   textInputComponent.onChange(t)
-  
-  soundManager.playSound(assets.typeSound)
+
+  soundManager.playSound(assets.typeSound, false, 0.50)
 end
 
 function scene.keypressed(key)
   textInputComponent.keyPressed(key)
-  
+
   if key == 'backspace' then
     soundManager.playSound(assets.typeSound)
   end
