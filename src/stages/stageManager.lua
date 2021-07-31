@@ -1,7 +1,9 @@
 local sceneManager = require 'src/common/sceneManager'
+local assets = require 'src/common/assets'
+local drawUtils = require 'src/common/drawUtils'
+
 local cardManager = require 'src/components/cardManager'
 local stageHUD = require 'src/components/stageHUD'
-local assets = require 'src/common/assets'
 local soundManager = require 'src/components/soundManager'
 
 local stageManager = {
@@ -106,7 +108,8 @@ end
 
 function stageManager:draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(assets.stageBackground)
+
+  drawUtils.drawBackground(assets.stageBackground)
 
   cardManager.draw()
   stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime)

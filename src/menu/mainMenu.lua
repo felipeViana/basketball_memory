@@ -11,7 +11,7 @@ local time = 0
 
 local GRID_Y = 150
 local DELTA_Y = 75
-local GRID_X = 100
+local GRID_X = 400
 
 local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
@@ -73,7 +73,7 @@ end
 function menu.draw()
   buttonManager:draw()
 
-  drawUtils.drawRainbowCosText(50, 50, 'BASKETBALL MEMORY LEGENDS', assets.frostbiteFont, time)
+  drawUtils.drawRainbowCosText(100, 50, 'BASKETBALL MEMORY LEGENDS', assets.frostbiteFont, time)
 end
 
 function menu.mousereleased(_, _, button)

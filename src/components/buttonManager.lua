@@ -5,6 +5,8 @@ local arrowButton = require 'src/components/arrowButton'
 local soundManager = require 'src/components/soundManager'
 local assets = require 'src/common/assets'
 
+local drawUtils = require 'src/common/drawUtils'
+
 local buttonManager = {
   components = {},
   mouseJustReleased,
@@ -56,6 +58,8 @@ end
 function buttonManager:update(dt, verticalScroll)
   local dy = verticalScroll or 0
   local mouseX, mouseY = love.mouse.getPosition()
+  mouseX = mouseX - drawUtils.getScreenDx()
+  mouseY = mouseY - drawUtils.getScreenDy()
 
   for _, component in pairs(self.components) do
     component.hot = mouseX > component.x and mouseX < component.x + component.width and

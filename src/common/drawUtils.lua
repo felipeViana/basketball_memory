@@ -1,4 +1,5 @@
 local colors = require 'src/common/colors'
+local globals = require 'src/common/globals'
 
 local drawUtils = {};
 
@@ -51,6 +52,28 @@ function drawUtils.drawRainbowCosText(startX, startY, text, font, time)
       love.graphics.print(text:sub(i, i), startX + i * 30, y)
     end
   end
+end
+
+function drawUtils.getScreenDx()
+  return (love.graphics.getWidth() - globals.baseScreenWidth) / 2
+end
+
+function drawUtils.getScreenDy()
+  return (love.graphics.getHeight() - globals.baseScreenHeight) / 2
+end
+
+function drawUtils.drawBackground(image)
+  -- always draw bgs at 0, 0
+  love.graphics.translate(
+    - drawUtils.getScreenDx(),
+    - drawUtils.getScreenDy()
+  )
+  love.graphics.draw(image)
+
+  love.graphics.translate(
+    drawUtils.getScreenDx(),
+    drawUtils.getScreenDy()
+  )
 end
 
 return drawUtils;

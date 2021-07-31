@@ -1,12 +1,27 @@
 local loadAssets = require 'src/common/loadAssets'
 local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
+local drawUtils = require 'src/common/drawUtils'
 
 local DEBUG = true
 local inPause = false
 local justPaused = false
 
 function love.load()
+  local screenWidth = 1280
+  local screenHeight = screenWidth * 1 / globals.resolution
+
+  love.window.setMode(
+    screenWidth, 
+    screenHeight, 
+    {
+      resizable = true,
+      minwidth = globals.baseScreenWidth,
+      minheight = globals.baseScreenHeight
+    }
+  )
+
+
   loadAssets.loadAll()
 
   if DEBUG then
@@ -35,11 +50,16 @@ function love.update(dt)
 end
 
 function love.draw()
+  
+  love.graphics.translate(
+    drawUtils.getScreenDx(),
+    drawUtils.getScreenDy()
+  )
   sceneManager.draw()
 end
 
 function love.mousereleased(x, y, button, istouch)
-  sceneManager.currentScene.mousereleased(x, y, button, istouch)
+  sceneManager.currentScene.mousereleased(x -drawUtils.getScreenDx(), y - drawUtils.getScreenDy(), button, istouch)
 end
 
 function love.wheelmoved(x, y)

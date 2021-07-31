@@ -12,7 +12,7 @@ local scrollAmount = 200;
 
 local MOUSE_SPEED = 100
 
-local FIRST_COLUMN_X = 100
+local FIRST_COLUMN_X = 175
 local FIRST_LINE_Y = 50
 local SECOND_LINE_Y = 500
 local DELTA_X = 225
@@ -253,7 +253,7 @@ function menu.load()
   })
   fixedButtonManager:newArrowButton({
     fn = scrollUp,
-    x = globals.screenWidth - 100,
+    x = globals.baseScreenWidth - 100,
     y = 300,
     direction = 'up',
     disabledFunction = reachedUpperLimit,
@@ -261,7 +261,7 @@ function menu.load()
   })
   fixedButtonManager:newArrowButton({
     fn = scrollDown,
-    x = globals.screenWidth - 100,
+    x = globals.baseScreenWidth - 100,
     y = 400,
     direction = 'down',
     disabledFunction = reachedBottomLimit,

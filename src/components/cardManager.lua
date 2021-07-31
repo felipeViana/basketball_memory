@@ -1,7 +1,10 @@
-local cardObject = require 'src/components/cardObject'
 local gridUtils = require 'src/common/gridUtils'
 local assets = require 'src/common/assets'
+local drawUtils = require 'src/common/drawUtils'
+
+local cardObject = require 'src/components/cardObject'
 local soundManager = require 'src/components/soundManager'
+
 local lume = require "libs/lume"
 
 local flippedNow
@@ -107,6 +110,8 @@ end
 
 local function updateCards()
   local mouseX, mouseY = love.mouse.getPosition()
+  mouseX = mouseX - drawUtils.getScreenDx()
+  mouseY = mouseY - drawUtils.getScreenDy()
 
   local hasMissed
   for _, card in pairs(cards) do
