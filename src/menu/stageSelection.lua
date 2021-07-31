@@ -9,23 +9,33 @@ local music;
 local verticalScroll;
 local scrollAmount = 200;
 
-local function isScrollUpDisabled()
+local MOUSE_SPEED = 100
+
+local function reachedUpperLimit()
   return not (verticalScroll < 0);
 end
 
-local function isScrollDownDisabled()
+local function reachedBottomLimit()
   return not (verticalScroll > -700);
 end
 
-local function scrollUp()
-  if not isScrollUpDisabled() then
-    verticalScroll = verticalScroll + scrollAmount;
+local function scrollUp(y)
+  if not reachedUpperLimit() then
+    if y then
+      verticalScroll = verticalScroll + y * MOUSE_SPEED
+    else
+      verticalScroll = verticalScroll + scrollAmount;
+    end
   end
 end
 
-local function scrollDown()
-  if not isScrollDownDisabled() then
-    verticalScroll = verticalScroll - scrollAmount;
+local function scrollDown(y)
+  if not reachedBottomLimit() then
+    if y then
+      verticalScroll = verticalScroll + y * MOUSE_SPEED
+    else
+      verticalScroll = verticalScroll - scrollAmount;
+    end
   end
 end
 
@@ -237,7 +247,7 @@ function menu.load()
     x = 1150,
     y = 300,
     direction = 'up',
-    disabledFunction = isScrollUpDisabled,
+    disabledFunction = reachedUpperLimit,
     disabled = true,
   })
   fixedButtonManager:newArrowButton({
@@ -245,7 +255,7 @@ function menu.load()
     x = 1150,
     y = 400,
     direction = 'down',
-    disabledFunction = isScrollDownDisabled,
+    disabledFunction = reachedBottomLimit,
   })
 
   music = assets.menuMusic
@@ -275,6 +285,14 @@ end
 function menu.mousereleased(_, _, button)
   scrollableButtonManager:mouseReleased(button)
   fixedButtonManager:mouseReleased(button)
+end
+
+function menu.wheelmoved(x, y)
+  if y < 0 then
+    scrollDown(y)
+  elseif y > 0 then
+    scrollUp(y)
+  end
 end
 
 function menu.keypressed(key)

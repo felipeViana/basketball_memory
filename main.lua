@@ -42,6 +42,10 @@ function love.mousereleased(x, y, button, istouch)
   sceneManager.currentScene.mousereleased(x, y, button, istouch)
 end
 
+function love.wheelmoved(x, y)
+  sceneManager.currentScene.wheelmoved(x, y)
+end
+
 function love.keypressed(key)
   sceneManager.currentScene.keypressed(key)
   if key == "escape" and DEBUG then
