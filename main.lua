@@ -13,9 +13,10 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
 
+    -- sceneManager.changeScene(require 'src/menu/mainMenu')
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
-    sceneManager.changeScene(require 'src/menu/stageSelection')
-    -- sceneManager.changeScene(require 'src/scenes/cutScene1')
+    -- sceneManager.changeScene(require 'src/menu/stageSelection')
+    sceneManager.changeScene(require 'src/scenes/cutScene4')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')

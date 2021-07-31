@@ -1,8 +1,10 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = require 'src/components/buttonManager'
 local dictionary = require 'src/common/dictionary'
 local assets = require 'src/common/assets'
 local globals = require 'src/common/globals'
+local colors = require 'src/common/colors'
+
+local buttonManager = require 'src/components/buttonManager'
 
 local menu = {};
 local music;
@@ -113,6 +115,8 @@ local function goBack()
 end
 
 function menu.load()
+  love.graphics.setBackgroundColor(colors.gray)
+
   verticalScroll = 0;
 
   scrollableButtonManager = buttonManager.new()
@@ -283,8 +287,6 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.setBackgroundColor(0.1, 0.1, 0.1)
-
   love.graphics.push()
   love.graphics.translate(0, verticalScroll)
   scrollableButtonManager:draw()

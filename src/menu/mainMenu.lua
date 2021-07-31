@@ -1,8 +1,10 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 local assets = require 'src/common/assets'
 local drawUtils = require 'src/common/drawUtils'
+local colors = require 'src/common/colors'
+
+local buttonManager = (require 'src/components/buttonManager').new()
 
 local menu = {};
 
@@ -30,6 +32,8 @@ local function quitGame()
 end
 
 function menu.load()
+  love.graphics.setBackgroundColor(colors.gray)
+
   buttonManager:load()
   buttonManager:newTextButton({
     text = dictionary.localize('StartGame'),

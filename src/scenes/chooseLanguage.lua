@@ -1,9 +1,11 @@
 local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
 local dictionary = require 'src/common/dictionary'
-local buttonManager = (require 'src/components/buttonManager').new()
 local drawUtils = require 'src/common/drawUtils'
 local globals = require 'src/common/globals'
+local colors = require 'src/common/colors'
+
+local buttonManager = (require 'src/components/buttonManager').new()
 
 local screen = {};
 local fromSettings = false;
@@ -29,6 +31,8 @@ local function choosePortuguese()
 end
 
 function screen.load(comingFromSettings)
+  love.graphics.setBackgroundColor(colors.gray)
+
   fromSettings = comingFromSettings
   titleFont = assets.bigFont
 
@@ -76,7 +80,7 @@ function screen.draw()
     posY = 50,
     text = 'Choose your language',
   })
-  
+
   drawUtils.drawTextRectangle({
     font = titleFont,
     posX = 300,
