@@ -19,12 +19,12 @@ local function goToNextScreen()
 end
 
 local function chooseEnglish()
-  globals.language = 'english'
+  globals.language = 'en'
   goToNextScreen()
 end
 
 local function choosePortuguese()
-  globals.language = 'portugues'
+  globals.language = 'pt'
   goToNextScreen()
 end
 
@@ -74,7 +74,14 @@ function screen.draw()
     font = titleFont,
     posX = 300,
     posY = 50,
-    text = dictionary.localize('Choose your language'),
+    text = 'Choose your language',
+  })
+  
+  drawUtils.drawTextRectangle({
+    font = titleFont,
+    posX = 300,
+    posY = 100,
+    text = 'Escolha sua língua',
   })
 
   buttonManager:draw()
