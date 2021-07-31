@@ -12,7 +12,8 @@ function love.load()
 
   if DEBUG then
     love.audio.setVolume(0)
-    sceneManager.changeScene(require 'src/menu/settings')
+
+    sceneManager.changeScene(require 'src/scenes/chooseName')
     -- sceneManager.changeScene(require 'src/menu/stageSelection')
     -- sceneManager.changeScene(require 'src/scenes/cutScene7')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
@@ -37,7 +38,6 @@ function love.update(dt)
 end
 
 function love.draw()
-  
   love.graphics.translate(
     drawUtils.getScreenDx(),
     drawUtils.getScreenDy()
@@ -46,7 +46,12 @@ function love.draw()
 end
 
 function love.mousereleased(x, y, button, istouch)
-  sceneManager.currentScene.mousereleased(x -drawUtils.getScreenDx(), y - drawUtils.getScreenDy(), button, istouch)
+  sceneManager.currentScene.mousereleased(
+    x -drawUtils.getScreenDx(), 
+    y - drawUtils.getScreenDy(), 
+    button, 
+    istouch
+  )
 end
 
 function love.wheelmoved(x, y)

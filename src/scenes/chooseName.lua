@@ -1,17 +1,19 @@
 local assets = require "src/common/assets"
 local sceneManager = require 'src/common/sceneManager'
-local textInputComponent = require 'src/components/textInput'
 local dictionary = require 'src/common/dictionary'
 local globals = require 'src/common/globals'
+
+local textInputComponent = require 'src/components/textInput'
+local soundManager = require 'src/components/soundManager'
 
 local scene = {};
 local textInput;
 
 function scene.load()
   textInput = textInputComponent.new({
-    posX=400,
-    posY=400,
-    font=assets.textFont,
+    posX = 400,
+    posY = 400,
+    font = assets.textFont,
   })
   textInputComponent.load()
 end
@@ -37,10 +39,16 @@ end
 
 function scene.textinput(t)
   textInputComponent.onChange(t)
+  
+  soundManager.playSound(assets.typeSound)
 end
 
 function scene.keypressed(key)
   textInputComponent.keyPressed(key)
+  
+  if key == 'backspace' then
+    soundManager.playSound(assets.typeSound)
+  end
 
   if key == 'return' and string.len(textInput.name) > 0 then
     globals.playerName = textInput.name
