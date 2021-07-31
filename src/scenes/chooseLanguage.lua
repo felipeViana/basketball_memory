@@ -35,23 +35,23 @@ function screen.load(comingFromSettings)
   buttonManager:load()
   buttonManager:newImageButton({
     fn = chooseEnglish,
-    x = 100,
-    y = 300,
+    x = 200,
+    y = 250,
     image = assets.flagUK,
     imageWidth = 1024,
     imageHeight = 512,
-    scaleX = 0.5,
-    scaleY = 0.5,
+    scaleX = 0.25,
+    scaleY = 0.25,
   })
   buttonManager:newImageButton({
     fn = choosePortuguese,
-    x = 700,
-    y = 300,
+    x = 550,
+    y = 250,
     image = assets.flagBR,
     imageWidth = 1024,
     imageHeight = 716,
-    scaleX = 0.5,
-    scaleY = 0.36,
+    scaleX = 0.25,
+    scaleY = 0.18,
   })
 
   music = assets.menuMusic
@@ -71,10 +71,10 @@ function screen.draw()
   love.graphics.setColor(1, 1, 1)
 
   drawUtils.drawTextRectangle({
-    font=titleFont,
-    posX=440,
-    posY=100,
-    text=dictionary.localize('Choose your language'),
+    font = titleFont,
+    posX = 300,
+    posY = 50,
+    text = dictionary.localize('Choose your language'),
   })
 
   buttonManager:draw()

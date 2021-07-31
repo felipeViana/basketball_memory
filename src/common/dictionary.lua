@@ -454,7 +454,7 @@ local function getPortugueseDict()
 end
 
 function dictionary.localize(word)
-  if globals.language == 'english' then
+  if globals.language == 'en' then
     return getEnglishDict()[word]
   else
     return getPortugueseDict()[word]
