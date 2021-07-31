@@ -1,8 +1,8 @@
 local assets = require "src/common/assets"
 local arrowButton = {}
 
-local BUTTON_HEIGHT = 64
-local BUTTON_WIDTH = 64
+local BUTTON_HEIGHT = 48
+local BUTTON_WIDTH = 48
 local BUTTON_DEFAULT_COLOR = {0, 0, 0}
 local BUTTON_HOT_COLOR = {148/255, 0, 211/255}
 local TEXT_COLOR = {1, 1, 0}

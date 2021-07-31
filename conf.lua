@@ -1,3 +1,8 @@
+local globals = require 'src/common/globals'
+
+local RESOLUTION = globals.resolution
+local WIDTH = globals.screenWidth
+
 function love.conf(t)
   t.identity = nil -- save directory (string)
   t.accelerometerjoystick = false
@@ -5,8 +10,8 @@ function love.conf(t)
   t.version = "11.3"
   t.console = false
 
-  t.window.width = 1280
-  t.window.height = 720
+  t.window.width = WIDTH
+  t.window.height = WIDTH * 1/RESOLUTION
   t.window.fullscreen = false
   t.window.icon = "assets/images/logo.png"
   t.window.borderless = false

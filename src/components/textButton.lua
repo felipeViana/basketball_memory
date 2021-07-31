@@ -2,7 +2,7 @@ local assets = require "src/common/assets"
 local textButton = {}
 
 local BUTTON_HEIGHT = 64
-local BUTTON_WIDTH = 250
+local BUTTON_WIDTH = 175
 local TEXT_LEFT_PADDING = 20
 local BUTTON_DEFAULT_COLOR = {0, 0, 0}
 local BUTTON_HOT_COLOR = {148/255, 0, 211/255}
