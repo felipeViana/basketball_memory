@@ -9,10 +9,13 @@ function love.conf(t)
 
   t.window.width = globals.baseScreenWidth
   t.window.height = globals.baseScreenHeight
+  t.window.minwidth = globals.baseScreenWidth
+  t.window.minheight = globals.baseScreenHeight
+
   t.window.fullscreen = false
   t.window.icon = "assets/images/logo.png"
   t.window.borderless = false
-  t.window.resizable = false
+  t.window.resizable = true
 
   t.modules.audio = true
   t.modules.data = false

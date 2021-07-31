@@ -8,20 +8,6 @@ local inPause = false
 local justPaused = false
 
 function love.load()
-  local screenWidth = 1280
-  local screenHeight = screenWidth * 1 / globals.resolution
-
-  love.window.setMode(
-    screenWidth, 
-    screenHeight, 
-    {
-      resizable = true,
-      minwidth = globals.baseScreenWidth,
-      minheight = globals.baseScreenHeight
-    }
-  )
-
-
   loadAssets.loadAll()
 
   if DEBUG then
