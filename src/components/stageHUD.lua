@@ -12,8 +12,12 @@ local JUST_MISSED_TIME = 1
 local showingJustMissed = false
 local justMissedRemainingTime = JUST_MISSED_TIME
 
-local REMAINING_TIME_POSITION = {['x'] = 200, ['y'] = 25}
-local JUST_MISSED_TIME_POSITION = {['x'] = 400, ['y'] = 55}
+local GRID_X = 500
+local DELTA_X = 75
+local GRID_Y = 100
+local DELTA_Y = 75
+local REMAINING_TIME_POSITION = {['x'] = GRID_X, ['y'] = GRID_Y + 3 * DELTA_Y}
+local JUST_MISSED_TIME_POSITION = {['x'] = GRID_X + 200, ['y'] = GRID_Y + 3 * DELTA_Y + 30}
 
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
@@ -104,7 +108,7 @@ end
 local function drawStageName(stageName)
   love.graphics.setColor(colors.white)
   love.graphics.setFont(assets.timerFont)
-  love.graphics.print(stageName, 600, 25)
+  love.graphics.print(stageName, GRID_X + DELTA_X, 25)
 end
 
 local function drawRemainingTries(limitedTries, numberOfTries)
@@ -126,7 +130,7 @@ local function drawRemainingTries(limitedTries, numberOfTries)
   love.graphics.setFont(assets.squareFont)
 
   if not limitedTries then
-    love.graphics.print("infinitas tentativas", 650, 150)
+    love.graphics.print("infinite tries", GRID_X, GRID_Y + DELTA_Y)
   else
     love.graphics.print(numberOfTries .. " erros permitidos", 650, 150)
   end

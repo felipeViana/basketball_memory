@@ -40,15 +40,15 @@ function drawUtils.drawTextRectangle(arg)
   })
 end
 
-function drawUtils.drawRainbowCosText(text, font, time)
+function drawUtils.drawRainbowCosText(startX, startY, text, font, time)
   for i=1, #text do
     for j=1, #colors.getRainbowColors() do
       local t1 = time + i*4 - j*2
-      local y = 60 + math.cos(t1*3)*20
+      local y = startY + math.cos(t1*3)*20
 
       love.graphics.setColor(colors.getRainbowColors()[j])
       love.graphics.setFont(font)
-      love.graphics.print(text:sub(i, i), 250 + i * 30, y)
+      love.graphics.print(text:sub(i, i), startX + i * 30, y)
     end
   end
 end

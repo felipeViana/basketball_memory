@@ -12,18 +12,20 @@ local scrollAmount = 200;
 
 local MOUSE_SPEED = 100
 
-local FIRST_COLUMN_X = 150
+local FIRST_COLUMN_X = 100
 local FIRST_LINE_Y = 50
-local SECOND_LINE_Y = 600
-local DELTA_X = 200
-local DELTA_Y = 100
+local SECOND_LINE_Y = 500
+local DELTA_X = 225
+local DELTA_Y = 75
+
+local MAX_Y = 350
 
 local function reachedUpperLimit()
   return not (verticalScroll < 0);
 end
 
 local function reachedBottomLimit()
-  return not (verticalScroll > -700);
+  return not (verticalScroll > - MAX_Y);
 end
 
 local function scrollUp(y)

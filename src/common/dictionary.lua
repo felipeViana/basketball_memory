@@ -113,11 +113,11 @@ local function getPortugueseDict()
     e = 'e',
 
     -- menus
-    StartGame = 'Começar jogo',
-    Settings = 'Configurações',
-    StageSelection = 'Escolher fase',
-    ExitToMenu = 'Sair pro menu',
-    ExitGame = 'Sair do jogo',
+    StartGame = 'História',
+    Settings = 'Opções',
+    StageSelection = 'Fases',
+    ExitToMenu = 'Menu',
+    ExitGame = 'Sair',
     ToggleFullscreen = 'Alternar tela cheia',
     ChooseLanguage = 'Escolher língua',
     GoBack = 'Voltar',

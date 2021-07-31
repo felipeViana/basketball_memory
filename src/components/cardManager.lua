@@ -12,6 +12,11 @@ local lastPairState
 
 local cardManager = {}
 
+local GRID_X = 500
+local GRID_Y = 100
+local DELTA_Y = 75
+
+
 -- TODO: make it work for pairs of 3 cards as well
 -- TODO: refactor flipCard
 
@@ -140,10 +145,10 @@ function cardManager.draw()
   love.graphics.setFont(assets.frostbiteFont)
   if lastPairState == 'right' then
     love.graphics.setColor(0, 1, 0)
-    love.graphics.print("ACERTOU", 600, 300)
+    love.graphics.print("SCORE", GRID_X, GRID_Y + 1.5 * DELTA_Y)
   elseif lastPairState == 'wrong' then
     love.graphics.setColor(1, 0, 0)
-    love.graphics.print("ERROU", 600, 300)
+    love.graphics.print("MISSED", GRID_X, GRID_Y + 1.5 * DELTA_Y)
   end
 end
 

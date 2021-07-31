@@ -9,6 +9,10 @@ local menu = {};
 local music
 local time = 0
 
+local GRID_Y = 150
+local DELTA_Y = 75
+local GRID_X = 100
+
 local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
 end
@@ -30,26 +34,26 @@ function menu.load()
   buttonManager:newTextButton({
     text = dictionary.localize('StartGame'),
     fn = startGame,
-    x = 100,
-    y = 200,
+    x = GRID_X,
+    y = GRID_Y,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('StageSelection'),
     fn = goToStageSelection,
-    x = 100,
-    y = 300,
+    x = GRID_X,
+    y = GRID_Y + DELTA_Y,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('Settings'),
     fn = goToSettings,
-    x = 100,
-    y = 400,
+    x = GRID_X,
+    y = GRID_Y + 2 * DELTA_Y,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitGame'),
     fn = quitGame,
-    x = 100,
-    y = 500,
+    x = GRID_X,
+    y = GRID_Y + 3 * DELTA_Y,
   })
 
   music = assets.menuMusic
@@ -69,7 +73,7 @@ end
 function menu.draw()
   buttonManager:draw()
 
-  drawUtils.drawRainbowCosText('BASKETBALL MEMORY LEGENDS', assets.frostbiteFont, time)
+  drawUtils.drawRainbowCosText(50, 50, 'BASKETBALL MEMORY LEGENDS', assets.frostbiteFont, time)
 end
 
 function menu.mousereleased(_, _, button)
