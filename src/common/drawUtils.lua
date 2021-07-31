@@ -6,6 +6,9 @@ local drawUtils = {};
 local defaultTextBackgroundColor = {0, 0, 0}
 local defaultTextForegroundColor = {1, 1, 1}
 
+local MAX_WINDOW_WIDTH = 1920
+local MAX_WINDOW_HEIGHT = 1080
+
 local function _drawTextRectangle(arg)
   love.graphics.setColor(arg.textBackgroundColor)
   love.graphics.rectangle(
@@ -55,26 +58,44 @@ function drawUtils.drawRainbowCosText(startX, startY, text, font, time)
 end
 
 function drawUtils.getScreenDx()
-  return (love.graphics.getWidth() - globals.baseScreenWidth) / 2
+  if love.graphics.getWidth() > MAX_WINDOW_WIDTH then
+    return (love.graphics.getWidth() - MAX_WINDOW_WIDTH) / 2
+  else
+    return (love.graphics.getWidth() - globals.baseScreenWidth) / 2
+  end
 end
 
 function drawUtils.getScreenDy()
-  return (love.graphics.getHeight() - globals.baseScreenHeight) / 2
+  if love.graphics.getHeight() > MAX_WINDOW_HEIGHT then
+    return (love.graphics.getHeight() - MAX_WINDOW_HEIGHT) / 2
+  else
+    return (love.graphics.getHeight() - globals.baseScreenHeight) / 2
+  end
 end
 
 function drawUtils.drawBackground(image)
+  local dx = 0
+  local dy = 0
+  if love.graphics.getWidth() > MAX_WINDOW_WIDTH then
+    dx = (love.graphics.getWidth() - MAX_WINDOW_WIDTH) / 2
+  end
+
+  if love.graphics.getHeight() > MAX_WINDOW_HEIGHT then
+    dy = (love.graphics.getHeight() - MAX_WINDOW_HEIGHT) / 2
+  end
+
   -- always draw bgs at 0, 0
   love.graphics.translate(
-    - drawUtils.getScreenDx(),
-    - drawUtils.getScreenDy()
+    - drawUtils.getScreenDx() + dx / 2,
+    - drawUtils.getScreenDy() + dy
   )
 
   love.graphics.draw(image)
 
   -- translate it back
   love.graphics.translate(
-    drawUtils.getScreenDx(),
-    drawUtils.getScreenDy()
+    drawUtils.getScreenDx() - dx / 2,
+    drawUtils.getScreenDy() - dy
   )
 end
 

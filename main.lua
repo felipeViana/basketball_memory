@@ -14,8 +14,8 @@ function love.load()
     love.audio.setVolume(0)
 
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
-    -- sceneManager.changeScene(require 'src/menu/stageSelection')
-    sceneManager.changeScene(require 'src/scenes/cutScene1')
+    sceneManager.changeScene(require 'src/menu/stageSelection')
+    -- sceneManager.changeScene(require 'src/scenes/cutScene1')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
@@ -47,9 +47,9 @@ end
 
 function love.mousereleased(x, y, button, istouch)
   sceneManager.currentScene.mousereleased(
-    x -drawUtils.getScreenDx(), 
-    y - drawUtils.getScreenDy(), 
-    button, 
+    x -drawUtils.getScreenDx(),
+    y - drawUtils.getScreenDy(),
+    button,
     istouch
   )
 end

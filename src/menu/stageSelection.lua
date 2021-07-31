@@ -283,6 +283,8 @@ function menu.update(dt)
 end
 
 function menu.draw()
+  love.graphics.setBackgroundColor(0.1, 0.1, 0.1)
+
   love.graphics.push()
   love.graphics.translate(0, verticalScroll)
   scrollableButtonManager:draw()

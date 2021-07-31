@@ -230,13 +230,11 @@ function Talkies.draw()
   local windowWidth = globals.baseScreenWidth
   local windowHeight = globals.baseScreenHeight
 
-  local realScreenHeight = love.graphics.getHeight()
-
   -- message box
   local boxW = windowWidth - (2 * currentDialog.padding)
   local boxH = (windowHeight / 3) - (2 * currentDialog.padding)
   local boxX = currentDialog.padding
-  local boxY = realScreenHeight - (boxH + currentDialog.padding) - drawUtils.getScreenDy()
+  local boxY = windowHeight - (boxH + currentDialog.padding)
 
   -- image
   local imgX, imgY, imgW, imgScale = boxX+currentDialog.padding, boxY+currentDialog.padding, 0, 0
