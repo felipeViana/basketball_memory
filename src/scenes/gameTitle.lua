@@ -8,6 +8,8 @@ local smallFont
 local titleFont
 local music
 
+local GRID_X = 300
+
 function gameTitle.load()
   smallFont = assets.textFont
   titleFont = assets.bigFont
@@ -23,20 +25,21 @@ end
 
 function gameTitle.draw()
   love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(bgImage, 0, 0, 0, 1.1, 1.1)
+
+  drawUtils.drawBackground(bgImage)
 
   drawUtils.drawTextRectangle({
-    font=titleFont,
-    posX=540,
-    posY=320,
-    text='Basketball Memory Legends',
+    font = titleFont,
+    posX = GRID_X,
+    posY = 200,
+    text = 'Basketball Memory Legends',
   })
 
   drawUtils.drawTextRectangle({
-    font=smallFont,
-    posX=240,
-    posY=610,
-    text='press any key to continue',
+    font = smallFont,
+    posX = GRID_X + 50,
+    posY = 500,
+    text = 'press any key to continue',
   })
 end
 
