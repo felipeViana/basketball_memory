@@ -3,7 +3,7 @@ local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 local drawUtils = require 'src/common/drawUtils'
 
-local DEBUG = true
+local DEBUG = false
 local inPause = false
 local justPaused = false
 
@@ -13,10 +13,10 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
 
-    -- sceneManager.changeScene(require 'src/menu/mainMenu')
+    sceneManager.changeScene(require 'src/menu/mainMenu')
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
     -- sceneManager.changeScene(require 'src/menu/stageSelection')
-    sceneManager.changeScene(require 'src/scenes/cutScene4')
+    -- sceneManager.changeScene(require 'src/scenes/cutScene3-2')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
@@ -48,7 +48,7 @@ end
 
 function love.mousereleased(x, y, button, istouch)
   sceneManager.currentScene.mousereleased(
-    x -drawUtils.getScreenDx(),
+    x - drawUtils.getScreenDx(),
     y - drawUtils.getScreenDy(),
     button,
     istouch

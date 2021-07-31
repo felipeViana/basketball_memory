@@ -6,9 +6,9 @@ local portugueseDict = require 'src/locales/pt'
 
 function dictionary.localize(word)
   if globals.language == 'en' then
-    return englishDict[word]
+    return englishDict.locales()[word]
   else
-    return portugueseDict[word]
+    return portugueseDict.locales()[word]
   end
 end
 
