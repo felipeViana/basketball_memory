@@ -1,4 +1,5 @@
 local colors = require 'src/common/colors'
+local drawUtils = require 'src/common/drawUtils'
 
 local Talkies = require 'libs/talkies'
 
@@ -29,8 +30,8 @@ end
 
 function scene.draw(background)
   love.graphics.setColor(colors.white)
-  love.graphics.draw(background)
-
+  
+drawUtils.drawBackground(background)
   Talkies.draw()
 end
 

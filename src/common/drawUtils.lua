@@ -68,8 +68,10 @@ function drawUtils.drawBackground(image)
     - drawUtils.getScreenDx(),
     - drawUtils.getScreenDy()
   )
+
   love.graphics.draw(image)
 
+  -- translate it back
   love.graphics.translate(
     drawUtils.getScreenDx(),
     drawUtils.getScreenDy()

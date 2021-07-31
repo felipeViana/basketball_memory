@@ -7,6 +7,10 @@
 -- under the terms of the MIT license. See LICENSE for details.
 --
 local assets = require 'src/common/assets'
+local globals = require 'src/common/globals'
+
+local drawUtils = require 'src/common/drawUtils'
+
 local utf8 = require("utf8")
 
 local function playSound(sound, pitch)
@@ -222,21 +226,17 @@ function Talkies.draw()
     love.graphics.draw(currentDialog.rightBody, 50+400*2)
   end
 
-  local function getDimensions()
-    local canvas = love.graphics.getCanvas()
-    if canvas then
-      return canvas:getDimensions()
-    end
-    return love.graphics.getDimensions()
-  end
+  -- local windowWidth, windowHeight = love.graphics.getDimensions()
+  local windowWidth = globals.baseScreenWidth
+  local windowHeight = globals.baseScreenHeight
 
-  local windowWidth, windowHeight = getDimensions()
+  local realScreenHeight = love.graphics.getHeight()
 
   -- message box
-  local boxW = windowWidth-(2*currentDialog.padding)
-  local boxH = (windowHeight/3)-(2*currentDialog.padding)
+  local boxW = windowWidth - (2 * currentDialog.padding)
+  local boxH = (windowHeight / 3) - (2 * currentDialog.padding)
   local boxX = currentDialog.padding
-  local boxY = windowHeight-(boxH+currentDialog.padding)
+  local boxY = realScreenHeight - (boxH + currentDialog.padding) - drawUtils.getScreenDy()
 
   -- image
   local imgX, imgY, imgW, imgScale = boxX+currentDialog.padding, boxY+currentDialog.padding, 0, 0
