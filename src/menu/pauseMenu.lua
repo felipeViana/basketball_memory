@@ -1,11 +1,21 @@
 local sceneManager = require 'src/common/sceneManager'
-local buttonManager = (require 'src/components/buttonManager').new()
 local dictionary = require 'src/common/dictionary'
 local assets = require 'src/common/assets'
+local colors = require 'src/common/colors'
+
+local buttonManager = (require 'src/components/buttonManager').new()
 
 local menu = {
   name = 'pauseMenu'
 };
+
+local GRID_X = 380
+local GRID_Y = 25
+
+local WIDTH = 420
+local HEIGHT = 500
+
+local BUTTON_WIDTH = 200
 
 local function goBack()
   sceneManager.popScene()
@@ -24,20 +34,20 @@ function menu.load()
   buttonManager:newTextButton({
     text = dictionary.localize('GoBack'),
     fn = goBack,
-    x = 450,
-    y = 200,
+    x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+    y = GRID_Y + 125,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitToMenu'),
     fn = goToMenu,
-    x = 450,
-    y = 300,
+    x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+    y = GRID_Y + 200,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitGame'),
     fn = quitGame,
-    x = 450,
-    y = 500,
+    x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+    y = GRID_Y + HEIGHT - 100,
   })
 end
 
@@ -50,25 +60,25 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.setColor(0, 0, 0)
+  love.graphics.setColor(colors.lightgray)
   love.graphics.rectangle(
     'fill',
-    380,
-    50,
-    420,
-    600
+    GRID_X,
+    GRID_Y,
+    WIDTH,
+    HEIGHT
   )
 
   love.graphics.setColor(1, 1, 1)
   love.graphics.rectangle(
     'line',
-    380,
-    50,
-    420,
-    600
+    GRID_X,
+    GRID_Y,
+    WIDTH,
+    HEIGHT
   )
   love.graphics.setFont(assets.squareFont)
-  love.graphics.print('paused', 530, 70)
+  love.graphics.print('paused', GRID_X + WIDTH / 2 - 50, 70)
   buttonManager:draw()
 end
 
