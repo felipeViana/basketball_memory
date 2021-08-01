@@ -20,6 +20,7 @@ local function locales()
     ToggleFullscreen = 'Fullscreen',
     ChooseLanguage = 'Language',
     GoBack = 'Resume',
+    ['Get prepared'] = 'Get prepared',
     ['type your name'] = 'type your name',
     ['press enter to continue'] = 'press enter to continue',
     ['choose your name:'] = 'choose your name:',

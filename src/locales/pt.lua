@@ -19,6 +19,7 @@ local function locales()
     ToggleFullscreen = 'Tela cheia',
     ChooseLanguage = 'Linguagem',
     GoBack = 'Resumir',
+    ['Get prepared'] = 'Se prepare',
     ['type your name'] = 'digite seu nome',
     ['press enter to continue'] = 'aperte enter para continuar',
     ['choose your name:'] = 'escolha seu nome:',
