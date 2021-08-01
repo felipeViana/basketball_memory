@@ -9,6 +9,7 @@ local justPaused = false
 
 function love.load()
   loadAssets.loadAll()
+  love.graphics.setLineWidth(3)
 
   if DEBUG then
     love.audio.setVolume(0)
