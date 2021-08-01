@@ -63,8 +63,14 @@ function menu.draw()
     WIDTH,
     HEIGHT
   )
-  love.graphics.setFont(assets.squareFont)
-  love.graphics.print(dictionary.localize('Game Over'), GRID_X + WIDTH / 3, GRID_Y + 25)
+
+
+  local textFont = assets.squareFont
+  love.graphics.setFont(textFont)
+  local winText = dictionary.localize('Game Over')
+  local textWidth = textFont:getWidth(winText)
+
+  love.graphics.print(winText, GRID_X + WIDTH / 2 - textWidth / 2, GRID_Y + 25)
   buttonManager:draw()
 end
 

@@ -1,6 +1,7 @@
 local sceneManager = require 'src/common/sceneManager'
 local globals = require 'src/common/globals'
 local dictionary = require 'src/common/dictionary'
+local assets = require 'src/common/assets'
 
 local scene = {}
 
@@ -56,7 +57,13 @@ function scene.draw()
     WIDTH,
     HEIGHT
   )
-  love.graphics.print(dictionary.localize('Get prepared') .. ' ...', GRID_X + WIDTH / 3, GRID_Y + 50)
+
+  textFont = assets.squareFont
+  love.graphics.setFont(textFont)
+  getPreparedText = dictionary.localize('Get prepared') .. ' ...'
+  textWidth = textFont:getWidth(getPreparedText)
+
+  love.graphics.print(getPreparedText, GRID_X + WIDTH / 2 - textWidth / 2, GRID_Y + 50)
   love.graphics.print(string.format("%.0f", timeLeft), GRID_X + WIDTH / 2 - 25, GRID_Y + HEIGHT / 2)
 end
 

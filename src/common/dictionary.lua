@@ -7,8 +7,10 @@ local portugueseDict = require 'src/locales/pt'
 function dictionary.localize(word)
   if globals.language == 'en' then
     return englishDict.locales()[word]
-  else
+  elseif globals.language == 'pt' then
     return portugueseDict.locales()[word]
+  else
+    error('dictionary :: invalid language!')
   end
 end
 

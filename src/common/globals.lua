@@ -1,6 +1,6 @@
 local globals = {
   playerName = 'Felipe',
-  language = 'en',
+  language = 'pt',
   baseScreenWidth = 1024,
   resolution = 16/9
 };

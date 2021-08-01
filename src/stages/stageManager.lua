@@ -95,7 +95,7 @@ function stageManager:update(dt)
 
   updateTime(self)
 
-  if true then
+  if gameComplete then
     winGame(self)
   end
 
