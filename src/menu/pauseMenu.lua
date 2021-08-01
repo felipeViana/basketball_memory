@@ -80,8 +80,13 @@ function menu.draw()
     WIDTH,
     HEIGHT
   )
-  love.graphics.setFont(assets.squareFont)
-  love.graphics.print(dictionary.localize('Paused'), GRID_X + WIDTH / 2 - 45, 70)
+
+  local textFont = assets.squareFont
+  love.graphics.setFont(textFont)
+
+  local titleText = dictionary.localize('Paused')
+  local textWidth = textFont:getWidth(titleText)
+  love.graphics.print(titleText, GRID_X + WIDTH / 2 - textWidth / 2, 50)
   buttonManager:draw()
 end
 
