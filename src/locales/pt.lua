@@ -10,6 +10,7 @@ local function locales()
     e = 'e',
 
     -- menus
+    Restart = 'Reiniciar',
     Paused = 'Pausa',
     StartGame = 'História',
     Settings = 'Opções',
@@ -19,6 +20,9 @@ local function locales()
     ToggleFullscreen = 'Tela cheia',
     ChooseLanguage = 'Linguagem',
     GoBack = 'Resumir',
+    ['Next Stage'] = 'Próxima Fase',
+    ['You Won'] = 'Você Venceu',
+    ['Game Over'] = 'Fim de jogo',
     ['Get prepared'] = 'Se prepare',
     ['type your name'] = 'digite seu nome',
     ['press enter to continue'] = 'aperte enter para continuar',

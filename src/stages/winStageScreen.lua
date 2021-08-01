@@ -8,8 +8,8 @@ local menu = {};
 local GRID_X = 50
 local GRID_Y = 50
 
-local WIDTH = 500
-local HEIGHT = 400
+local WIDTH = 400
+local HEIGHT = 500
 
 local BUTTON_WIDTH = 200
 
@@ -26,14 +26,14 @@ function menu.load(goToNextStage)
 
   if goToNextStage ~= nil then
     buttonManager:newTextButton({
-      text = 'Próxima Fase',
+      text = dictionary.localize('Next Stage'),
       fn = goToNextStage,
       x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
       y = GRID_Y + 75,
     })
   end
   buttonManager:newTextButton({
-    text = 'Reiniciar',
+    text = dictionary.localize('Restart'),
     fn = restart,
     x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
     y = GRID_Y + 150,
@@ -72,8 +72,13 @@ function menu.draw()
     WIDTH,
     HEIGHT
   )
-  love.graphics.setFont(assets.squareFont)
-  love.graphics.print('Você Venceu', GRID_X + WIDTH / 3, GRID_Y + 25)
+
+  local textFont = assets.squareFont
+  love.graphics.setFont(textFont)
+  local winText = dictionary.localize('You Won')
+  local textWidth = textFont:getWidth(winText)
+
+  love.graphics.print(winText, GRID_X + WIDTH / 2 - textWidth / 2, GRID_Y + 25)
   buttonManager:draw()
 end
 

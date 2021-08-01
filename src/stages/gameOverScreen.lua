@@ -5,6 +5,14 @@ local assets = require 'src/common/assets'
 
 local menu = {};
 
+local GRID_X = 50
+local GRID_Y = 50
+
+local WIDTH = 400
+local HEIGHT = 500
+
+local BUTTON_WIDTH = 200
+
 local function restart()
   sceneManager.popScene(true)
 end
@@ -16,16 +24,17 @@ end
 function menu.load()
   buttonManager:load()
   buttonManager:newTextButton({
-    text = 'Reiniciar',
+    text = dictionary.localize('Restart'),
     fn = restart,
-    x = 450,
-    y = 200,
+    x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+    y = GRID_Y + 75,
   })
+
   buttonManager:newTextButton({
     text = dictionary.localize('ExitToMenu'),
     fn = quitStage,
-    x = 450,
-    y = 500,
+    x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+    y = GRID_Y + HEIGHT - 100,
   })
 end
 
@@ -38,24 +47,24 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.setColor(220/255, 20/255, 60/255)
+  love.graphics.setColor(220/255, 20/255, 60/255, 0.9)
   love.graphics.rectangle(
     'fill',
-    300,
-    50,
-    620,
-    600
+    GRID_X,
+    GRID_Y,
+    WIDTH,
+    HEIGHT
   )
   love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle(
     'line',
-    300,
-    50,
-    620,
-    600
+    GRID_X,
+    GRID_Y,
+    WIDTH,
+    HEIGHT
   )
   love.graphics.setFont(assets.squareFont)
-  love.graphics.print('Game Over', 530, 70)
+  love.graphics.print(dictionary.localize('Game Over'), GRID_X + WIDTH / 3, GRID_Y + 25)
   buttonManager:draw()
 end
 
