@@ -11,7 +11,6 @@ local function locales()
     e = 'and',
 
     -- menus
-    Stages = 'Stages',
     Restart = 'Restart',
     Paused = 'Paused',
     StartGame = 'Start Game',

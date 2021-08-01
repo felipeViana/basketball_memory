@@ -318,7 +318,7 @@ function menu.draw()
   love.graphics.setFont(textFont)
   love.graphics.setColor(colors.black)
 
-  local titleText = dictionary.localize('Stages')
+  local titleText = dictionary.localize('StageSelection')
 
   local textWidth = textFont:getWidth(titleText)
   local textHeight = textFont:getHeight(titleText)

@@ -10,7 +10,6 @@ local function locales()
     e = 'e',
 
     -- menus
-    Stages = 'Fases',
     Restart = 'Reiniciar',
     Paused = 'Pausa',
     StartGame = 'História',
