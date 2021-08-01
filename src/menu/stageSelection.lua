@@ -15,12 +15,12 @@ local scrollAmount = 200;
 local MOUSE_SPEED = 100
 
 local FIRST_COLUMN_X = 175
-local FIRST_LINE_Y = 50
-local SECOND_LINE_Y = 500
+local FIRST_LINE_Y = 150
+local SECOND_LINE_Y = 600
 local DELTA_X = 225
 local DELTA_Y = 75
 
-local MAX_Y = 350
+local MAX_Y = 400
 
 local function reachedUpperLimit()
   return not (verticalScroll < 0);
@@ -28,6 +28,14 @@ end
 
 local function reachedBottomLimit()
   return not (verticalScroll > - MAX_Y);
+end
+
+local function ensureOnLimits()
+  if reachedBottomLimit() then
+    verticalScroll = - MAX_Y
+  elseif reachedUpperLimit() then
+    verticalScroll = 0
+  end
 end
 
 local function scrollUp(y)
@@ -126,124 +134,124 @@ function menu.load()
   fixedButtonManager:load()
 
   scrollableButtonManager:newTextButton({
-    text = 'Stage 1-1',
+    text = '1-1',
     fn = goToStage11,
     x = FIRST_COLUMN_X,
     y = FIRST_LINE_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 1-2',
+    text = '1-2',
     fn = goToStage12,
     x = FIRST_COLUMN_X,
     y = FIRST_LINE_Y + DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 1-3',
+    text = '1-3',
     fn = goToStage13,
     x = FIRST_COLUMN_X,
     y = FIRST_LINE_Y + 2 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 1-4',
+    text = '1-4',
     fn = goToStage14,
     x = FIRST_COLUMN_X,
     y = FIRST_LINE_Y + 3 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 1-5',
+    text = '1-5',
     fn = goToStage15,
     x = FIRST_COLUMN_X,
     y = FIRST_LINE_Y + 4 * DELTA_Y,
   })
 
   scrollableButtonManager:newTextButton({
-    text = 'Stage 2-1',
+    text = '2-1',
     fn = goToStage21,
     x = FIRST_COLUMN_X + DELTA_X,
     y = FIRST_LINE_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 2-2',
+    text = '2-2',
     fn = goToStage22,
     x = FIRST_COLUMN_X + DELTA_X,
     y = FIRST_LINE_Y + DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 2-3',
+    text = '2-3',
     fn = goToStage23,
     x = FIRST_COLUMN_X + DELTA_X,
     y = FIRST_LINE_Y + 2 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 2-4',
+    text = '2-4',
     fn = goToStage24,
     x = FIRST_COLUMN_X + DELTA_X,
     y = FIRST_LINE_Y + 3 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 2-5',
+    text = '2-5',
     fn = goToStage25,
     x = FIRST_COLUMN_X + DELTA_X,
     y = FIRST_LINE_Y + 4 * DELTA_Y,
   })
 
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-1',
+    text = '3-1',
     fn = goToStage31,
     x = FIRST_COLUMN_X + 2 * DELTA_X,
     y = FIRST_LINE_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-2',
+    text = '3-2',
     fn = goToStage32,
     x = FIRST_COLUMN_X + 2 * DELTA_X,
     y = FIRST_LINE_Y + DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-3',
+    text = '3-3',
     fn = goToStage33,
     x = FIRST_COLUMN_X + 2 * DELTA_X,
     y = FIRST_LINE_Y + 2 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-4',
+    text = '3-4',
     fn = goToStage34,
     x = FIRST_COLUMN_X + 2 * DELTA_X,
     y = FIRST_LINE_Y + 3 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 3-5',
+    text = '3-5',
     fn = goToStage35,
     x = FIRST_COLUMN_X + 2 * DELTA_X,
     y = FIRST_LINE_Y + 4 * DELTA_Y,
   })
 
   scrollableButtonManager:newTextButton({
-    text = 'Stage 4-1',
+    text = '4-1',
     fn = goToStage35,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 4-2',
+    text = '4-2',
     fn = goToStage35,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 4-3',
+    text = '4-3',
     fn = goToStage35,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 2 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 4-4',
+    text = '4-4',
     fn = goToStage35,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 3 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
-    text = 'Stage 4-5',
+    text = '4-5',
     fn = goToStage35,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 4 * DELTA_Y,
@@ -254,6 +262,7 @@ function menu.load()
     x = 25,
     y = 25,
     direction = 'left',
+    onHeader = true,
   })
   fixedButtonManager:newArrowButton({
     fn = scrollUp,
@@ -282,8 +291,9 @@ function menu.unload()
 end
 
 function menu.update(dt)
-  scrollableButtonManager:update(dt, verticalScroll)
   fixedButtonManager:update(dt)
+  scrollableButtonManager:update(dt, verticalScroll)
+  ensureOnLimits()
 end
 
 function menu.draw()
@@ -291,6 +301,29 @@ function menu.draw()
   love.graphics.translate(0, verticalScroll)
   scrollableButtonManager:draw()
   love.graphics.pop()
+
+
+  -- header
+  love.graphics.setColor(colors.lightgray)
+  love.graphics.rectangle(
+    'fill',
+    0,
+    0,
+    globals.baseScreenWidth,
+    globals.headerHeight
+  )
+
+
+  local textFont = assets.squareFont
+  love.graphics.setFont(textFont)
+  love.graphics.setColor(colors.black)
+
+  local titleText = dictionary.localize('Stages')
+
+  local textWidth = textFont:getWidth(titleText)
+  local textHeight = textFont:getHeight(titleText)
+
+  love.graphics.print(titleText, globals.baseScreenWidth / 2 - textWidth / 2, 50 - textHeight / 2)
 
   fixedButtonManager:draw()
 end

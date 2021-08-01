@@ -1,11 +1,13 @@
+local assets = require 'src/common/assets'
+local drawUtils = require 'src/common/drawUtils'
+local globals = require 'src/common/globals'
+
 local textButton = require 'src/components/textButton'
 local imageButton = require 'src/components/imageButton'
 local arrowButton = require 'src/components/arrowButton'
 
 local soundManager = require 'src/components/soundManager'
-local assets = require 'src/common/assets'
 
-local drawUtils = require 'src/common/drawUtils'
 
 local buttonManager = {
   components = {},
@@ -62,8 +64,8 @@ function buttonManager:update(dt, verticalScroll)
   mouseY = mouseY - drawUtils.getScreenDy()
 
   for _, component in pairs(self.components) do
-    component.hot = mouseX > component.x and mouseX < component.x + component.width and
-                    mouseY > component.y + dy and mouseY < component.y + dy + component.height
+    component.visible = component.onHeader or component.y + dy >= globals.headerHeight
+    component.hot = component.visible and mouseX > component.x and mouseX < component.x + component.width and mouseY > component.y + dy and mouseY < component.y + dy + component.height
 
     if component.disabledFunction then
       if component.disabledFunction() then
@@ -88,14 +90,14 @@ end
 
 function buttonManager:draw()
   for _, component in pairs(self.components) do
-    if component.type == 'textButton' then
-      textButton.draw(component)
-    end
-    if component.type == 'imageButton' then
-      imageButton.draw(component)
-    end
-    if component.type == 'arrowButton' then
-      arrowButton.draw(component)
+    if component.visible then
+      if component.type == 'textButton' then
+        textButton.draw(component)
+      elseif component.type == 'imageButton' then
+        imageButton.draw(component)
+      elseif component.type == 'arrowButton' then
+        arrowButton.draw(component)
+      end
     end
   end
 end

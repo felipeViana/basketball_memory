@@ -58,10 +58,10 @@ function scene.draw()
     HEIGHT
   )
 
-  textFont = assets.squareFont
+  local textFont = assets.squareFont
   love.graphics.setFont(textFont)
-  getPreparedText = dictionary.localize('Get prepared') .. ' ...'
-  textWidth = textFont:getWidth(getPreparedText)
+  local getPreparedText = dictionary.localize('Get prepared') .. ' ...'
+  local textWidth = textFont:getWidth(getPreparedText)
 
   love.graphics.print(getPreparedText, GRID_X + WIDTH / 2 - textWidth / 2, GRID_Y + 50)
   love.graphics.print(string.format("%.0f", timeLeft), GRID_X + WIDTH / 2 - 25, GRID_Y + HEIGHT / 2)
