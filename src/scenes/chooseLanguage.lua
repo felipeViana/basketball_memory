@@ -74,18 +74,22 @@ end
 function screen.draw()
   love.graphics.setColor(1, 1, 1)
 
+  local enText = 'Choose your language'
+
   drawUtils.drawTextRectangle({
     font = titleFont,
-    posX = 300,
+    posX = globals.baseScreenWidth / 2 - titleFont:getWidth(enText) / 2,
     posY = 50,
     text = 'Choose your language',
   })
 
+  local ptText = 'Escolha sua língua'
+
   drawUtils.drawTextRectangle({
     font = titleFont,
-    posX = 300,
+    posX = globals.baseScreenWidth / 2 - titleFont:getWidth(ptText) / 2,
     posY = 100,
-    text = 'Escolha sua língua',
+    text = ptText,
   })
 
   buttonManager:draw()

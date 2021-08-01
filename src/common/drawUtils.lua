@@ -10,14 +10,17 @@ local MAX_WINDOW_WIDTH = 1920
 local MAX_WINDOW_HEIGHT = 1080
 
 local function _drawTextRectangle(arg)
-  love.graphics.setColor(arg.textBackgroundColor)
-  love.graphics.rectangle(
-    'fill',
-    arg.posX,
-    arg.posY,
-    arg.font:getWidth(arg.text),
-    arg.font:getHeight(arg.text)
-  )
+  if arg.hasBackground then
+    love.graphics.setColor(arg.textBackgroundColor)
+    love.graphics.rectangle(
+      'fill',
+      arg.posX,
+      arg.posY,
+      arg.font:getWidth(arg.text),
+      arg.font:getHeight(arg.text)
+    )
+  end
+
   love.graphics.setColor(arg.textForegroundColor)
   love.graphics.setFont(arg.font)
   love.graphics.print(arg.text, arg.posX, arg.posY)
@@ -41,6 +44,7 @@ function drawUtils.drawTextRectangle(arg)
     posY=arg.posY,
     textBackgroundColor=arg.textBackgroundColor or defaultTextBackgroundColor,
     textForegroundColor=arg.textForegroundColor or defaultTextForegroundColor,
+    hasBackground = arg.hasBackground,
   })
 end
 

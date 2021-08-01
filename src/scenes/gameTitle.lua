@@ -33,6 +33,7 @@ function gameTitle.draw()
     posX = GRID_X,
     posY = 200,
     text = 'Basketball Memory Legends',
+    hasBackground = true,
   })
 
   drawUtils.drawTextRectangle({

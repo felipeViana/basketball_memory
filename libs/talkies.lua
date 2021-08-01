@@ -223,7 +223,7 @@ function Talkies.draw()
     love.graphics.draw(currentDialog.leftBody, 50)
   end
   if currentDialog.rightBody then
-    love.graphics.draw(currentDialog.rightBody, 50+400*2)
+    love.graphics.draw(currentDialog.rightBody, globals.baseScreenWidth - 450)
   end
 
   -- local windowWidth, windowHeight = love.graphics.getDimensions()
