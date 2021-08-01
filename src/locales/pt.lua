@@ -29,6 +29,13 @@ local function locales()
     ['choose your name:'] = 'escolha seu nome:',
     ['Choose your language'] = 'Escolha sua língua',
 
+    -- gameplay
+    ['Infinite tries'] = 'Infinitas tentativas',
+    ['Tries left'] = 'Tentativas restantes',
+    ['Time left'] = 'Tempo restante',
+    Score = 'Ponto',
+    Missed = 'Errou',
+
     -- cutScenes
     ['1.1'] = 'Olá ' .. globals.playerName .. '!',
     ['1.2'] = 'Memória!--É o que podemos deixar de melhor ou pior quando partimos. Podemos ser inspiração ou ' ..

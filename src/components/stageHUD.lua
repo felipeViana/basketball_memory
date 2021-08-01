@@ -1,6 +1,7 @@
 local sceneManager = require 'src/common/sceneManager'
 local assets = require 'src/common/assets'
 local colors = require 'src/common/colors'
+local dictionary = require 'src/common/dictionary'
 
 local hud = {}
 
@@ -10,11 +11,11 @@ local bigFont = true
 
 local JUST_MISSED_TIME = 1
 local showingJustMissed = false
-local justMissedRemainingTime = JUST_MISSED_TIME
+local justMissedRemainingTime = 0
 
 local JUST_SCORED_TIME = 1
 local showingJustScored = false
-local justScoredRemainingTime = JUST_SCORED_TIME
+local justScoredRemainingTime = 0
 
 local GRID_X = 500
 local DELTA_X = 75
@@ -25,6 +26,9 @@ local JUST_MISSED_TIME_POSITION = {['x'] = GRID_X + 200, ['y'] = GRID_Y + 3 * DE
 local JUST_SCORED_TIME_POSITION = {['x'] = GRID_X + 200, ['y'] = GRID_Y + 3 * DELTA_Y + 50}
 
 function hud.load()
+  justMissedRemainingTime = 0
+  justScoredRemainingTime = 0
+
   sceneManager.pushScene(require 'src/stages/getPrepared')
 end
 
@@ -109,7 +113,7 @@ local function drawRemainingTime(timeLeft, errorsDiscountTime)
   adjustColor(timeLeft)
 
   love.graphics.print(
-    string.format("tempo restante: %.2f", timeLeft),
+    string.format(dictionary.localize("Time left") .. ": %.2f", timeLeft),
     REMAINING_TIME_POSITION.x,
     REMAINING_TIME_POSITION.y
   )
@@ -162,9 +166,9 @@ local function drawRemainingTries(limitedTries, numberOfTries)
   love.graphics.setFont(assets.squareFont)
 
   if not limitedTries then
-    love.graphics.print("infinite tries", GRID_X, GRID_Y + DELTA_Y)
+    love.graphics.print(dictionary.localize("Infinite tries"), GRID_X, GRID_Y + DELTA_Y)
   else
-    love.graphics.print(numberOfTries .. " erros permitidos", 650, 150)
+    love.graphics.print(numberOfTries .. " " .. dictionary.localize("Tries left"), GRID_X, GRID_Y + DELTA_Y)
   end
 end
 

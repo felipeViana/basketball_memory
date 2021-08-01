@@ -1,6 +1,7 @@
 local gridUtils = require 'src/common/gridUtils'
 local assets = require 'src/common/assets'
 local drawUtils = require 'src/common/drawUtils'
+local dictionary = require 'src/common/dictionary'
 
 local cardObject = require 'src/components/cardObject'
 local soundManager = require 'src/components/soundManager'
@@ -164,10 +165,10 @@ function cardManager.draw(showCardsBeforeStarting)
   love.graphics.setFont(assets.frostbiteFont)
   if lastPairState == 'right' then
     love.graphics.setColor(0, 1, 0)
-    love.graphics.print("SCORE", GRID_X, GRID_Y + 1.5 * DELTA_Y)
+    love.graphics.print(string.upper(dictionary.localize('Score')), GRID_X, GRID_Y + 1.5 * DELTA_Y)
   elseif lastPairState == 'wrong' then
     love.graphics.setColor(1, 0, 0)
-    love.graphics.print("MISSED", GRID_X, GRID_Y + 1.5 * DELTA_Y)
+    love.graphics.print(string.upper(dictionary.localize('Missed')), GRID_X, GRID_Y + 1.5 * DELTA_Y)
   end
 end
 
