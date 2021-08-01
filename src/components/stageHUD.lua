@@ -12,12 +12,17 @@ local JUST_MISSED_TIME = 1
 local showingJustMissed = false
 local justMissedRemainingTime = JUST_MISSED_TIME
 
+local JUST_SCORED_TIME = 1
+local showingJustScored = false
+local justScoredRemainingTime = JUST_SCORED_TIME
+
 local GRID_X = 500
 local DELTA_X = 75
 local GRID_Y = 100
 local DELTA_Y = 75
 local REMAINING_TIME_POSITION = {['x'] = GRID_X, ['y'] = GRID_Y + 3 * DELTA_Y}
 local JUST_MISSED_TIME_POSITION = {['x'] = GRID_X + 200, ['y'] = GRID_Y + 3 * DELTA_Y + 30}
+local JUST_SCORED_TIME_POSITION = {['x'] = GRID_X + 200, ['y'] = GRID_Y + 3 * DELTA_Y + 50}
 
 function hud.load()
   sceneManager.pushScene(require 'src/stages/getPrepared')
@@ -50,17 +55,33 @@ local function updateShowingJustMissed(dt)
   end
 end
 
+local function updateShowingJustScored(dt)
+  if showingJustScored then
+    justScoredRemainingTime = justScoredRemainingTime - dt
+  end
+  if justScoredRemainingTime < 0 then
+    showingJustScored = false
+  end
+end
+
 local function updateTimers(dt)
   updateFontStretching(dt)
   updateShowingJustMissed(dt)
+  updateShowingJustScored(dt)
 end
 
-function hud.update(dt, justMissed)
+function hud.update(dt, justMissed, justScored)
   updateTimers(dt)
 
   if justMissed then
     showingJustMissed = true
     justMissedRemainingTime = JUST_MISSED_TIME
+  end
+
+
+  if justScored then
+    showingJustScored = true
+    justScoredRemainingTime = JUST_SCORED_TIME
   end
 end
 
@@ -76,7 +97,7 @@ local function drawRemainingTime(timeLeft, errorsDiscountTime)
     end
   end
 
-  local function adjustFontSize(bigFont, timeLeft)    
+  local function adjustFontSize(bigFont, timeLeft)
     if bigFont and timeLeft < 5 then
       love.graphics.setFont(assets.timerFont2)
     else
@@ -88,8 +109,8 @@ local function drawRemainingTime(timeLeft, errorsDiscountTime)
   adjustColor(timeLeft)
 
   love.graphics.print(
-    string.format("tempo restante: %.2f", timeLeft), 
-    REMAINING_TIME_POSITION.x, 
+    string.format("tempo restante: %.2f", timeLeft),
+    REMAINING_TIME_POSITION.x,
     REMAINING_TIME_POSITION.y
   )
 end
@@ -102,7 +123,18 @@ local function drawJustMissedTime(errorsDiscountTime)
       JUST_MISSED_TIME_POSITION.x,
       JUST_MISSED_TIME_POSITION.y
     )
-  end  
+  end
+end
+
+local function drawJustScoredTime()
+  if showingJustScored then
+    love.graphics.setColor(0, 1, 0)
+    love.graphics.print(
+      string.format("+ 5.00", timeLeft),
+      JUST_SCORED_TIME_POSITION.x,
+      JUST_SCORED_TIME_POSITION.y
+    )
+  end
 end
 
 local function drawStageName(stageName)
@@ -139,6 +171,7 @@ end
 function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime)
   drawRemainingTime(timeLeft, errorsDiscountTime)
   drawJustMissedTime(errorsDiscountTime)
+  drawJustScoredTime()
   drawStageName(stageName)
   drawRemainingTries(limitedTries, numberOfTries)
 end

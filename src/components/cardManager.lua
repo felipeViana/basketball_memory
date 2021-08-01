@@ -80,9 +80,8 @@ local function flipCard(card)
 
   if flippedNow == 1 then
     lastPairState = nil
-  end
-
-  if flippedNow == 2 then
+    return false, false
+  elseif flippedNow == 2 then
     local match = isMatch(currentFlippedCards[1], currentFlippedCards[2])
 
     if match then
@@ -91,21 +90,21 @@ local function flipCard(card)
       flippedNow = 0
       lastPairState = 'right'
       soundManager.playSound(assets.rightPair)
+      return false, true
     else
       lastPairState = 'wrong'
       soundManager.playSound(assets.wrongPair)
-      return true
+      return true, false
     end
-  end
-
-  if flippedNow == 3 then
+  elseif flippedNow == 3 then
     unflipPair()
     removePairFromQueue()
     flippedNow = 1
     lastPairState = nil
+    return false, false
   end
 
-  return false
+  error('cardManager :: flippedNow should be either 1, 2 or 3')
 end
 
 local function updateCards()
@@ -113,24 +112,24 @@ local function updateCards()
   mouseX = mouseX - drawUtils.getScreenDx()
   mouseY = mouseY - drawUtils.getScreenDy()
 
-  local hasMissed
+  local hasMissed, hasScored
   for _, card in pairs(cards) do
     card.hot = mouseX >= card.x and mouseX <= card.x + card.width and
                mouseY >= card.y and mouseY <= card.y + card.height
 
     if mouseReleased and card.hot and not card.flipped then
-      hasMissed = flipCard(card)
+      hasMissed, hasScored = flipCard(card)
     end
 
   end
 
   mouseReleased = false
 
-  return hasMissed
+  return hasMissed, hasScored
 end
 
 function cardManager.update(dt)
-  local hasMissed = updateCards()
+  local hasMissed, hasScored = updateCards()
 
   local gameComplete = true
   for _, card in pairs(cards) do
@@ -139,7 +138,7 @@ function cardManager.update(dt)
     end
   end
 
-  return gameComplete, hasMissed
+  return gameComplete, hasMissed, hasScored
 end
 
 function cardManager.draw()

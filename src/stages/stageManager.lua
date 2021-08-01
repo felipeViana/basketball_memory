@@ -65,6 +65,10 @@ local function removeTry(self)
   end
 end
 
+local function gainTime(self)
+  self.initialTime = self.initialTime + 5
+end
+
 local function discountTime(self)
   if self.errorsDiscountTime then
     self.initialTime = self.initialTime - 5
@@ -86,11 +90,15 @@ local function gameOver()
 end
 
 function stageManager:update(dt)
-  local gameComplete, hasMissed = cardManager.update(dt)
+  local gameComplete, hasMissed, hasScored = cardManager.update(dt)
 
   if hasMissed then
     removeTry(self)
     discountTime(self)
+  end
+
+  if hasScored then
+    gainTime(self)
   end
 
   updateTime(self)
@@ -103,7 +111,7 @@ function stageManager:update(dt)
     gameOver()
   end
 
-  stageHUD.update(dt, hasMissed)
+  stageHUD.update(dt, hasMissed, hasScored)
 end
 
 function stageManager:draw()
