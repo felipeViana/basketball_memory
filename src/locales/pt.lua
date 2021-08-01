@@ -10,6 +10,7 @@ local function locales()
     e = 'e',
 
     -- menus
+    Paused = 'Pausa',
     StartGame = 'História',
     Settings = 'Opções',
     StageSelection = 'Fases',
@@ -17,7 +18,7 @@ local function locales()
     ExitGame = 'Sair',
     ToggleFullscreen = 'Tela cheia',
     ChooseLanguage = 'Linguagem',
-    GoBack = 'Voltar',
+    GoBack = 'Resumir',
     ['type your name'] = 'digite seu nome',
     ['press enter to continue'] = 'aperte enter para continuar',
     ['choose your name:'] = 'escolha seu nome:',

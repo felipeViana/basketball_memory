@@ -11,6 +11,7 @@ local function locales()
     e = 'and',
 
     -- menus
+    Paused = 'Paused',
     StartGame = 'Start Game',
     Settings = 'Settings',
     StageSelection = 'Stages',
@@ -18,7 +19,7 @@ local function locales()
     ExitGame = 'Quit',
     ToggleFullscreen = 'Fullscreen',
     ChooseLanguage = 'Language',
-    GoBack = 'Go back',
+    GoBack = 'Resume',
     ['type your name'] = 'type your name',
     ['press enter to continue'] = 'press enter to continue',
     ['choose your name:'] = 'choose your name:',

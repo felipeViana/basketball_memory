@@ -6,7 +6,9 @@ local colors = require 'src/common/colors'
 
 local buttonManager = (require 'src/components/buttonManager').new()
 
-local menu = {};
+local menu = {
+  name = 'mainMenu'
+};
 
 local music
 local time = 0

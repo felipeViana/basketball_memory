@@ -13,9 +13,9 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
 
-    -- sceneManager.changeScene(require 'src/menu/mainMenu')
+    sceneManager.changeScene(require 'src/menu/mainMenu')
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
-    sceneManager.changeScene(require 'src/menu/stageSelection')
+    -- sceneManager.changeScene(require 'src/menu/stageSelection')
     -- sceneManager.changeScene(require 'src/scenes/cutScene3-2')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
@@ -25,7 +25,7 @@ end
 
 function love.update(dt)
   if not inPause and justPaused then
-    sceneManager.pushScene(require 'src/menu/pauseMenu')
+    sceneManager.pushScene(require 'src/menu/pauseMenu', sceneManager.getCurrentScene())
     justPaused = false
     inPause = true
   end
