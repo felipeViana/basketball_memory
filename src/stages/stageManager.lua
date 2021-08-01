@@ -18,6 +18,8 @@ local stageManager = {
 
   stageName,
   goToNextStage,
+
+  showCardsBeforeStarting,
 }
 stageManager.meta = {
   __index = stageManager,
@@ -41,7 +43,9 @@ function stageManager:load(arg)
   self.goToNextStage = arg.goToNextStage
   self.stageName = arg.stageName
 
-  cardManager.load()
+  self.showCardsBeforeStarting = true
+
+  cardManager.load(self.showCardsBeforeStarting)
   cardManager.newPairs(4, 3)
   stageHUD.load()
 
@@ -119,7 +123,7 @@ function stageManager:draw()
 
   drawUtils.drawBackground(assets.stageBackground)
 
-  cardManager.draw()
+  cardManager.draw(self.showCardsBeforeStarting)
   stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime)
 end
 

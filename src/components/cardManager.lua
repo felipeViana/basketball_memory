@@ -19,6 +19,9 @@ local GRID_X = 500
 local GRID_Y = 100
 local DELTA_Y = 75
 
+local SHOWING_FORCE_FLIPPED_TIME = 2
+local showingForceFlippedCards = false
+local showingForceFlippedRemaingTime = SHOWING_FORCE_FLIPPED_TIME
 
 -- TODO: make it work for pairs of 3 cards as well
 -- TODO: refactor flipCard
@@ -41,7 +44,10 @@ function cardManager.newPairs(rows, columns)
   return shuffledCards;
 end
 
-function cardManager.load()
+function cardManager.load(showCardsBeforeStarting)
+  showingForceFlippedCards = showCardsBeforeStarting
+  showingForceFlippedRemaingTime = SHOWING_FORCE_FLIPPED_TIME
+
   lastPairState = nil
   cards = {}
   currentFlippedCards = {}
@@ -71,6 +77,7 @@ local function unflipPair()
   currentFlippedCards[2].flipped = false
 end
 
+-- should be called only when card is flipped by player
 local function flipCard(card)
   if not card.flipped then
     card.flipped = true
@@ -129,21 +136,29 @@ local function updateCards()
 end
 
 function cardManager.update(dt)
-  local hasMissed, hasScored = updateCards()
+  if showingForceFlippedCards then
+    showingForceFlippedRemaingTime = showingForceFlippedRemaingTime - dt
 
-  local gameComplete = true
-  for _, card in pairs(cards) do
-    if card.matched == false then
-      gameComplete = false
+    if showingForceFlippedRemaingTime < 0 then
+      showingForceFlippedCards = false
     end
-  end
+  else
+    local hasMissed, hasScored = updateCards()
 
-  return gameComplete, hasMissed, hasScored
+    local gameComplete = true
+    for _, card in pairs(cards) do
+      if card.matched == false then
+        gameComplete = false
+      end
+    end
+
+    return gameComplete, hasMissed, hasScored
+  end
 end
 
-function cardManager.draw()
+function cardManager.draw(showCardsBeforeStarting)
   for _, card in pairs(cards) do
-    cardObject.draw(card)
+    cardObject.draw(card, showingForceFlippedCards)
   end
 
   love.graphics.setFont(assets.frostbiteFont)
