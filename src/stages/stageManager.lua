@@ -43,7 +43,7 @@ function stageManager:load(arg)
   self.goToNextStage = arg.goToNextStage
   self.stageName = arg.stageName
 
-  self.showCardsBeforeStarting = true
+  self.showCardsBeforeStarting = arg.showCardsBeforeStarting
 
   cardManager.load(self.showCardsBeforeStarting)
   cardManager.newPairs(4, 3)

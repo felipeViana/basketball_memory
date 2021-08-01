@@ -118,6 +118,26 @@ local function goToStage35()
   sceneManager.changeScene(require 'src/stages/debugStage3-5')
 end
 
+local function goToStage41()
+  sceneManager.changeScene(require 'src/stages/debugStage4-1')
+end
+
+local function goToStage42()
+  sceneManager.changeScene(require 'src/stages/debugStage4-2')
+end
+
+local function goToStage43()
+  sceneManager.changeScene(require 'src/stages/debugStage4-3')
+end
+
+local function goToStage44()
+  sceneManager.changeScene(require 'src/stages/debugStage4-4')
+end
+
+local function goToStage45()
+  sceneManager.changeScene(require 'src/stages/debugStage4-5')
+end
+
 local function goBack()
   sceneManager.changeScene(require 'src/menu/mainMenu')
 end
@@ -228,31 +248,31 @@ function menu.load()
 
   scrollableButtonManager:newTextButton({
     text = '4-1',
-    fn = goToStage35,
+    fn = goToStage41,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y,
   })
   scrollableButtonManager:newTextButton({
     text = '4-2',
-    fn = goToStage35,
+    fn = goToStage42,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
     text = '4-3',
-    fn = goToStage35,
+    fn = goToStage43,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 2 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
     text = '4-4',
-    fn = goToStage35,
+    fn = goToStage44,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 3 * DELTA_Y,
   })
   scrollableButtonManager:newTextButton({
     text = '4-5',
-    fn = goToStage35,
+    fn = goToStage45,
     x = FIRST_COLUMN_X,
     y = SECOND_LINE_Y + 4 * DELTA_Y,
   })
