@@ -5,12 +5,12 @@ local loadAssets = {};
 local function loadCards()
   assets.cardBack = love.graphics.newImage("assets/cards/card-back.png")
 
-  assets.card1 = love.graphics.newImage("assets/cards/1-1.png")
-  assets.card2 = love.graphics.newImage("assets/cards/1-2.png")
-  assets.card3 = love.graphics.newImage("assets/cards/1-3.jpg")
-  assets.card4 = love.graphics.newImage("assets/cards/1-4.jpg")
-  assets.card5 = love.graphics.newImage("assets/cards/1-5.png")
-  assets.card6 = love.graphics.newImage("assets/cards/1-6.png")
+  assets.card1 = love.graphics.newImage("assets/cards/card1.png")
+  assets.card2 = love.graphics.newImage("assets/cards/card2.png")
+  assets.card3 = love.graphics.newImage("assets/cards/card3.png")
+  assets.card4 = love.graphics.newImage("assets/cards/card4.png")
+  assets.card5 = love.graphics.newImage("assets/cards/card5.png")
+  assets.card6 = love.graphics.newImage("assets/cards/card6.png")
 
   assets.cardImages = {
     assets.card1,
