@@ -3,7 +3,7 @@ local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 local drawUtils = require 'src/common/drawUtils'
 
-local DEBUG = true
+local DEBUG = false
 local inPause = false
 local justPaused = false
 

@@ -1,6 +1,10 @@
-zip -9r BasketballMemoryLegends.love .
-cat ~/love/distros/love-11.3-win32/love.exe BasketballMemoryLegends.love > BasketballMemoryLegends.exe
-mv BasketballMemoryLegends.exe ~/love/distros/BasketballMemoryLegends-windows/
-rm BasketballMemoryLegends.love
-cd ~/love/distros/
-zip -9rX BasketballMemoryLegends-windows.zip  BasketballMemoryLegends-windows/
+# starting from game folder
+Compress-Archive -Path ./* -DestinationPath BasketballMemoryLegends.zip
+cp D:\LOVE\love.exe .
+cmd /c copy /b love.exe+BasketballMemoryLegends.love BasketballMemoryLegends.exe
+
+cp D:\LOVE\love.dll .
+cp D:\LOVE\lua51.dll .
+cp D:\LOVE\SDL2.dll .
+cp D:\LOVE\OpenAL32.dll .
+cp D:\LOVE\mpg123.dll .
