@@ -8,6 +8,8 @@ Copy-Item D:\LOVE\lua51.dll .
 Copy-Item D:\LOVE\SDL2.dll .
 Copy-Item D:\LOVE\OpenAL32.dll .
 Copy-Item D:\LOVE\mpg123.dll .
+Copy-Item D:\LOVE\msvcp120.dll .
+Copy-Item D:\LOVE\msvcr120.dll .
 
 # zip files
 Compress-Archive -Path ./* -DestinationPath temp.zip
@@ -17,7 +19,7 @@ Rename-Item -Path temp.zip -NewName BasketballMemoryLegends.love
 cmd /c copy /b love.exe + BasketballMemoryLegends.love BasketballMemoryLegends.exe
 
 # create final zip
-Compress-Archive -Path "./BasketballMemoryLegends.exe", "love.dll", "lua51.dll", "SDL2.dll", "OpenAL32.dll", "mpg123.dll" -DestinationPath "./BasketballMemoryLegends.zip"
+Compress-Archive -Path "./BasketballMemoryLegends.exe", "love.dll", "lua51.dll", "SDL2.dll", "OpenAL32.dll", "mpg123.dll", "msvcp120.dll", "msvcr120.dll" -DestinationPath "./BasketballMemoryLegends.zip"
 
 # cleanup
 Remove-Item BasketballMemoryLegends.exe
@@ -28,3 +30,5 @@ Remove-Item lua51.dll
 Remove-Item SDL2.dll
 Remove-Item OpenAL32.dll
 Remove-Item mpg123.dll
+Remove-Item msvcp120.dll
+Remove-Item msvcr120.dll
