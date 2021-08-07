@@ -21,6 +21,10 @@ local function startGame()
   sceneManager.changeScene(require 'src/scenes/chooseName')
 end
 
+local function goToCustomStageCreator()
+  sceneManager.changeScene(require 'src/menu/customStageCreator')
+end
+
 local function goToStageSelection()
   sceneManager.changeScene(require 'src/menu/stageSelection')
 end
@@ -44,22 +48,28 @@ function menu.load()
     y = GRID_Y,
   })
   buttonManager:newTextButton({
+    text = dictionary.localize('CustomStage'),
+    fn = goToCustomStageCreator,
+    x = GRID_X,
+    y = GRID_Y + DELTA_Y,
+  })
+  buttonManager:newTextButton({
     text = dictionary.localize('StageSelection'),
     fn = goToStageSelection,
     x = GRID_X,
-    y = GRID_Y + DELTA_Y,
+    y = GRID_Y + 2 * DELTA_Y,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('Settings'),
     fn = goToSettings,
     x = GRID_X,
-    y = GRID_Y + 2 * DELTA_Y,
+    y = GRID_Y + 3 * DELTA_Y,
   })
   buttonManager:newTextButton({
     text = dictionary.localize('ExitGame'),
     fn = quitGame,
     x = GRID_X,
-    y = GRID_Y + 3 * DELTA_Y,
+    y = GRID_Y + 4 * DELTA_Y,
   })
 
   music = assets.menuMusic

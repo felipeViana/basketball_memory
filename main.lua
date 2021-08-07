@@ -3,7 +3,7 @@ local globals = require 'src/common/globals'
 local sceneManager = require 'src/common/sceneManager'
 local drawUtils = require 'src/common/drawUtils'
 
-local DEBUG = false
+local DEBUG = true
 local inPause = false
 local justPaused = false
 
@@ -14,10 +14,10 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
 
-    -- sceneManager.changeScene(require 'src/menu/mainMenu')
+    sceneManager.changeScene(require 'src/menu/mainMenu')
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
     -- sceneManager.changeScene(require 'src/scenes/chooseLanguage')
-    sceneManager.changeScene(require 'src/menu/stageSelection')
+    -- sceneManager.changeScene(require 'src/menu/stageSelection')
     -- sceneManager.changeScene(require 'src/scenes/cutScene3-4')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
