@@ -15,6 +15,15 @@ local sceneManager = require 'src/common/sceneManager'
 -- = Data =
 -- ========
 
+local GRID_X = 200
+local GRID_Y = 150
+
+local WIDTH = 650
+local HEIGHT = 300
+
+local DELTA_X = 50
+local DELTA_Y = 50
+
 local menu = {}
 
 -- ===================
@@ -53,7 +62,7 @@ function menu.load()
     text = dictionary.localize('Go'),
     fn = goToCustomStage,
     x = globals.baseScreenWidth / 2 - 100,
-    y = 450,
+    y = 475,
   })
 end
 
@@ -66,6 +75,22 @@ function menu.update(dt)
 end
 
 function menu.draw()
+  -- container rectangle
+  love.graphics.setColor(colors.white)
+  love.graphics.rectangle(
+    'line',
+    GRID_X,
+    GRID_Y,
+    WIDTH,
+    HEIGHT
+  )
+
+  love.graphics.setColor(colors.black)
+  love.graphics.print("total time:", GRID_X + DELTA_X, GRID_Y + DELTA_Y)
+  love.graphics.print("number of tries:", GRID_X + DELTA_X, GRID_Y + 2 * DELTA_Y)
+  love.graphics.print("errors discount time ?:", GRID_X + DELTA_X, GRID_Y + 3 * DELTA_Y)
+  love.graphics.print("show cards before starting ?:", GRID_X + DELTA_X, GRID_Y + 4 * DELTA_Y)
+
   -- header
   love.graphics.setColor(colors.lightgray)
   love.graphics.rectangle(
