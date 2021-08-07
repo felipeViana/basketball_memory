@@ -25,6 +25,15 @@ local function goBack()
   sceneManager.changeScene(require 'src/menu/mainMenu')
 end
 
+local function goToCustomStage()
+  local args = {
+    time = 45,
+    showCardsBeforeStarting = true
+  }
+
+  sceneManager.changeScene(require 'src/stages/customStage', args)
+end
+
 -- ==================
 -- = Love Callbacks =
 -- ==================
@@ -38,6 +47,13 @@ function menu.load()
     y = 25,
     direction = 'left',
     onHeader = true,
+  })
+
+  buttonManager:newTextButton({
+    text = 'GO',
+    fn = goToCustomStage,
+    x = 400,
+    y = 400,
   })
 end
 
