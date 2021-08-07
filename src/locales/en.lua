@@ -11,6 +11,7 @@ local function locales()
     e = 'and',
 
     -- menus
+    Go = 'Go',
     CustomStage = 'Custom Level',
     Restart = 'Restart',
     Paused = 'Paused',

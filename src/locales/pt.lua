@@ -10,6 +10,7 @@ local function locales()
     e = 'e',
 
     -- menus
+    Go = 'Vai',
     CustomStage = 'Fase custom',
     Restart = 'Reiniciar',
     Paused = 'Pausa',

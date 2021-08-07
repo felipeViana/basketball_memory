@@ -50,10 +50,10 @@ function menu.load()
   })
 
   buttonManager:newTextButton({
-    text = 'GO',
+    text = dictionary.localize('Go'),
     fn = goToCustomStage,
-    x = 400,
-    y = 400,
+    x = globals.baseScreenWidth / 2 - 100,
+    y = 450,
   })
 end
 
@@ -66,9 +66,6 @@ function menu.update(dt)
 end
 
 function menu.draw()
-  love.graphics.print("I was here")
-
-
   -- header
   love.graphics.setColor(colors.lightgray)
   love.graphics.rectangle(
@@ -78,7 +75,6 @@ function menu.draw()
     globals.baseScreenWidth,
     globals.headerHeight
   )
-
 
   local textFont = assets.squareFont
   love.graphics.setFont(textFont)
@@ -91,6 +87,7 @@ function menu.draw()
 
   love.graphics.print(titleText, globals.baseScreenWidth / 2 - textWidth / 2, 50 - textHeight / 2)
 
+  -- buttons
   buttonManager:draw()
 end
 
