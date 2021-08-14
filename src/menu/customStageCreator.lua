@@ -24,6 +24,12 @@ local HEIGHT = 300
 local DELTA_X = 50
 local DELTA_Y = 50
 
+local errorsDiscountTime = false
+local showCardsBeforeStarting = false
+
+
+local texts = {}
+
 local menu = {}
 
 -- ===================
@@ -37,10 +43,19 @@ end
 local function goToCustomStage()
   local args = {
     time = 45,
-    showCardsBeforeStarting = true
+    showCardsBeforeStarting = showCardsBeforeStarting,
+    errorsDiscountTime = errorsDiscountTime
   }
 
   sceneManager.changeScene(require 'src/stages/customStage', args)
+end
+
+local function toggleErrorsDiscountTime()
+  errorsDiscountTime = not errorsDiscountTime
+end
+
+local function toggleShowCardsBeforeStarting()
+  showCardsBeforeStarting = not showCardsBeforeStarting
 end
 
 -- ==================
@@ -48,6 +63,18 @@ end
 -- ==================
 
 function menu.load()
+  errorsDiscountTime = false
+  showCardsBeforeStarting = false
+
+  texts = {
+    dictionary.localize("total time:"),
+    dictionary.localize("number of tries:"),
+    dictionary.localize("errors discount time ?:"),
+    dictionary.localize("show cards before starting ?:")
+  }
+
+  local textFont = assets.squareFont
+
   buttonManager:load()
 
   buttonManager:newArrowButton({
@@ -64,6 +91,20 @@ function menu.load()
     x = globals.baseScreenWidth / 2 - 100,
     y = 475,
   })
+
+  buttonManager:newCheckBoxButton({
+    fn = toggleErrorsDiscountTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]),
+    y = GRID_Y + 3 * DELTA_Y,
+  })
+
+
+  buttonManager:newCheckBoxButton({
+    fn = toggleShowCardsBeforeStarting,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]),
+    y = GRID_Y + 4 * DELTA_Y,
+  })
+
 end
 
 function menu.unload()
@@ -86,10 +127,10 @@ function menu.draw()
   )
 
   love.graphics.setColor(colors.black)
-  love.graphics.print("total time:", GRID_X + DELTA_X, GRID_Y + DELTA_Y)
-  love.graphics.print("number of tries:", GRID_X + DELTA_X, GRID_Y + 2 * DELTA_Y)
-  love.graphics.print("errors discount time ?:", GRID_X + DELTA_X, GRID_Y + 3 * DELTA_Y)
-  love.graphics.print("show cards before starting ?:", GRID_X + DELTA_X, GRID_Y + 4 * DELTA_Y)
+  love.graphics.print(texts[1], GRID_X + DELTA_X, GRID_Y + DELTA_Y)
+  love.graphics.print(texts[2], GRID_X + DELTA_X, GRID_Y + 2 * DELTA_Y)
+  love.graphics.print(texts[3], GRID_X + DELTA_X, GRID_Y + 3 * DELTA_Y)
+  love.graphics.print(texts[4], GRID_X + DELTA_X, GRID_Y + 4 * DELTA_Y)
 
   -- header
   love.graphics.setColor(colors.lightgray)

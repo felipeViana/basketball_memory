@@ -5,6 +5,7 @@ local globals = require 'src/common/globals'
 local textButton = require 'src/components/textButton'
 local imageButton = require 'src/components/imageButton'
 local arrowButton = require 'src/components/arrowButton'
+local checkBoxButton = require 'src/components/checkBoxButton'
 
 local soundManager = require 'src/components/soundManager'
 
@@ -48,6 +49,13 @@ function buttonManager:newImageButton(arg)
   return newButton
 end
 
+
+function buttonManager:newCheckBoxButton(arg)
+  local newButton = checkBoxButton.new(arg)
+  addNewButtonToTable(self, newButton)
+  return newButton
+end
+
 function buttonManager:load()
   self.components = {}
   self.mouseJustReleased = false
@@ -81,6 +89,7 @@ function buttonManager:update(dt, verticalScroll)
       end
       -- TODO: play disabled sound
 
+      component.checked = not component.checked
       component.fn()
     end
   end
@@ -97,6 +106,10 @@ function buttonManager:draw()
         imageButton.draw(component)
       elseif component.type == 'arrowButton' then
         arrowButton.draw(component)
+      elseif component.type == 'checkBoxButton' then
+        checkBoxButton.draw(component)
+      else
+        error("buttonManager: button draw not implemented")
       end
     end
   end

@@ -31,6 +31,10 @@ local function locales()
     ['press enter to continue'] = 'press enter to continue',
     ['choose your name:'] = 'choose your name:',
     ['Choose your language'] = 'Choose your language',
+    ['total time:'] = 'total time:',
+    ['number of tries:'] = 'number of tries:',
+    ['errors discount time ?:'] = 'errors discount time ?:',
+    ['show cards before starting ?:'] = 'show cards before starting ?:',
 
     -- gameplay
     ['Infinite tries'] = 'Infinite tries',
