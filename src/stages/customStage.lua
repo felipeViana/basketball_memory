@@ -2,7 +2,14 @@ local stageManager = (require 'src/stages/stageManager').new()
 
 local stage = {}
 
+local previousArgs = {}
+
 function stage.load(args)
+  if args == nil then
+    args = previousArgs
+  end
+  previousArgs = args
+
   stageManager:load({
     totalTime = args.totalTime or 60,
     numberOfTries = args.numberOfTries or nil,

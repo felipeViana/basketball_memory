@@ -1,6 +1,9 @@
 # starting from game folder
 Set-Location D:\Code\Love\basketball_memory
 
+# remove old zip
+Remove-Item BasketballMemoryLegends.zip -Force
+
 # copy love dlls
 Copy-Item D:\LOVE\love.exe .
 Copy-Item D:\LOVE\love.dll .
