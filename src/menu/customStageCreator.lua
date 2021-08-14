@@ -24,9 +24,10 @@ local HEIGHT = 300
 local DELTA_X = 50
 local DELTA_Y = 50
 
+local totalTime = 45
+local numberOfTries = 10
 local errorsDiscountTime = false
 local showCardsBeforeStarting = false
-
 
 local texts = {}
 
@@ -42,12 +43,35 @@ end
 
 local function goToCustomStage()
   local args = {
-    time = 45,
+    totalTime = totalTime,
+    numberOfTries = numberOfTries,
     showCardsBeforeStarting = showCardsBeforeStarting,
     errorsDiscountTime = errorsDiscountTime
   }
 
   sceneManager.changeScene(require 'src/stages/customStage', args)
+end
+
+local function lessTime()
+  if totalTime > 5 then
+    totalTime = totalTime - 5
+  end
+end
+local function moreTime()
+  if totalTime < 250 then
+    totalTime = totalTime + 5
+  end
+end
+
+local function lessTries()
+  if numberOfTries > 1 then
+    numberOfTries = numberOfTries - 1
+  end
+end
+local function moreTries()
+  if numberOfTries < 50 then
+    numberOfTries = numberOfTries + 1
+  end
 end
 
 local function toggleErrorsDiscountTime()
@@ -63,6 +87,8 @@ end
 -- ==================
 
 function menu.load()
+  totalTime = 45
+  numberOfTries = 10
   errorsDiscountTime = false
   showCardsBeforeStarting = false
 
@@ -90,6 +116,41 @@ function menu.load()
     fn = goToCustomStage,
     x = globals.baseScreenWidth / 2 - 100,
     y = 475,
+  })
+
+  buttonManager:newTextButton({
+    text = '-',
+    fn = lessTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]),
+    y = GRID_Y + DELTA_Y,
+    width = 25,
+    height = 35,
+  })
+  buttonManager:newTextButton({
+    text = '+',
+    fn = moreTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]) + 85,
+    y = GRID_Y + DELTA_Y,
+    width = 25,
+    height = 35,
+  })
+
+
+  buttonManager:newTextButton({
+    text = '-',
+    fn = lessTries,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]),
+    y = GRID_Y + 2 * DELTA_Y,
+    width = 25,
+    height = 35,
+  })
+  buttonManager:newTextButton({
+    text = '+',
+    fn = moreTries,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]) + 75,
+    y = GRID_Y + 2 * DELTA_Y,
+    width = 25,
+    height = 35,
   })
 
   buttonManager:newCheckBoxButton({
@@ -152,6 +213,9 @@ function menu.draw()
   local textHeight = textFont:getHeight(titleText)
 
   love.graphics.print(titleText, globals.baseScreenWidth / 2 - textWidth / 2, 50 - textHeight / 2)
+
+  love.graphics.print(totalTime, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]) + 35, GRID_Y + DELTA_Y)
+  love.graphics.print(numberOfTries, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]) + 35, GRID_Y + 2 * DELTA_Y)
 
   -- buttons
   buttonManager:draw()

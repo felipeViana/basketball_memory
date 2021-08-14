@@ -17,8 +17,8 @@ function textButton.new(arg)
     hot = false,
     type = 'textButton',
     font = assets.squareFont,
-    width = BUTTON_WIDTH,
-    height = BUTTON_HEIGHT,
+    width = arg.width or BUTTON_WIDTH,
+    height = arg.height or BUTTON_HEIGHT,
   }
 end
 
@@ -35,16 +35,16 @@ function textButton.draw(button)
     'fill',
     button.x,
     button.y,
-    BUTTON_WIDTH,
-    BUTTON_HEIGHT
+    button.width,
+    button.height
   )
   love.graphics.setColor(1, 1, 1)
   love.graphics.rectangle(
     'line',
     button.x,
     button.y,
-    BUTTON_WIDTH,
-    BUTTON_HEIGHT
+    button.width,
+    button.height
   )
 
   love.graphics.setColor(TEXT_COLOR)
@@ -54,8 +54,8 @@ function textButton.draw(button)
   love.graphics.print(
     button.text,
     button.font,
-    button.x + BUTTON_WIDTH / 2 - textWidth / 2,
-    button.y + BUTTON_HEIGHT / 2 - textHeight / 2
+    button.x + button.width / 2 - textWidth / 2,
+    button.y + button.height / 2 - textHeight / 2
   )
 end
 
