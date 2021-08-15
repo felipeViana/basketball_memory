@@ -14,11 +14,11 @@ function love.load()
   if DEBUG then
     love.audio.setVolume(0)
 
-    sceneManager.changeScene(require 'src/menu/mainMenu')
+    -- sceneManager.changeScene(require 'src/menu/mainMenu')
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
     -- sceneManager.changeScene(require 'src/scenes/chooseLanguage')
     -- sceneManager.changeScene(require 'src/menu/stageSelection')
-    -- sceneManager.changeScene(require 'src/scenes/cutScene3-4')
+  sceneManager.changeScene(require 'src/scenes/cutScene1')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
@@ -63,9 +63,9 @@ end
 
 function love.keypressed(key)
   sceneManager.currentScene.keypressed(key)
-  -- if key == "escape" and DEBUG then
-  --   love.event.quit(0)
-  -- end
+  if key == "escape" and DEBUG then
+    love.event.quit(0)
+  end
   if key == "escape" and not inPause then
     justPaused = true
   end
