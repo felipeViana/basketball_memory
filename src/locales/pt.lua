@@ -54,13 +54,13 @@ local function locales()
     ['2.6'] = 'E para finalizar, os prêmios serão: O campeão vai ganhar um jogo da memória novinho, um troféu, uma medalha de ouro, uma bola de basquete, uma camiseta de basquete homenagem, um brinde bem especial e um bom dinheiro. O segundo lugar irá ganhar uma medalha de prata, um jogo da memória novo, uma bola de basquete homenagem e uma quantia razoável de dinheiro.',
     ['2.7'] = 'E o terceiro lugar ganhará uma medalha de bronze, um jogo da memória novo, uma camiseta de basquete homenagem e uma quantia menor de dinheiro.\nEntão chega de papo e vamos se inscrever!',
 
-    ['3-1.1'] = 'Então, o jovem anuncia o campeonato na cidade do basquete pensante, o seu local de origem e muitos ficam animados com essa inovação. Um garoto de 18 anos então se interessa e vai tentar se inscrever. Ele e seu amigo Bob estavam animados para participar do campeonato e antes do ato da inscrição Bob pergunta:',
+    ['3-1.1'] = 'Portanto, o jovem anunciou o campeonato na cidade do basquete pensante, o seu local de origem e muitos ficam animados com essa inovação. Um garoto de 18 anos então se interessa e vai tentar se inscrever. Ele e seu amigo Bob estavam animados para participar do campeonato e antes do ato da inscrição Bob pergunta:',
     ['3-1.2'] = 'Você tem certeza que quer se inscrever? Acha que consegue vencer?',
     ['3-1.3'] = globals.playerName .. ' pensa bastante e diz:',
     ['3-1.4'] = 'Sim! Tenho certeza! Preciso aproveitar essa oportunidade para recuperar minha memória, pois não lembro do que me aconteceu e porque moro com você e não com meus pais. Não lembro nem se tive pais um dia.',
     ['3-1.5'] = 'Bob fica arrasado e pensa:',
-    ['3-1.6'] = 'O que eu devo dizer agora? Já contei a ele várias vezes sobre a história do acidente e ele não lembra. Vou ficar na minha e quando for possível, mostrarei tudo a ele.',
-    ['3-1.7'] = 'Então o jovem garoto vai se inscrever, mas percebe que está sem dinheiro e então... ',
+    ['3-1.6'] = '"O que eu devo dizer agora? Já contei a ele várias vezes sobre a história do acidente e ele não lembra. Vou ficar na minha e quando for possível, mostrarei tudo a ele."',
+    ['3-1.7'] = 'Então o jovem garoto vai se inscrever, mas percebe que está sem dinheiro ... ',
 
     ['3-2.1'] = 'Você tem certeza?',
     ['3-2.2'] = 'Tenho sim.',

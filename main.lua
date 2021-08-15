@@ -18,7 +18,7 @@ function love.load()
     -- sceneManager.changeScene(require 'src/scenes/chooseName')
     -- sceneManager.changeScene(require 'src/scenes/chooseLanguage')
     -- sceneManager.changeScene(require 'src/menu/stageSelection')
-  sceneManager.changeScene(require 'src/scenes/cutScene2')
+  sceneManager.changeScene(require 'src/scenes/cutScene3-1')
     -- sceneManager.changeScene(require 'src/stages/stage1-1')
   else
     sceneManager.changeScene(require 'src/scenes/splash')
