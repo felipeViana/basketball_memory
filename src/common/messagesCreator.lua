@@ -49,6 +49,14 @@ local function messages2(fn)
     },
     {
       message = dictionary.localize('2.5'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('2.6'),
+      config = characters.creator,
+    },
+    {
+      message = dictionary.localize('2.7'),
       config = lume.extend(
         characters.creator,
         {
