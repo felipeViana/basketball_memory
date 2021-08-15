@@ -133,6 +133,10 @@ local function messages3p2(fn)
       config = characters.protagonist,
     },
     {
+      message = dictionary.localize('3-2.6-1'),
+      config = characters.narrator,
+    },
+    {
       message = dictionary.localize('3-2.7'),
       config = characters.bob,
     },
