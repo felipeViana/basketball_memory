@@ -29,12 +29,7 @@ local showingForceFlippedRemaingTime = SHOWING_FORCE_FLIPPED_TIME
 
 function cardManager.newPairs(rows, columns)
   local totalPairs = rows * columns / 2
-  for i = 1, totalPairs do
-    local newPair = cardObject.newPair(i)
-
-    table.insert(cards, newPair[1])
-    table.insert(cards, newPair[2])
-  end
+  cards = cardObject.newPairs(totalPairs)
 
   local shuffledCards = lume.shuffle(cards)
   local grid = gridUtils.makeGrid(rows, columns)

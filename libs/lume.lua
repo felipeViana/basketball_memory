@@ -129,7 +129,7 @@ function lume.vector(angle, magnitude)
   return math.cos(angle) * magnitude, math.sin(angle) * magnitude
 end
 
-
+-- gives a random number from a to b inclusive
 function lume.random(a, b)
   if not a then a, b = 0, 1 end
   if not b then b = 0 end
@@ -196,7 +196,7 @@ function lume.clear(t)
   return t
 end
 
-
+-- shuffles table
 function lume.shuffle(t)
   local rtn = {}
   for i = 1, #t do
