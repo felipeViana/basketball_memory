@@ -11,6 +11,24 @@ local function loadCards()
   assets.card4 = love.graphics.newImage("assets/cards/card4.png")
   assets.card5 = love.graphics.newImage("assets/cards/card5.png")
   assets.card6 = love.graphics.newImage("assets/cards/card6.png")
+  assets.card7 = love.graphics.newImage("assets/cards/card7.png")
+  assets.card8 = love.graphics.newImage("assets/cards/card8.png")
+  assets.card9 = love.graphics.newImage("assets/cards/card9.png")
+  assets.card10 = love.graphics.newImage("assets/cards/card10.png")
+  assets.card11 = love.graphics.newImage("assets/cards/card11.png")
+  assets.card12 = love.graphics.newImage("assets/cards/card12.png")
+  assets.card13 = love.graphics.newImage("assets/cards/card13.png")
+  assets.card14 = love.graphics.newImage("assets/cards/card14.png")
+  assets.card15 = love.graphics.newImage("assets/cards/card15.png")
+  assets.card16 = love.graphics.newImage("assets/cards/card16.png")
+  assets.card17 = love.graphics.newImage("assets/cards/card17.png")
+  assets.card18 = love.graphics.newImage("assets/cards/card18.png")
+  assets.card19 = love.graphics.newImage("assets/cards/card19.png")
+  assets.card20 = love.graphics.newImage("assets/cards/card20.png")
+  assets.card21 = love.graphics.newImage("assets/cards/card21.png")
+  assets.card22 = love.graphics.newImage("assets/cards/card22.png")
+  assets.card23 = love.graphics.newImage("assets/cards/card23.png")
+  assets.card24 = love.graphics.newImage("assets/cards/card24.png")
 
   assets.cardImages = {
     assets.card1,
@@ -19,6 +37,24 @@ local function loadCards()
     assets.card4,
     assets.card5,
     assets.card6,
+    assets.card7,
+    assets.card8,
+    assets.card9,
+    assets.card10,
+    assets.card11,
+    assets.card12,
+    assets.card13,
+    assets.card14,
+    assets.card15,
+    assets.card16,
+    assets.card17,
+    assets.card18,
+    assets.card19,
+    assets.card20,
+    assets.card21,
+    assets.card22,
+    assets.card23,
+    assets.card24
   };
 end
 
