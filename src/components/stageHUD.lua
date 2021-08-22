@@ -17,7 +17,7 @@ local JUST_SCORED_TIME = 1
 local showingJustScored = false
 local justScoredRemainingTime = 0
 
-local GRID_X = 500
+local GRID_X = 550
 local DELTA_X = 75
 local GRID_Y = 100
 local DELTA_Y = 75

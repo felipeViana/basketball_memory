@@ -45,9 +45,10 @@ function stageManager:load(arg)
   self.goToNextStage = arg.goToNextStage
   self.stageName = arg.stageName
 
-  self.showCardsBeforeStarting = arg.showCardsBeforeStarting
+  self.timeToShowCardsBeforeStarting = arg.timeToShowCardsBeforeStarting
+  self.showCardsBeforeStarting = arg.timeToShowCardsBeforeStarting > 0
 
-  cardManager.load(self.showCardsBeforeStarting)
+  cardManager.load(self.showCardsBeforeStarting, self.timeToShowCardsBeforeStarting)
   cardManager.newPairs(4, 3)
   stageHUD.load()
 
@@ -127,7 +128,7 @@ function stageManager:draw()
 
   drawUtils.drawBackground(assets.stageBackground)
 
-  cardManager.draw(self.showCardsBeforeStarting)
+  cardManager.draw()
   stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime, self.scoresGainTime)
 end
 

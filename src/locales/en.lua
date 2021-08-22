@@ -34,7 +34,7 @@ local function locales()
     ['total time:'] = 'total time:',
     ['number of tries:'] = 'number of tries:',
     ['errors discount time ?:'] = 'errors discount time ?:',
-    ['show cards before starting ?:'] = 'show cards before starting ?:',
+    ['show cards for how long ?:'] = 'show cards for how long ?:',
     ['scores gain time ?:'] = 'scores gain time ?:',
 
     -- gameplay

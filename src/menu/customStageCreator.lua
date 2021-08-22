@@ -27,7 +27,7 @@ local DELTA_Y = 50
 local totalTime = 45
 local numberOfTries = 10
 local errorsDiscountTime = false
-local showCardsBeforeStarting = false
+local timeToShowCardsBeforeStarting = 0
 local scoresGainTime = false
 
 local texts = {}
@@ -46,7 +46,7 @@ local function goToCustomStage()
   local args = {
     totalTime = totalTime,
     numberOfTries = numberOfTries,
-    showCardsBeforeStarting = showCardsBeforeStarting,
+    timeToShowCardsBeforeStarting = timeToShowCardsBeforeStarting,
     errorsDiscountTime = errorsDiscountTime,
     scoresGainTime = scoresGainTime
   }
@@ -76,12 +76,19 @@ local function moreTries()
   end
 end
 
-local function toggleErrorsDiscountTime()
-  errorsDiscountTime = not errorsDiscountTime
+local function lessShowTime()
+  if timeToShowCardsBeforeStarting > 0 then
+    timeToShowCardsBeforeStarting = timeToShowCardsBeforeStarting - 1
+  end
+end
+local function moreShowTime()
+  if timeToShowCardsBeforeStarting < 5 then
+    timeToShowCardsBeforeStarting = timeToShowCardsBeforeStarting + 1
+  end
 end
 
-local function toggleShowCardsBeforeStarting()
-  showCardsBeforeStarting = not showCardsBeforeStarting
+local function toggleErrorsDiscountTime()
+  errorsDiscountTime = not errorsDiscountTime
 end
 
 local function toggleScoresGainTime()
@@ -97,14 +104,14 @@ function menu.load()
   totalTime = 45
   numberOfTries = 10
   errorsDiscountTime = false
-  showCardsBeforeStarting = false
+  timeToShowCardsBeforeStarting = 0
   scoresGainTime = false
 
   texts = {
     dictionary.localize("total time:"),
     dictionary.localize("number of tries:"),
     dictionary.localize("errors discount time ?:"),
-    dictionary.localize("show cards before starting ?:"),
+    dictionary.localize("show cards for how long ?:"),
     dictionary.localize("scores gain time ?:")
   }
 
@@ -167,11 +174,23 @@ function menu.load()
     y = GRID_Y + 3 * DELTA_Y,
   })
 
-  buttonManager:newCheckBoxButton({
-    fn = toggleShowCardsBeforeStarting,
+  buttonManager:newTextButton({
+    text = '-',
+    fn = lessShowTime,
     x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]),
     y = GRID_Y + 4 * DELTA_Y,
+    width = 25,
+    height = 35,
   })
+  buttonManager:newTextButton({
+    text = '+',
+    fn = moreShowTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 75,
+    y = GRID_Y + 4 * DELTA_Y,
+    width = 25,
+    height = 35,
+  })
+
 
   buttonManager:newCheckBoxButton({
     fn = toggleScoresGainTime,
@@ -230,6 +249,7 @@ function menu.draw()
 
   love.graphics.print(totalTime, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]) + 35, GRID_Y + DELTA_Y)
   love.graphics.print(numberOfTries, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]) + 35, GRID_Y + 2 * DELTA_Y)
+  love.graphics.print(timeToShowCardsBeforeStarting, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 35, GRID_Y + 4 * DELTA_Y)
 
   -- buttons
   buttonManager:draw()

@@ -16,13 +16,12 @@ local lastPairState
 
 local cardManager = {}
 
-local GRID_X = 500
+local GRID_X = 550
 local GRID_Y = 100
 local DELTA_Y = 75
 
-local SHOWING_FORCE_FLIPPED_TIME = 2
 local showingForceFlippedCards = false
-local showingForceFlippedRemaingTime = SHOWING_FORCE_FLIPPED_TIME
+local showingForceFlippedRemaingTime = 2
 
 -- TODO: make it work for pairs of 3 cards as well
 -- TODO: refactor flipCard
@@ -40,9 +39,9 @@ function cardManager.newPairs(rows, columns)
   return shuffledCards;
 end
 
-function cardManager.load(showCardsBeforeStarting)
+function cardManager.load(showCardsBeforeStarting, timeToShowCardsBeforeStarting)
   showingForceFlippedCards = showCardsBeforeStarting
-  showingForceFlippedRemaingTime = SHOWING_FORCE_FLIPPED_TIME
+  showingForceFlippedRemaingTime = timeToShowCardsBeforeStarting
 
   lastPairState = nil
   cards = {}
@@ -152,7 +151,7 @@ function cardManager.update(dt)
   end
 end
 
-function cardManager.draw(showCardsBeforeStarting)
+function cardManager.draw()
   for _, card in pairs(cards) do
     cardObject.draw(card, showingForceFlippedCards)
   end

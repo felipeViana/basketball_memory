@@ -64,9 +64,9 @@ end
 
 function love.keypressed(key)
   sceneManager.currentScene.keypressed(key)
-  if key == "escape" and DEBUG then
-    love.event.quit(0)
-  end
+  -- if key == "escape" and DEBUG then
+  --   love.event.quit(0)
+  -- end
   if key == "escape" and not inPause then
     justPaused = true
   end

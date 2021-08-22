@@ -1,7 +1,7 @@
 local gridUtils = {}
 
-local x0 = 25
-local y0 = 25
+local x0 = 50
+local y0 = 50
 
 local dx = 120
 local dy = 160
