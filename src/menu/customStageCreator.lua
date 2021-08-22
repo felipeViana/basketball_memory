@@ -28,6 +28,7 @@ local totalTime = 45
 local numberOfTries = 10
 local errorsDiscountTime = false
 local showCardsBeforeStarting = false
+local scoresGainTime = false
 
 local texts = {}
 
@@ -46,7 +47,8 @@ local function goToCustomStage()
     totalTime = totalTime,
     numberOfTries = numberOfTries,
     showCardsBeforeStarting = showCardsBeforeStarting,
-    errorsDiscountTime = errorsDiscountTime
+    errorsDiscountTime = errorsDiscountTime,
+    scoresGainTime = scoresGainTime
   }
 
   sceneManager.changeScene(require 'src/stages/customStage', args)
@@ -82,6 +84,9 @@ local function toggleShowCardsBeforeStarting()
   showCardsBeforeStarting = not showCardsBeforeStarting
 end
 
+local function toggleScoresGainTime()
+  scoresGainTime = not scoresGainTime
+end
 -- ==================
 -- = Love Callbacks =
 -- ==================
@@ -93,12 +98,14 @@ function menu.load()
   numberOfTries = 10
   errorsDiscountTime = false
   showCardsBeforeStarting = false
+  scoresGainTime = false
 
   texts = {
     dictionary.localize("total time:"),
     dictionary.localize("number of tries:"),
     dictionary.localize("errors discount time ?:"),
-    dictionary.localize("show cards before starting ?:")
+    dictionary.localize("show cards before starting ?:"),
+    dictionary.localize("scores gain time ?:")
   }
 
   local textFont = assets.squareFont
@@ -137,7 +144,6 @@ function menu.load()
     height = 35,
   })
 
-
   buttonManager:newTextButton({
     text = '-',
     fn = lessTries,
@@ -161,11 +167,16 @@ function menu.load()
     y = GRID_Y + 3 * DELTA_Y,
   })
 
-
   buttonManager:newCheckBoxButton({
     fn = toggleShowCardsBeforeStarting,
     x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]),
     y = GRID_Y + 4 * DELTA_Y,
+  })
+
+  buttonManager:newCheckBoxButton({
+    fn = toggleScoresGainTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[5]),
+    y = GRID_Y + 5 * DELTA_Y,
   })
 
 end
@@ -194,6 +205,7 @@ function menu.draw()
   love.graphics.print(texts[2], GRID_X + DELTA_X, GRID_Y + 2 * DELTA_Y)
   love.graphics.print(texts[3], GRID_X + DELTA_X, GRID_Y + 3 * DELTA_Y)
   love.graphics.print(texts[4], GRID_X + DELTA_X, GRID_Y + 4 * DELTA_Y)
+  love.graphics.print(texts[5], GRID_X + DELTA_X, GRID_Y + 5 * DELTA_Y)
 
   -- header
   love.graphics.setColor(colors.lightgray)

@@ -34,6 +34,7 @@ local function locales()
     ['number of tries:'] = 'número de tentativas:',
     ['errors discount time ?:'] = 'erros descontam tempo ?:',
     ['show cards before starting ?:'] = 'mostrar cartas antes do início ?:',
+    ['scores gain time ?:'] = 'pontos ganham tempo ?:',
 
     -- gameplay
     ['Infinite tries'] = 'Infinitas tentativas',
