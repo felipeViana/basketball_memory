@@ -35,7 +35,9 @@ function stageManager:load(arg)
   self.initialTime = love.timer.getTime()
   self.TOTAL_TIME = arg.totalTime
   self.timeLeft = self.TOTAL_TIME
-  self.errorsDiscountTime = arg.errorsDiscountTime
+
+  self.timeLostPerError = arg.timeLostPerError
+  self.errorsDiscountTime = arg.timeLostPerError ~= nil and arg.timeLostPerError > 0
 
   self.timeGainedPerScore = arg.timeGainedPerScore
   self.scoresGainTime = arg.timeGainedPerScore ~= nil and arg.timeGainedPerScore > 0
@@ -81,7 +83,7 @@ end
 
 local function discountTime(self)
   if self.errorsDiscountTime then
-    self.initialTime = self.initialTime - 5
+    self.initialTime = self.initialTime - self.timeLostPerError
   end
 end
 
@@ -130,7 +132,7 @@ function stageManager:draw()
   drawUtils.drawBackground(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime, self.scoresGainTime, self.timeGainedPerScore)
+  stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime, self.timeLostPerError, self.scoresGainTime, self.timeGainedPerScore)
 end
 
 function stageManager:mouseReleased(button)

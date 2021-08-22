@@ -5,7 +5,7 @@ local stage = {}
 function stage.load()
   stageManager:load({
     totalTime = 50,
-    errorsDiscountTime = true,
+    timeLostPerError = 5,
     stageName = 'debug stage 2-4',
   })
 end

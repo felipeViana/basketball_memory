@@ -26,9 +26,9 @@ local DELTA_Y = 50
 
 local totalTime = 45
 local numberOfTries = 10
-local errorsDiscountTime = false
 local timeToShowCardsBeforeStarting = 0
 local timeGainedPerScore = 0
+local timeLostPerError = 0
 
 local texts = {}
 
@@ -48,7 +48,7 @@ local function goToCustomStage()
     numberOfTries = numberOfTries,
     timeToShowCardsBeforeStarting = timeToShowCardsBeforeStarting,
     timeGainedPerScore = timeGainedPerScore,
-    errorsDiscountTime = errorsDiscountTime
+    timeLostPerError = timeLostPerError
   }
 
   sceneManager.changeScene(require 'src/stages/customStage', args)
@@ -98,8 +98,15 @@ local function moreScoreTime()
   end
 end
 
-local function toggleErrorsDiscountTime()
-  errorsDiscountTime = not errorsDiscountTime
+local function lessErrorTime()
+  if timeLostPerError > 0 then
+    timeLostPerError = timeLostPerError - 1
+  end
+end
+local function moreErrorTime()
+  if timeLostPerError < 5 then
+    timeLostPerError = timeLostPerError + 1
+  end
 end
 
 -- ==================
@@ -108,12 +115,6 @@ end
 
 function menu.load()
   love.graphics.setBackgroundColor(colors.gray)
-
-  totalTime = 45
-  numberOfTries = 10
-  errorsDiscountTime = false
-  timeToShowCardsBeforeStarting = 0
-  timeGainedPerScore = 0
 
   texts = {
     dictionary.localize("total time:"),
@@ -193,7 +194,6 @@ function menu.load()
     height = 35,
   })
 
-
   buttonManager:newTextButton({
     text = '-',
     fn = lessScoreTime,
@@ -211,10 +211,21 @@ function menu.load()
     height = 35,
   })
 
-  buttonManager:newCheckBoxButton({
-    fn = toggleErrorsDiscountTime,
+  buttonManager:newTextButton({
+    text = '-',
+    fn = lessErrorTime,
     x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[5]),
     y = GRID_Y + 5 * DELTA_Y,
+    width = 25,
+    height = 35,
+  })
+  buttonManager:newTextButton({
+    text = '+',
+    fn = moreErrorTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[5]) + 75,
+    y = GRID_Y + 5 * DELTA_Y,
+    width = 25,
+    height = 35,
   })
 end
 
@@ -267,8 +278,9 @@ function menu.draw()
 
   love.graphics.print(totalTime, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]) + 35, GRID_Y + DELTA_Y)
   love.graphics.print(numberOfTries, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]) + 35, GRID_Y + 2 * DELTA_Y)
-  love.graphics.print(timeToShowCardsBeforeStarting, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]) + 35, GRID_Y + 3 * DELTA_Y)
-  love.graphics.print(timeGainedPerScore, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 35, GRID_Y + 4 * DELTA_Y)
+  love.graphics.print(timeToShowCardsBeforeStarting, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]) + 40, GRID_Y + 3 * DELTA_Y)
+  love.graphics.print(timeGainedPerScore, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 40, GRID_Y + 4 * DELTA_Y)
+  love.graphics.print(timeLostPerError, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[5]) + 40, GRID_Y + 5 * DELTA_Y)
 
   -- buttons
   buttonManager:draw()

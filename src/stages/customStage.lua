@@ -15,7 +15,7 @@ function stage.load(args)
     numberOfTries = args.numberOfTries or nil,
     timeToShowCardsBeforeStarting = args.timeToShowCardsBeforeStarting,
     timeGainedPerScore = args.timeGainedPerScore,
-    errorsDiscountTime = args.errorsDiscountTime,
+    timeLostPerError = args.timeLostPerError,
 
     stageName = 'custom stage',
   })
