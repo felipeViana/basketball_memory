@@ -18,7 +18,7 @@ local sceneManager = require 'src/common/sceneManager'
 local GRID_X = 200
 local GRID_Y = 150
 
-local WIDTH = 650
+local WIDTH = 750
 local HEIGHT = 300
 
 local DELTA_X = 50
@@ -48,7 +48,8 @@ local function goToCustomStage()
     numberOfTries = numberOfTries,
     timeToShowCardsBeforeStarting = timeToShowCardsBeforeStarting,
     errorsDiscountTime = errorsDiscountTime,
-    scoresGainTime = scoresGainTime
+    scoresGainTime = scoresGainTime,
+    timeGainedPerScore = scoresGainTime and 2 or 0
   }
 
   sceneManager.changeScene(require 'src/stages/customStage', args)
@@ -110,9 +111,9 @@ function menu.load()
   texts = {
     dictionary.localize("total time:"),
     dictionary.localize("number of tries:"),
-    dictionary.localize("errors discount time ?:"),
     dictionary.localize("show cards for how long ?:"),
-    dictionary.localize("scores gain time ?:")
+    dictionary.localize("scores gain how much time ?:"),
+    dictionary.localize("errors discount how much time ?:")
   }
 
   local textFont = assets.squareFont
@@ -168,36 +169,34 @@ function menu.load()
     height = 35,
   })
 
-  buttonManager:newCheckBoxButton({
-    fn = toggleErrorsDiscountTime,
-    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]),
-    y = GRID_Y + 3 * DELTA_Y,
-  })
-
   buttonManager:newTextButton({
     text = '-',
     fn = lessShowTime,
-    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]),
-    y = GRID_Y + 4 * DELTA_Y,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]),
+    y = GRID_Y + 3 * DELTA_Y,
     width = 25,
     height = 35,
   })
   buttonManager:newTextButton({
     text = '+',
     fn = moreShowTime,
-    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 75,
-    y = GRID_Y + 4 * DELTA_Y,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]) + 75,
+    y = GRID_Y + 3 * DELTA_Y,
     width = 25,
     height = 35,
   })
 
-
   buttonManager:newCheckBoxButton({
     fn = toggleScoresGainTime,
+    x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]),
+    y = GRID_Y + 4 * DELTA_Y,
+  })
+
+  buttonManager:newCheckBoxButton({
+    fn = toggleErrorsDiscountTime,
     x = GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[5]),
     y = GRID_Y + 5 * DELTA_Y,
   })
-
 end
 
 function menu.unload()
@@ -249,7 +248,7 @@ function menu.draw()
 
   love.graphics.print(totalTime, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[1]) + 35, GRID_Y + DELTA_Y)
   love.graphics.print(numberOfTries, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[2]) + 35, GRID_Y + 2 * DELTA_Y)
-  love.graphics.print(timeToShowCardsBeforeStarting, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[4]) + 35, GRID_Y + 4 * DELTA_Y)
+  love.graphics.print(timeToShowCardsBeforeStarting, GRID_X + 1.5 * DELTA_X + textFont:getWidth(texts[3]) + 35, GRID_Y + 3 * DELTA_Y)
 
   -- buttons
   buttonManager:draw()

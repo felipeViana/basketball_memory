@@ -13,9 +13,9 @@ function stage.load(args)
   stageManager:load({
     totalTime = args.totalTime or 60,
     numberOfTries = args.numberOfTries or nil,
-    errorsDiscountTime = args.errorsDiscountTime,
     timeToShowCardsBeforeStarting = args.timeToShowCardsBeforeStarting,
-    scoresGainTime = args.scoresGainTime,
+    timeGainedPerScore = args.timeGainedPerScore,
+    errorsDiscountTime = args.errorsDiscountTime,
 
     stageName = 'custom stage',
   })

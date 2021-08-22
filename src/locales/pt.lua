@@ -32,9 +32,9 @@ local function locales()
     ['Choose your language'] = 'Escolha sua língua',
     ['total time:'] = 'tempo total:',
     ['number of tries:'] = 'número de tentativas:',
-    ['errors discount time ?:'] = 'erros descontam tempo ?:',
     ['show cards for how long ?:'] = 'mostrar cartas por quanto tempo ?:',
-    ['scores gain time ?:'] = 'pontos ganham tempo ?:',
+    ['scores gain how much time ?:'] = 'pontos ganham quanto tempo ?:',
+    ['errors discount how much time ?:'] = 'erros descontam quanto tempo ?:',
 
     -- gameplay
     ['Infinite tries'] = 'Infinitas tentativas',

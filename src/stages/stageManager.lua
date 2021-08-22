@@ -37,7 +37,8 @@ function stageManager:load(arg)
   self.timeLeft = self.TOTAL_TIME
   self.errorsDiscountTime = arg.errorsDiscountTime
 
-  self.scoresGainTime = arg.scoresGainTime
+  self.timeGainedPerScore = arg.timeGainedPerScore
+  self.scoresGainTime = arg.timeGainedPerScore ~= nil and arg.timeGainedPerScore > 0
 
   self.numberOfTries = arg.numberOfTries
   self.limitedTries = arg.numberOfTries ~= nil
@@ -46,7 +47,7 @@ function stageManager:load(arg)
   self.stageName = arg.stageName
 
   self.timeToShowCardsBeforeStarting = arg.timeToShowCardsBeforeStarting
-  self.showCardsBeforeStarting = arg.timeToShowCardsBeforeStarting > 0
+  self.showCardsBeforeStarting = arg.timeToShowCardsBeforeStarting ~= nil and arg.timeToShowCardsBeforeStarting > 0
 
   cardManager.load(self.showCardsBeforeStarting, self.timeToShowCardsBeforeStarting)
   cardManager.newPairs(4, 3)
@@ -74,7 +75,7 @@ end
 
 local function gainTime(self)
   if self.scoresGainTime then
-    self.initialTime = self.initialTime + 5
+    self.initialTime = self.initialTime + self.timeGainedPerScore
   end
 end
 
@@ -129,7 +130,7 @@ function stageManager:draw()
   drawUtils.drawBackground(assets.stageBackground)
 
   cardManager.draw()
-  stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime, self.scoresGainTime)
+  stageHUD.draw(self.timeLeft, self.limitedTries, self.numberOfTries, self.stageName, self.errorsDiscountTime, self.scoresGainTime, self.timeGainedPerScore)
 end
 
 function stageManager:mouseReleased(button)

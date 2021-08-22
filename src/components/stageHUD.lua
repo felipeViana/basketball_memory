@@ -123,18 +123,18 @@ local function drawJustMissedTime(errorsDiscountTime)
   if errorsDiscountTime and showingJustMissed then
     love.graphics.setColor(colors.red)
     love.graphics.print(
-      string.format("- 5.00", timeLeft),
+      string.format("- 5.00"),
       JUST_MISSED_TIME_POSITION.x,
       JUST_MISSED_TIME_POSITION.y
     )
   end
 end
 
-local function drawJustScoredTime(scoresGainTime)
+local function drawJustScoredTime(scoresGainTime, timeGainedPerScore)
   if scoresGainTime and showingJustScored then
     love.graphics.setColor(0, 1, 0)
     love.graphics.print(
-      string.format("+ 5.00", timeLeft),
+      string.format("+ %d.00", timeGainedPerScore),
       JUST_SCORED_TIME_POSITION.x,
       JUST_SCORED_TIME_POSITION.y
     )
@@ -172,10 +172,10 @@ local function drawRemainingTries(limitedTries, numberOfTries)
   end
 end
 
-function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime, scoresGainTime)
+function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime, scoresGainTime, timeGainedPerScore)
   drawRemainingTime(timeLeft, errorsDiscountTime)
   drawJustMissedTime(errorsDiscountTime)
-  drawJustScoredTime(scoresGainTime)
+  drawJustScoredTime(scoresGainTime, timeGainedPerScore)
   drawStageName(stageName)
   drawRemainingTries(limitedTries, numberOfTries)
 end
