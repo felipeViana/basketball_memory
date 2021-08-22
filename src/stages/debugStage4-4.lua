@@ -4,7 +4,7 @@ local stage = {}
 
 function stage.load()
   stageManager:load({
-    totalTime = 15,
+    totalTime = 20,
     showCardsBeforeStarting = true,
     stageName = 'debug stage 4-4',
   })

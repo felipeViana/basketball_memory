@@ -87,6 +87,8 @@ end
 -- ==================
 
 function menu.load()
+  love.graphics.setBackgroundColor(colors.gray)
+
   totalTime = 45
   numberOfTries = 10
   errorsDiscountTime = false

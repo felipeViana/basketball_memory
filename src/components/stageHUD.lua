@@ -130,8 +130,8 @@ local function drawJustMissedTime(errorsDiscountTime)
   end
 end
 
-local function drawJustScoredTime()
-  if showingJustScored then
+local function drawJustScoredTime(scoresGainTime)
+  if scoresGainTime and showingJustScored then
     love.graphics.setColor(0, 1, 0)
     love.graphics.print(
       string.format("+ 5.00", timeLeft),
@@ -172,10 +172,10 @@ local function drawRemainingTries(limitedTries, numberOfTries)
   end
 end
 
-function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime)
+function hud.draw(timeLeft, limitedTries, numberOfTries, stageName, errorsDiscountTime, scoresGainTime)
   drawRemainingTime(timeLeft, errorsDiscountTime)
   drawJustMissedTime(errorsDiscountTime)
-  drawJustScoredTime()
+  drawJustScoredTime(scoresGainTime)
   drawStageName(stageName)
   drawRemainingTries(limitedTries, numberOfTries)
 end
