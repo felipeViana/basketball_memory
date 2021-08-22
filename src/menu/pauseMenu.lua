@@ -22,6 +22,10 @@ local function goBack()
   sceneManager.popScene()
 end
 
+local function restart()
+  sceneManager.popScene(true)
+end
+
 local function goToMenu()
   sceneManager.changeScene(require 'src/menu/mainMenu')
 end
@@ -34,6 +38,15 @@ function menu.load(originScene)
     x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
     y = GRID_Y + 125,
   })
+
+  if originScene.name == 'stage' then
+    buttonManager:newTextButton({
+      text = dictionary.localize('Restart'),
+      fn = restart,
+      x = GRID_X + WIDTH / 2 - BUTTON_WIDTH / 2,
+      y = GRID_Y + 225,
+    })
+  end
 
   if originScene.name ~= 'mainMenu' then
     buttonManager:newTextButton({

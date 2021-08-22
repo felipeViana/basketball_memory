@@ -1,6 +1,8 @@
 local stageManager = (require 'src/stages/stageManager').new()
 
-local stage = {}
+local stage = {
+  name = 'stage'
+}
 
 function stage.load()
   stageManager:load({

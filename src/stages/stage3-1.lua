@@ -5,7 +5,9 @@ local function goToNextStage()
   sceneManager.changeScene(require 'src/scenes/cutScene11')
 end
 
-local stage = {}
+local stage = {
+  name = 'stage'
+}
 
 function stage.load()
   stageManager:load({
