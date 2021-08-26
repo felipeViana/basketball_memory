@@ -2,8 +2,8 @@ local lume = require 'libs/lume'
 
 local assets = require 'src/common/assets'
 
-local CARD_WIDTH = 124
-local CARD_HEIGHT = 178
+local CARD_WIDTH = 160
+local CARD_HEIGHT = 200
 local CARD_SCALE = 0.7
 
 local colors = {
@@ -61,24 +61,33 @@ function cardObject.draw(card, flipped)
 
   local isFlipped = card.flipped or flipped
 
-  if not isFlipped then
-    image = assets.cardBack
-  end
 
   local extraScale = 1
-  if card.hot and not isFlipped then
-    extraScale = 1.2
+  if not isFlipped then
+    image = assets.cardBack
+    extraScale = 0.4
   end
+
+  local x = card.x
+  local y = card.y
 
   local width = card.width
   local height = card.height
+  
+  if card.hot and not isFlipped then
+    extraScale = 0.5
+
+    x = x - 0.1 * width / 2;
+    y = y - 0.1 * height / 2;
+  end
+
 
   love.graphics.setColor(1, 1, 1)
 
   love.graphics.draw(
     image,
-    card.x + width * (1 - extraScale) / 2,
-    card.y + height * (1 - extraScale) / 2,
+    x,
+    y,
     0,
     card.scaleX * extraScale,
     card.scaleY * extraScale

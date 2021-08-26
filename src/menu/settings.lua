@@ -28,7 +28,6 @@ end
 function settings.load()
   buttonManager:load()
 
-
   buttonManager:newArrowButton({
     fn = goBack,
     x = 25,

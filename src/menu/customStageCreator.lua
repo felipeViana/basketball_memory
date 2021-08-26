@@ -15,6 +15,8 @@ local sceneManager = require 'src/common/sceneManager'
 -- = Data =
 -- ========
 
+local music
+
 local GRID_X = 200
 local GRID_Y = 150
 
@@ -227,10 +229,14 @@ function menu.load()
     width = 25,
     height = 35,
   })
+
+  music = assets.menuMusic
+  music:play()
 end
 
 function menu.unload()
   buttonManager:unload()
+  music:pause()
 end
 
 function menu.update(dt)
