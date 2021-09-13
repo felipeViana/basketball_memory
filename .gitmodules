@@ -1,0 +1,3 @@
+[submodule "assets-basketball_memory"]
+	path = assets
+	url = git@github.com:felipeViana/assets-basketball_memory.git
