@@ -1,9 +1,12 @@
 local imageButton = {}
+imageButton.meta = {
+  __index = imageButton,
+}
 
 local BUTTON_HOT_COLOR = {95/255, 158/255, 168/255}
 
 function imageButton.new(arg)
-  return {
+  local button = {
     fn = arg.fn,
     x = arg.x,
     y = arg.y,
@@ -15,23 +18,26 @@ function imageButton.new(arg)
     hot = false,
     type = 'imageButton',
   }
+  setmetatable(button, imageButton.meta)
+
+  return button
 end
 
-function imageButton.draw(button)
+function imageButton:draw()
   love.graphics.setColor(1, 1, 1)
 
-  if button.hot then
+  if self.hot then
     love.graphics.rectangle(
       'line',
-      button.x,
-      button.y,
-      button.width,
-      button.height
+      self.x,
+      self.y,
+      self.width,
+      self.height
     )
     love.graphics.setColor(BUTTON_HOT_COLOR)
   end
 
-  love.graphics.draw(button.image, button.x, button.y, 0, button.scaleX, button.scaleY)
+  love.graphics.draw(self.image, self.x, self.y, 0, self.scaleX, self.scaleY)
 end
 
 return imageButton;

@@ -49,7 +49,6 @@ function buttonManager:newImageButton(arg)
   return newButton
 end
 
-
 function buttonManager:newCheckBoxButton(arg)
   local newButton = checkBoxButton.new(arg)
   addNewButtonToTable(self, newButton)
@@ -100,17 +99,7 @@ end
 function buttonManager:draw()
   for _, component in pairs(self.components) do
     if component.visible then
-      if component.type == 'textButton' then
-        textButton.draw(component)
-      elseif component.type == 'imageButton' then
-        imageButton.draw(component)
-      elseif component.type == 'arrowButton' then
-        arrowButton.draw(component)
-      elseif component.type == 'checkBoxButton' then
-        checkBoxButton.draw(component)
-      else
-        error("buttonManager: button draw not implemented")
-      end
+      component:draw()
     end
   end
 end

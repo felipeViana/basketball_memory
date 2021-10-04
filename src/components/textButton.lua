@@ -1,5 +1,8 @@
 local assets = require "src/common/assets"
 local textButton = {}
+textButton.meta = {
+  __index = textButton,
+}
 
 local BUTTON_HEIGHT = 64
 local BUTTON_WIDTH = 200
@@ -9,7 +12,7 @@ local BUTTON_HOT_COLOR = {148/255, 0, 211/255}
 local TEXT_COLOR = {1, 1, 0}
 
 function textButton.new(arg)
-  return {
+  local button = {
     text = arg.text,
     fn = arg.fn,
     x = arg.x,
@@ -20,42 +23,45 @@ function textButton.new(arg)
     width = arg.width or BUTTON_WIDTH,
     height = arg.height or BUTTON_HEIGHT,
   }
+  setmetatable(button, textButton.meta)
+
+  return button
 end
 
-function textButton.draw(button)
-  love.graphics.setFont(button.font)
+function textButton:draw()
+  love.graphics.setFont(self.font)
 
   local buttonColor = BUTTON_DEFAULT_COLOR
-  if button.hot then
+  if self.hot then
     buttonColor = BUTTON_HOT_COLOR
   end
 
   love.graphics.setColor(buttonColor)
   love.graphics.rectangle(
     'fill',
-    button.x,
-    button.y,
-    button.width,
-    button.height
+    self.x,
+    self.y,
+    self.width,
+    self.height
   )
   love.graphics.setColor(1, 1, 1)
   love.graphics.rectangle(
     'line',
-    button.x,
-    button.y,
-    button.width,
-    button.height
+    self.x,
+    self.y,
+    self.width,
+    self.height
   )
 
   love.graphics.setColor(TEXT_COLOR)
-  local textHeight = button.font:getHeight(button.text)
-  local textWidth = button.font:getWidth(button.text)
+  local textHeight = self.font:getHeight(self.text)
+  local textWidth = self.font:getWidth(self.text)
 
   love.graphics.print(
-    button.text,
-    button.font,
-    button.x + button.width / 2 - textWidth / 2,
-    button.y + button.height / 2 - textHeight / 2
+    self.text,
+    self.font,
+    self.x + self.width / 2 - textWidth / 2,
+    self.y + self.height / 2 - textHeight / 2
   )
 end
 

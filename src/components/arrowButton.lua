@@ -1,5 +1,8 @@
 local assets = require "src/common/assets"
 local arrowButton = {}
+arrowButton.meta = {
+  __index = arrowButton
+}
 
 local BUTTON_HEIGHT = 50
 local BUTTON_WIDTH = 50
@@ -9,7 +12,7 @@ local TEXT_COLOR = {1, 1, 0}
 local DISABLED_TEXT_COLOR = {1, 1, 0, 0.3}
 
 function arrowButton.new(arg)
-  return {
+  local button = {
     fn = arg.fn,
     x = arg.x,
     y = arg.y,
@@ -22,72 +25,75 @@ function arrowButton.new(arg)
     direction = arg.direction,
     onHeader = arg.onHeader,
   }
+  setmetatable(button, arrowButton.meta)
+
+  return button
 end
 
-function arrowButton.draw(button)
+function arrowButton:draw()
   local buttonColor = BUTTON_DEFAULT_COLOR
-  if button.hot and not button.disabled then
+  if self.hot and not self.disabled then
     buttonColor = BUTTON_HOT_COLOR
   end
 
   love.graphics.setColor(buttonColor)
   love.graphics.rectangle(
     'fill',
-    button.x,
-    button.y,
+    self.x,
+    self.y,
     BUTTON_WIDTH,
     BUTTON_HEIGHT
   )
   love.graphics.setColor(1, 1, 1)
   love.graphics.rectangle(
     'line',
-    button.x,
-    button.y,
+    self.x,
+    self.y,
     BUTTON_WIDTH,
     BUTTON_HEIGHT
   )
 
-  if button.disabled then
+  if self.disabled then
     love.graphics.setColor(DISABLED_TEXT_COLOR)
   else
     love.graphics.setColor(TEXT_COLOR)
   end
 
-  if button.direction == 'left' then
+  if self.direction == 'left' then
     love.graphics.polygon(
       'fill',
-      button.x + BUTTON_WIDTH/4,
-      button.y + BUTTON_HEIGHT/2,
+      self.x + BUTTON_WIDTH/4,
+      self.y + BUTTON_HEIGHT/2,
 
-      button.x + 3 * BUTTON_WIDTH/4,
-      button.y + BUTTON_HEIGHT/4,
+      self.x + 3 * BUTTON_WIDTH/4,
+      self.y + BUTTON_HEIGHT/4,
 
-      button.x + 3 * BUTTON_WIDTH/4,
-      button.y + 3 * BUTTON_HEIGHT/4
+      self.x + 3 * BUTTON_WIDTH/4,
+      self.y + 3 * BUTTON_HEIGHT/4
     )
-  elseif button.direction == 'up' then
+  elseif self.direction == 'up' then
     love.graphics.polygon(
       'fill',
-      button.x + BUTTON_WIDTH/2,
-      button.y + BUTTON_HEIGHT/4,
+      self.x + BUTTON_WIDTH/2,
+      self.y + BUTTON_HEIGHT/4,
 
-      button.x + 3 * BUTTON_WIDTH/4,
-      button.y + 3 * BUTTON_HEIGHT/4,
+      self.x + 3 * BUTTON_WIDTH/4,
+      self.y + 3 * BUTTON_HEIGHT/4,
 
-      button.x + BUTTON_WIDTH/4,
-      button.y + 3 * BUTTON_HEIGHT/4
+      self.x + BUTTON_WIDTH/4,
+      self.y + 3 * BUTTON_HEIGHT/4
     )
-  elseif button.direction == 'down' then
+  elseif self.direction == 'down' then
     love.graphics.polygon(
       'fill',
-      button.x + BUTTON_WIDTH/2,
-      button.y + 3 * BUTTON_HEIGHT/4,
+      self.x + BUTTON_WIDTH/2,
+      self.y + 3 * BUTTON_HEIGHT/4,
 
-      button.x + BUTTON_WIDTH/4,
-      button.y + BUTTON_HEIGHT/4,
+      self.x + BUTTON_WIDTH/4,
+      self.y + BUTTON_HEIGHT/4,
 
-      button.x + 3 * BUTTON_WIDTH/4,
-      button.y + BUTTON_HEIGHT/4
+      self.x + 3 * BUTTON_WIDTH/4,
+      self.y + BUTTON_HEIGHT/4
     )
   end
 end
